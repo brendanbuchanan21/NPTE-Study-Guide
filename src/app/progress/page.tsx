@@ -2,6 +2,7 @@
 
 import { useAuth } from '@/contexts/AuthContext';
 import { useAnalytics } from '@/hooks/useAnalytics';
+import { usePomodoro } from '@/hooks/usePomodoro';
 import Header from '@/components/layout/Header';
 import OverviewStats from '@/components/progress/OverviewStats';
 import CategoryPerformance from '@/components/progress/CategoryPerformance';
@@ -9,12 +10,15 @@ import SubcategoryBreakdown from '@/components/progress/SubcategoryBreakdown';
 import CardsDueWidget from '@/components/progress/CardsDueWidget';
 import PerformanceTrendChart from '@/components/progress/PerformanceTrendChart';
 import RecentActivity from '@/components/progress/RecentActivity';
+import PomodoroStats from '@/components/pomodoro/PomodoroStats';
+import PomodoroHeatMap from '@/components/pomodoro/PomodoroHeatMap';
 import Link from 'next/link';
 import { categories } from '@/lib/seed-data';
 
 export default function ProgressPage() {
   const { user, loading: authLoading } = useAuth();
   const { analytics, loading, error } = useAnalytics();
+  const { stats: pomodoroStats } = usePomodoro();
 
   // Show sign-in prompt if not authenticated
   if (!authLoading && !user) {
@@ -163,6 +167,24 @@ export default function ProgressPage() {
           {/* Recent Activity */}
           <RecentActivity history={analytics.recentHistory} />
         </div>
+
+        {/* Pomodoro Section */}
+        {pomodoroStats && (
+          <>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <PomodoroStats
+                todayCount={pomodoroStats.today.count}
+                todayMinutes={pomodoroStats.today.minutes}
+                totalCount={pomodoroStats.total.count}
+                totalMinutes={pomodoroStats.total.minutes}
+                weeklyAverage={pomodoroStats.weeklyAverage}
+              />
+              <div className="lg:col-span-2">
+                <PomodoroHeatMap dailyStats={pomodoroStats.dailyStats} />
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

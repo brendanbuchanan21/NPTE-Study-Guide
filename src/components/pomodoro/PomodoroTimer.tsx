@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { usePomodoro } from '@/hooks/usePomodoro';
 
 type TimerMode = 'work' | 'break';
 type TimerState = 'idle' | 'running' | 'paused';
@@ -61,6 +62,7 @@ function playNotificationSound() {
 }
 
 export default function PomodoroTimer() {
+  const { stats, saveSession } = usePomodoro();
   const [isExpanded, setIsExpanded] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [mode, setMode] = useState<TimerMode>('work');
@@ -150,19 +152,32 @@ export default function PomodoroTimer() {
 
     if (mode === 'work') {
       setCompletedPomodoros(prev => prev + 1);
+      // Save completed pomodoro to database/localStorage
+      saveSession(settings.workDuration);
       setMode('break');
       setTimeRemaining(settings.breakDuration * 60);
     } else {
       setMode('work');
       setTimeRemaining(settings.workDuration * 60);
     }
-  }, [mode, settings]);
+  }, [mode, settings, saveSession]);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
+
+  const formatMinutes = (minutes: number) => {
+    if (minutes < 60) return `${minutes}m`;
+    const hours = Math.floor(minutes / 60);
+    const mins = minutes % 60;
+    return mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
+  };
+
+  // Use stats from database or fallback to local count
+  const todayCount = stats?.today.count ?? completedPomodoros;
+  const todayMinutes = stats?.today.minutes ?? (completedPomodoros * settings.workDuration);
 
   const handleStart = () => {
     setState('running');
@@ -347,11 +362,20 @@ export default function PomodoroTimer() {
             </div>
 
             {/* Footer */}
-            <div className="px-4 py-2 border-t border-pink-500/20 bg-[#0a0a0f]">
-              <div className="flex items-center justify-between text-xs text-gray-400">
-                <span>Completed today</span>
-                <span className="text-pink-400 font-medium">{completedPomodoros} pomodoros</span>
+            <div className="px-4 py-3 border-t border-pink-500/20 bg-[#0a0a0f]">
+              <div className="flex items-center justify-between text-xs">
+                <div className="text-gray-400">
+                  <span className="text-pink-400 font-medium">{todayCount}</span> pomodoros today
+                </div>
+                <div className="text-gray-400">
+                  <span className="text-pink-400 font-medium">{formatMinutes(todayMinutes)}</span> focused
+                </div>
               </div>
+              {stats?.total && stats.total.count > 0 && (
+                <div className="mt-1 text-xs text-gray-500 text-center">
+                  {stats.total.count} total ({formatMinutes(stats.total.minutes)})
+                </div>
+              )}
             </div>
           </div>
         ) : (

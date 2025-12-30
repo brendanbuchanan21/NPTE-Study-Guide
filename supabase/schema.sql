@@ -156,3 +156,23 @@ ALTER TABLE study_sessions ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Users can view own study sessions" ON study_sessions FOR SELECT USING (auth.uid() = user_id);
 CREATE POLICY "Users can insert own study sessions" ON study_sessions FOR INSERT WITH CHECK (auth.uid() = user_id);
 CREATE POLICY "Users can update own study sessions" ON study_sessions FOR UPDATE USING (auth.uid() = user_id);
+
+-- Pomodoro sessions table for tracking focus time
+CREATE TABLE pomodoro_sessions (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+  duration_minutes INTEGER NOT NULL DEFAULT 25,
+  completed_at TIMESTAMPTZ DEFAULT NOW(),
+  session_date DATE DEFAULT CURRENT_DATE
+);
+
+-- Indexes for pomodoro sessions
+CREATE INDEX idx_pomodoro_sessions_user ON pomodoro_sessions(user_id);
+CREATE INDEX idx_pomodoro_sessions_date ON pomodoro_sessions(session_date);
+CREATE INDEX idx_pomodoro_sessions_completed ON pomodoro_sessions(completed_at);
+
+-- RLS for pomodoro sessions
+ALTER TABLE pomodoro_sessions ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Users can view own pomodoro sessions" ON pomodoro_sessions FOR SELECT USING (auth.uid() = user_id);
+CREATE POLICY "Users can insert own pomodoro sessions" ON pomodoro_sessions FOR INSERT WITH CHECK (auth.uid() = user_id);
