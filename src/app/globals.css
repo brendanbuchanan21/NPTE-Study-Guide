@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0f;
+  --background-secondary: #12121a;
+  --background-tertiary: #1a1a24;
+  --foreground: #f0f0f5;
+  --foreground-muted: #a0a0b0;
+  --pink-primary: #ec4899;
+  --pink-secondary: #f472b6;
+  --pink-glow: rgba(236, 72, 153, 0.15);
+  --pink-glow-strong: rgba(236, 72, 153, 0.3);
+  --border-color: rgba(236, 72, 153, 0.2);
 }
 
 @theme inline {
@@ -12,15 +20,151 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--pink-primary) var(--background-secondary);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--pink-primary);
+  border-radius: 4px;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+}
+
+/* Gradient background effect */
+.bg-gradient-radial {
+  background: radial-gradient(ellipse at top, var(--pink-glow) 0%, transparent 50%);
+}
+
+/* Pink glow effects */
+.glow-pink {
+  box-shadow: 0 0 20px var(--pink-glow), 0 0 40px var(--pink-glow);
+}
+
+.glow-pink-strong {
+  box-shadow: 0 0 30px var(--pink-glow-strong), 0 0 60px var(--pink-glow);
+}
+
+/* Pink border glow */
+.border-glow {
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 10px var(--pink-glow);
+}
+
+/* Button styles */
+.btn-primary {
+  background: linear-gradient(135deg, var(--pink-primary) 0%, #db2777 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px var(--pink-glow-strong);
+}
+
+.btn-secondary {
+  background: var(--background-tertiary);
+  color: var(--foreground);
+  border: 1px solid var(--border-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--background-secondary);
+  border-color: var(--pink-primary);
+}
+
+/* Card styles */
+.card {
+  background: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--pink-primary);
+  box-shadow: 0 0 20px var(--pink-glow);
+}
+
+/* 3D Transform utilities for flashcard flip */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Text gradient */
+.text-gradient-pink {
+  background: linear-gradient(135deg, var(--pink-secondary) 0%, var(--pink-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Progress bar */
+.progress-bar {
+  background: var(--background-tertiary);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  background: linear-gradient(90deg, var(--pink-primary) 0%, var(--pink-secondary) 100%);
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+/* Animation */
+@keyframes pulse-pink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-pink {
+  animation: pulse-pink 2s ease-in-out infinite;
+}
+
+/* Selection */
+::selection {
+  background: var(--pink-primary);
+  color: white;
 }
