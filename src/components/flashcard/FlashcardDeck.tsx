@@ -59,9 +59,42 @@ export default function FlashcardDeck({
     }, 300);
   }, [currentCard, currentProgress, currentIndex, flashcards.length, isAnimating, onCardReviewed, onComplete, onIndexChange]);
 
+  // Navigate to previous card
+  const goToPrevious = useCallback(() => {
+    if (currentIndex > 0 && !isAnimating) {
+      const prevIndex = currentIndex - 1;
+      setCurrentIndex(prevIndex);
+      setIsFlipped(false);
+      onIndexChange?.(prevIndex);
+    }
+  }, [currentIndex, isAnimating, onIndexChange]);
+
+  // Navigate to next card (without rating)
+  const goToNext = useCallback(() => {
+    if (currentIndex < flashcards.length - 1 && !isAnimating) {
+      const nextIndex = currentIndex + 1;
+      setCurrentIndex(nextIndex);
+      setIsFlipped(false);
+      onIndexChange?.(nextIndex);
+    }
+  }, [currentIndex, flashcards.length, isAnimating, onIndexChange]);
+
   // Keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Arrow keys for navigation (work anytime)
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        goToPrevious();
+        return;
+      }
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        goToNext();
+        return;
+      }
+
+      // Number keys for rating (only when flipped)
       if (!isFlipped) return;
 
       switch (e.key) {
@@ -82,7 +115,7 @@ export default function FlashcardDeck({
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isFlipped, handleRate]);
+  }, [isFlipped, handleRate, goToPrevious, goToNext]);
 
   if (!currentCard) {
     return (
@@ -126,9 +159,14 @@ export default function FlashcardDeck({
 
       {/* Instructions */}
       {!isFlipped && (
-        <p className="text-sm text-gray-500">
-          Press <kbd className="rounded bg-[#1a1a24] border border-pink-500/20 px-2 py-1 text-pink-400">Space</kbd> to flip the card
-        </p>
+        <div className="text-sm text-gray-500 text-center space-y-1">
+          <p>
+            Press <kbd className="rounded bg-[#1a1a24] border border-pink-500/20 px-2 py-1 text-pink-400">Space</kbd> to flip the card
+          </p>
+          <p>
+            Use <kbd className="rounded bg-[#1a1a24] border border-pink-500/20 px-2 py-1 text-pink-400">←</kbd> <kbd className="rounded bg-[#1a1a24] border border-pink-500/20 px-2 py-1 text-pink-400">→</kbd> to navigate
+          </p>
+        </div>
       )}
     </div>
   );
