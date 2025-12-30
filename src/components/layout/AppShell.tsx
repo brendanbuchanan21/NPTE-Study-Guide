@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Sidebar from './Sidebar';
+import PomodoroTimer from '../pomodoro/PomodoroTimer';
 
 interface AppShellProps {
   children: React.ReactNode;
@@ -30,6 +31,7 @@ export default function AppShell({ children }: AppShellProps) {
       <main className="flex-1 overflow-auto bg-[#0a0a0f] bg-gradient-radial pt-14 lg:pt-0">
         {children}
       </main>
+      <PomodoroTimer />
     </div>
   );
 }
