@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, use } from 'react';
+import { useState, useEffect, useCallback, use } from 'react';
 import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import FlashcardDeck from '@/components/flashcard/FlashcardDeck';
@@ -9,6 +9,14 @@ import { Flashcard, ConfidenceRating } from '@/types';
 import { calculateNextReview } from '@/lib/spaced-repetition';
 import { useProgress } from '@/hooks/useProgress';
 import { useAuth } from '@/contexts/AuthContext';
+
+const SESSION_KEY = 'npte-study-session';
+
+interface StudySession {
+  categoryId: string;
+  currentIndex: number;
+  studyStats: { studied: number; correct: number };
+}
 
 interface StudyCategoryPageProps {
   params: Promise<{ categoryId: string }>;
@@ -23,6 +31,48 @@ export default function StudyCategoryPage({ params }: StudyCategoryPageProps) {
 
   const [isComplete, setIsComplete] = useState(false);
   const [studyStats, setStudyStats] = useState({ studied: 0, correct: 0 });
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [initialized, setInitialized] = useState(false);
+
+  // Restore session on mount
+  useEffect(() => {
+    try {
+      const stored = sessionStorage.getItem(`${SESSION_KEY}-${categoryId}`);
+      if (stored) {
+        const session: StudySession = JSON.parse(stored);
+        if (session.categoryId === categoryId) {
+          setCurrentIndex(session.currentIndex);
+          setStudyStats(session.studyStats);
+        }
+      }
+    } catch (error) {
+      console.error('Error restoring study session:', error);
+    }
+    setInitialized(true);
+  }, [categoryId]);
+
+  // Save session state
+  const saveSession = useCallback((index: number, stats: { studied: number; correct: number }) => {
+    try {
+      const session: StudySession = {
+        categoryId,
+        currentIndex: index,
+        studyStats: stats,
+      };
+      sessionStorage.setItem(`${SESSION_KEY}-${categoryId}`, JSON.stringify(session));
+    } catch (error) {
+      console.error('Error saving study session:', error);
+    }
+  }, [categoryId]);
+
+  // Clear session
+  const clearSession = useCallback(() => {
+    try {
+      sessionStorage.removeItem(`${SESSION_KEY}-${categoryId}`);
+    } catch (error) {
+      console.error('Error clearing study session:', error);
+    }
+  }, [categoryId]);
 
   const handleCardReviewed = (
     flashcardId: string,
@@ -33,19 +83,28 @@ export default function StudyCategoryPage({ params }: StudyCategoryPageProps) {
     saveProgress(flashcardId, rating, result);
 
     // Update stats
-    setStudyStats(prev => ({
-      studied: prev.studied + 1,
-      correct: prev.correct + (rating !== 'again' ? 1 : 0),
-    }));
+    const newStats = {
+      studied: studyStats.studied + 1,
+      correct: studyStats.correct + (rating !== 'again' ? 1 : 0),
+    };
+    setStudyStats(newStats);
+  };
+
+  const handleIndexChange = (newIndex: number) => {
+    setCurrentIndex(newIndex);
+    saveSession(newIndex, studyStats);
   };
 
   const handleComplete = () => {
     setIsComplete(true);
+    clearSession();
   };
 
   const handleRestart = () => {
     setIsComplete(false);
     setStudyStats({ studied: 0, correct: 0 });
+    setCurrentIndex(0);
+    clearSession();
   };
 
   if (!category) {
@@ -59,7 +118,7 @@ export default function StudyCategoryPage({ params }: StudyCategoryPageProps) {
     );
   }
 
-  if (loading) {
+  if (loading || !initialized) {
     return (
       <div>
         <Header
@@ -177,6 +236,8 @@ export default function StudyCategoryPage({ params }: StudyCategoryPageProps) {
           progressMap={progress}
           onCardReviewed={handleCardReviewed}
           onComplete={handleComplete}
+          initialIndex={currentIndex}
+          onIndexChange={handleIndexChange}
         />
       </div>
     </div>

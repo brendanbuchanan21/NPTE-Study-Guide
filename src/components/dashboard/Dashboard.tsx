@@ -3,19 +3,55 @@
 import Header from '@/components/layout/Header';
 import Link from 'next/link';
 import { categories, flashcards, subcategories } from '@/lib/seed-data';
+import { useAnalytics } from '@/hooks/useAnalytics';
+import { useProgress } from '@/hooks/useProgress';
+import { useAuth } from '@/contexts/AuthContext';
 
 export default function Dashboard() {
-  // Calculate stats from seed data
-  const totalCards = flashcards.length;
-  const cardsLearned = 0;
-  const cardsDue = totalCards;
-  const streak = 0;
+  const { user } = useAuth();
+  const { analytics, loading: analyticsLoading } = useAnalytics();
+  const { progress, loading: progressLoading, getDueCards } = useProgress();
 
   // Calculate cards per category
   const getCardCount = (categoryId: string) => {
     const categorySubs = subcategories.filter(s => s.category_id === categoryId);
     return flashcards.filter(f => categorySubs.some(s => s.id === f.subcategory_id)).length;
   };
+
+  // Get real stats from analytics (authenticated) or progress (local)
+  const totalCards = flashcards.length;
+  const allFlashcardIds = flashcards.map(f => f.id);
+
+  let cardsLearned = 0;
+  let cardsDue = totalCards;
+  let streak = 0;
+
+  if (user && analytics) {
+    // Use server analytics for authenticated users
+    cardsLearned = analytics.overview.cardsLearned;
+    cardsDue = analytics.overview.cardsDue;
+    streak = analytics.overview.currentStreak;
+  } else if (!user && !progressLoading) {
+    // Use local progress for anonymous users
+    cardsLearned = progress.size;
+    cardsDue = getDueCards(allFlashcardIds).length;
+  }
+
+  const loading = user ? analyticsLoading : progressLoading;
+
+  if (loading) {
+    return (
+      <div>
+        <Header
+          title="Dashboard"
+          subtitle="Loading your progress..."
+        />
+        <div className="flex items-center justify-center py-24">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-pink-500"></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>

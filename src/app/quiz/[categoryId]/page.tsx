@@ -1,10 +1,12 @@
 'use client';
 
-import { useState, use } from 'react';
+import { useState, useEffect, use } from 'react';
 import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import { categories, questions as allQuestions, subcategories } from '@/lib/seed-data';
 import { Question } from '@/types';
+import { useQuizProgress } from '@/hooks/useQuizProgress';
+import { useAuth } from '@/contexts/AuthContext';
 
 interface QuizCategoryPageProps {
   params: Promise<{ categoryId: string }>;
@@ -12,6 +14,7 @@ interface QuizCategoryPageProps {
 
 export default function QuizCategoryPage({ params }: QuizCategoryPageProps) {
   const { categoryId } = use(params);
+  const { user } = useAuth();
   const category = categories.find(c => c.id === categoryId);
 
   // Get questions for this category
@@ -20,13 +23,43 @@ export default function QuizCategoryPage({ params }: QuizCategoryPageProps) {
     categorySubs.some(s => s.id === q.subcategory_id)
   ) as Question[];
 
+  const { saveAnswer, saveSession, clearSession, session, loading } = useQuizProgress(categoryId);
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [showExplanation, setShowExplanation] = useState(false);
   const [score, setScore] = useState({ correct: 0, total: 0 });
   const [isComplete, setIsComplete] = useState(false);
+  const [answeredQuestions, setAnsweredQuestions] = useState<{ [key: string]: number }>({});
+  const [initialized, setInitialized] = useState(false);
+
+  // Restore session state on mount
+  useEffect(() => {
+    if (!loading && session && !initialized) {
+      setCurrentIndex(session.currentIndex);
+      setScore(session.score);
+      setAnsweredQuestions(session.answeredQuestions);
+      setInitialized(true);
+    } else if (!loading && !session) {
+      setInitialized(true);
+    }
+  }, [loading, session, initialized]);
 
   const currentQuestion = questions[currentIndex];
+
+  // Check if current question was already answered (for session restore)
+  useEffect(() => {
+    if (currentQuestion && initialized) {
+      const previousAnswer = answeredQuestions[currentQuestion.id];
+      if (previousAnswer !== undefined) {
+        setSelectedAnswer(previousAnswer);
+        setShowExplanation(true);
+      } else {
+        setSelectedAnswer(null);
+        setShowExplanation(false);
+      }
+    }
+  }, [currentIndex, currentQuestion, answeredQuestions, initialized]);
 
   const handleSelectAnswer = (index: number) => {
     if (selectedAnswer !== null) return; // Already answered
@@ -34,19 +67,43 @@ export default function QuizCategoryPage({ params }: QuizCategoryPageProps) {
     setShowExplanation(true);
 
     const isCorrect = currentQuestion.options[index].is_correct;
-    setScore(prev => ({
-      correct: prev.correct + (isCorrect ? 1 : 0),
-      total: prev.total + 1,
-    }));
+    const newScore = {
+      correct: score.correct + (isCorrect ? 1 : 0),
+      total: score.total + 1,
+    };
+    setScore(newScore);
+
+    // Track answered questions
+    const newAnswered = { ...answeredQuestions, [currentQuestion.id]: index };
+    setAnsweredQuestions(newAnswered);
+
+    // Save answer to database/localStorage
+    saveAnswer(currentQuestion.id, index, isCorrect);
+
+    // Save session state
+    saveSession({
+      categoryId,
+      currentIndex,
+      score: newScore,
+      answeredQuestions: newAnswered,
+    });
   };
 
   const handleNext = () => {
     if (currentIndex < questions.length - 1) {
-      setCurrentIndex(prev => prev + 1);
-      setSelectedAnswer(null);
-      setShowExplanation(false);
+      const nextIndex = currentIndex + 1;
+      setCurrentIndex(nextIndex);
+
+      // Save session with updated index
+      saveSession({
+        categoryId,
+        currentIndex: nextIndex,
+        score,
+        answeredQuestions,
+      });
     } else {
       setIsComplete(true);
+      clearSession();
     }
   };
 
@@ -55,7 +112,9 @@ export default function QuizCategoryPage({ params }: QuizCategoryPageProps) {
     setSelectedAnswer(null);
     setShowExplanation(false);
     setScore({ correct: 0, total: 0 });
+    setAnsweredQuestions({});
     setIsComplete(false);
+    clearSession();
   };
 
   if (!category) {
@@ -65,6 +124,20 @@ export default function QuizCategoryPage({ params }: QuizCategoryPageProps) {
         <Link href="/quiz" className="text-pink-400 hover:underline">
           Back to quiz categories
         </Link>
+      </div>
+    );
+  }
+
+  if (loading || !initialized) {
+    return (
+      <div>
+        <Header
+          title={category.name}
+          subtitle="Loading..."
+        />
+        <div className="flex items-center justify-center py-24">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-pink-500"></div>
+        </div>
       </div>
     );
   }
@@ -117,6 +190,16 @@ export default function QuizCategoryPage({ params }: QuizCategoryPageProps) {
             You scored {score.correct} out of {score.total}
           </h2>
           <p className="mt-2 text-xl text-pink-400">{percentage}%</p>
+          {user && (
+            <p className="mt-2 text-sm text-green-400">
+              Progress saved to your account
+            </p>
+          )}
+          {!user && (
+            <p className="mt-2 text-sm text-amber-400">
+              Progress saved locally. Sign in to sync across devices.
+            </p>
+          )}
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0">
             <button

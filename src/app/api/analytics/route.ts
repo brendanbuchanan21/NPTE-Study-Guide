@@ -69,27 +69,28 @@ export async function GET() {
 
       // Calculate average ease factor as a proxy for performance
       let avgEaseFactor = 2.5;
+      let avgReps = 0;
+      let performanceScore = 0;
+
       if (categoryProgress.length > 0) {
         const totalEase = categoryProgress.reduce((sum, c) => {
           const p = progressMap.get(c.id);
           return sum + (p?.ease_factor || 2.5);
         }, 0);
         avgEaseFactor = totalEase / categoryProgress.length;
+
+        // Calculate accuracy from repetitions (higher repetitions = better performance)
+        avgReps = categoryProgress.reduce((sum, c) => {
+          const p = progressMap.get(c.id);
+          return sum + (p?.repetitions || 0);
+        }, 0) / categoryProgress.length;
+
+        // Score based on ease factor and repetitions (only if there's progress)
+        performanceScore = Math.round(
+          ((avgEaseFactor - 1.3) / (2.5 - 1.3)) * 50 + // Normalize ease factor
+          Math.min(avgReps * 10, 50) // Cap repetition bonus at 50
+        );
       }
-
-      // Calculate accuracy from repetitions (higher repetitions = better performance)
-      const avgReps = categoryProgress.length > 0
-        ? categoryProgress.reduce((sum, c) => {
-            const p = progressMap.get(c.id);
-            return sum + (p?.repetitions || 0);
-          }, 0) / categoryProgress.length
-        : 0;
-
-      // Score based on ease factor and repetitions
-      const performanceScore = Math.round(
-        ((avgEaseFactor - 1.3) / (2.5 - 1.3)) * 50 + // Normalize ease factor
-        Math.min(avgReps * 10, 50) // Cap repetition bonus at 50
-      );
 
       return {
         id: category.id,

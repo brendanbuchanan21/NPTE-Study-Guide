@@ -1,12 +1,40 @@
+'use client';
+
 import Header from '@/components/layout/Header';
 import Link from 'next/link';
 import { categories, questions, subcategories } from '@/lib/seed-data';
+import { useQuizProgress } from '@/hooks/useQuizProgress';
 
 export default function QuizPage() {
+  const { history, loading } = useQuizProgress();
+
   // Count questions per category
   const getQuestionCount = (categoryId: string) => {
     const categorySubs = subcategories.filter(s => s.category_id === categoryId);
     return questions.filter(q => categorySubs.some(s => s.id === q.subcategory_id)).length;
+  };
+
+  // Get quiz progress for a category
+  const getCategoryQuizProgress = (categoryId: string) => {
+    const categorySubs = subcategories.filter(s => s.category_id === categoryId);
+    const categoryQuestions = questions.filter(q => categorySubs.some(s => s.id === q.subcategory_id));
+    const questionIds = categoryQuestions.map(q => q.id);
+
+    let answered = 0;
+    let correct = 0;
+
+    questionIds.forEach(qId => {
+      const entries = history.get(qId);
+      if (entries && entries.length > 0) {
+        answered++;
+        // Use most recent answer
+        if (entries[entries.length - 1].is_correct) {
+          correct++;
+        }
+      }
+    });
+
+    return { answered, correct, total: categoryQuestions.length };
   };
 
   return (
@@ -30,6 +58,11 @@ export default function QuizPage() {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {categories.map((category) => {
             const questionCount = getQuestionCount(category.id);
+            const { answered, correct, total } = loading
+              ? { answered: 0, correct: 0, total: questionCount }
+              : getCategoryQuizProgress(category.id);
+            const accuracy = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+
             return (
               <Link
                 key={category.id}
@@ -49,9 +82,23 @@ export default function QuizPage() {
                   <div className="flex-1">
                     <h3 className="font-semibold text-white group-hover:text-pink-400 transition-colors">{category.name}</h3>
                     <p className="mt-1 text-sm text-gray-500">{category.description}</p>
-                    <div className="mt-3">
-                      <span className="text-sm text-gray-400">{questionCount} questions</span>
+                    <div className="mt-3 flex items-center gap-4 text-sm">
+                      <span className="text-gray-400">{answered}/{total} answered</span>
+                      {answered > 0 && (
+                        <span className={accuracy >= 70 ? 'text-green-400' : 'text-amber-400'}>
+                          {accuracy}% correct
+                        </span>
+                      )}
                     </div>
+                    {/* Progress bar */}
+                    {total > 0 && (
+                      <div className="mt-2 h-1.5 bg-gray-800 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-pink-500 rounded-full transition-all"
+                          style={{ width: `${(answered / total) * 100}%` }}
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
               </Link>

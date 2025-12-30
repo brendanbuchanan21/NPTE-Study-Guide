@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Flashcard } from '@/types';
 
 interface FlashCardProps {
@@ -11,19 +11,39 @@ interface FlashCardProps {
 export default function FlashCard({ flashcard, onFlip }: FlashCardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
 
+  const handleFlip = useCallback(() => {
+    setIsFlipped(prev => {
+      const newFlipped = !prev;
+      onFlip?.(newFlipped);
+      return newFlipped;
+    });
+  }, [onFlip]);
+
   // Reset flip state when flashcard changes
   useEffect(() => {
     setIsFlipped(false);
     onFlip?.(false);
   }, [flashcard.id]);
 
-  const handleFlip = () => {
-    const newFlipped = !isFlipped;
-    setIsFlipped(newFlipped);
-    onFlip?.(newFlipped);
-  };
+  // Global keyboard listener for spacebar
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Don't trigger if user is typing in an input
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
+        return;
+      }
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        handleFlip();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleFlip]);
+
+  const handleLocalKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === ' ' || e.key === 'Enter') {
       e.preventDefault();
       handleFlip();
@@ -35,7 +55,7 @@ export default function FlashCard({ flashcard, onFlip }: FlashCardProps) {
       className="perspective-1000 w-full cursor-pointer"
       style={{ minHeight: '320px', height: 'auto' }}
       onClick={handleFlip}
-      onKeyDown={handleKeyDown}
+      onKeyDown={handleLocalKeyDown}
       tabIndex={0}
       role="button"
       aria-label={isFlipped ? 'Show question' : 'Show answer'}

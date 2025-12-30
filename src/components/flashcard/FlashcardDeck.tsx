@@ -11,6 +11,8 @@ interface FlashcardDeckProps {
   progressMap: Map<string, UserFlashcardProgress>;
   onCardReviewed: (flashcardId: string, rating: ConfidenceRating, result: ReturnType<typeof calculateNextReview>) => void;
   onComplete: () => void;
+  initialIndex?: number;
+  onIndexChange?: (index: number) => void;
 }
 
 export default function FlashcardDeck({
@@ -18,10 +20,19 @@ export default function FlashcardDeck({
   progressMap,
   onCardReviewed,
   onComplete,
+  initialIndex = 0,
+  onIndexChange,
 }: FlashcardDeckProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [isFlipped, setIsFlipped] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+
+  // Sync with initialIndex when it changes (for session restore)
+  useEffect(() => {
+    if (initialIndex !== currentIndex && initialIndex < flashcards.length) {
+      setCurrentIndex(initialIndex);
+    }
+  }, [initialIndex]);
 
   const currentCard = flashcards[currentIndex];
   const currentProgress = currentCard ? progressMap.get(currentCard.id) ?? null : null;
@@ -37,14 +48,16 @@ export default function FlashcardDeck({
     // Animate to next card
     setTimeout(() => {
       if (currentIndex < flashcards.length - 1) {
-        setCurrentIndex(prev => prev + 1);
+        const nextIndex = currentIndex + 1;
+        setCurrentIndex(nextIndex);
         setIsFlipped(false);
+        onIndexChange?.(nextIndex);
       } else {
         onComplete();
       }
       setIsAnimating(false);
     }, 300);
-  }, [currentCard, currentProgress, currentIndex, flashcards.length, isAnimating, onCardReviewed, onComplete]);
+  }, [currentCard, currentProgress, currentIndex, flashcards.length, isAnimating, onCardReviewed, onComplete, onIndexChange]);
 
   // Keyboard shortcuts
   useEffect(() => {

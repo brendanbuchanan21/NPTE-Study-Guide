@@ -1,8 +1,39 @@
+'use client';
+
 import Header from '@/components/layout/Header';
 import Link from 'next/link';
 import { categories, getFlashcardsForCategory } from '@/lib/seed-data';
+import { useProgress } from '@/hooks/useProgress';
+import { useAnalytics } from '@/hooks/useAnalytics';
+import { useAuth } from '@/contexts/AuthContext';
 
 export default function StudyPage() {
+  const { user } = useAuth();
+  const { progress, loading: progressLoading, getDueCards } = useProgress();
+  const { analytics, loading: analyticsLoading } = useAnalytics();
+
+  const loading = user ? analyticsLoading : progressLoading;
+
+  // Get progress for a category
+  const getCategoryProgress = (categoryId: string) => {
+    const cards = getFlashcardsForCategory(categoryId);
+    const cardIds = cards.map(c => c.id);
+
+    if (user && analytics) {
+      const catPerf = analytics.categoryPerformance.find(c => c.id === categoryId);
+      return {
+        total: catPerf?.totalCards || cards.length,
+        learned: catPerf?.cardsLearned || 0,
+        due: catPerf?.cardsDue || cards.length,
+      };
+    } else {
+      // Local progress
+      const learned = cardIds.filter(id => progress.has(id)).length;
+      const due = getDueCards(cardIds).length;
+      return { total: cards.length, learned, due };
+    }
+  };
+
   return (
     <div>
       <Header
@@ -15,6 +46,7 @@ export default function StudyPage() {
           {categories.map((category) => {
             const cards = getFlashcardsForCategory(category.id);
             const cardCount = cards.length;
+            const { learned, due } = loading ? { learned: 0, due: cardCount } : getCategoryProgress(category.id);
 
             return (
               <Link
@@ -36,11 +68,23 @@ export default function StudyPage() {
                     <h3 className="font-semibold text-white group-hover:text-pink-400 transition-colors">{category.name}</h3>
                     <p className="mt-1 text-sm text-gray-500">{category.description}</p>
                     <div className="mt-3 flex items-center gap-4 text-sm">
-                      <span className="text-gray-400">{cardCount} cards</span>
-                      {cardCount > 0 && (
-                        <span className="text-pink-400">Ready to study</span>
+                      <span className="text-gray-400">{learned}/{cardCount} learned</span>
+                      {due > 0 && (
+                        <span className="text-pink-400">{due} due</span>
+                      )}
+                      {due === 0 && cardCount > 0 && (
+                        <span className="text-green-400">All caught up!</span>
                       )}
                     </div>
+                    {/* Progress bar */}
+                    {cardCount > 0 && (
+                      <div className="mt-2 h-1.5 bg-gray-800 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-pink-500 rounded-full transition-all"
+                          style={{ width: `${(learned / cardCount) * 100}%` }}
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
               </Link>
