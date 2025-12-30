@@ -22,7 +22,7 @@ export async function GET() {
         .from('user_streaks')
         .select('*')
         .eq('user_id', user.id)
-        .single(),
+        .maybeSingle(), // Use maybeSingle to avoid error when no rows
       supabase
         .from('user_question_history')
         .select('*')
@@ -32,7 +32,7 @@ export async function GET() {
     ]);
 
     const progress = progressResult.data || [];
-    const streak = streakResult.data || { current_streak: 0, longest_streak: 0 };
+    const streak = streakResult.data ?? { current_streak: 0, longest_streak: 0 };
     const questionHistory = historyResult.data || [];
 
     // Calculate analytics

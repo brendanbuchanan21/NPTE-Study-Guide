@@ -53,21 +53,28 @@ export async function POST(request: Request) {
 async function updateStreak(supabase: Awaited<ReturnType<typeof createServerSupabaseClient>>, userId: string) {
   const today = new Date().toISOString().split('T')[0];
 
-  // Get current streak data
-  const { data: streakData } = await supabase
+  // Get current streak data (use maybeSingle to avoid error when no rows)
+  const { data: streakData, error: fetchError } = await supabase
     .from('user_streaks')
     .select('*')
     .eq('user_id', userId)
-    .single();
+    .maybeSingle();
+
+  if (fetchError) {
+    console.error('Error fetching streak:', fetchError);
+  }
 
   if (!streakData) {
     // Create new streak record
-    await supabase.from('user_streaks').insert({
+    const { error: insertError } = await supabase.from('user_streaks').insert({
       user_id: userId,
       current_streak: 1,
       longest_streak: 1,
       last_study_date: today,
     });
+    if (insertError) {
+      console.error('Error creating streak:', insertError);
+    }
     return;
   }
 
@@ -90,7 +97,7 @@ async function updateStreak(supabase: Awaited<ReturnType<typeof createServerSupa
 
   const longestStreak = Math.max(newStreak, streakData.longest_streak);
 
-  await supabase
+  const { error: updateError } = await supabase
     .from('user_streaks')
     .update({
       current_streak: newStreak,
@@ -99,4 +106,8 @@ async function updateStreak(supabase: Awaited<ReturnType<typeof createServerSupa
       updated_at: new Date().toISOString(),
     })
     .eq('user_id', userId);
+
+  if (updateError) {
+    console.error('Error updating streak:', updateError);
+  }
 }
