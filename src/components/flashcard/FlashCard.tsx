@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Flashcard } from '@/types';
 
 interface FlashCardProps {
@@ -10,6 +10,12 @@ interface FlashCardProps {
 
 export default function FlashCard({ flashcard, onFlip }: FlashCardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
+
+  // Reset flip state when flashcard changes
+  useEffect(() => {
+    setIsFlipped(false);
+    onFlip?.(false);
+  }, [flashcard.id]);
 
   const handleFlip = () => {
     const newFlipped = !isFlipped;
