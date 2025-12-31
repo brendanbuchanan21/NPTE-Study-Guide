@@ -163,6 +163,37 @@ body {
   animation: pulse-pink 2s ease-in-out infinite;
 }
 
+/* Swipe animations for flashcards */
+@keyframes swipe-left {
+  0% {
+    transform: translateX(0) rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%) rotate(-10deg);
+    opacity: 0;
+  }
+}
+
+@keyframes swipe-right {
+  0% {
+    transform: translateX(0) rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+.animate-swipe-left {
+  animation: swipe-left 0.3s ease-out forwards;
+}
+
+.animate-swipe-right {
+  animation: swipe-right 0.3s ease-out forwards;
+}
+
 /* Selection */
 ::selection {
   background: var(--pink-primary);

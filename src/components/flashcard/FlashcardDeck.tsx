@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import FlashCard from './FlashCard';
 import ConfidenceButtons from './ConfidenceButtons';
 import { Flashcard, ConfidenceRating, UserFlashcardProgress } from '@/types';
@@ -26,6 +26,12 @@ export default function FlashcardDeck({
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [isFlipped, setIsFlipped] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [swipeDirection, setSwipeDirection] = useState<'left' | 'right' | null>(null);
+
+  // Touch handling for swipe gestures
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   // Sync with initialIndex when it changes (for session restore)
   useEffect(() => {
@@ -42,6 +48,7 @@ export default function FlashcardDeck({
     if (!currentCard || isAnimating) return;
 
     setIsAnimating(true);
+    setSwipeDirection(rating === 'again' ? 'left' : 'right');
     const result = calculateNextReview(currentProgress, rating);
     onCardReviewed(currentCard.id, rating, result);
 
@@ -56,6 +63,7 @@ export default function FlashcardDeck({
         onComplete();
       }
       setIsAnimating(false);
+      setSwipeDirection(null);
     }, 300);
   }, [currentCard, currentProgress, currentIndex, flashcards.length, isAnimating, onCardReviewed, onComplete, onIndexChange]);
 
@@ -79,37 +87,70 @@ export default function FlashcardDeck({
     }
   }, [currentIndex, flashcards.length, isAnimating, onIndexChange]);
 
+  // Touch handlers for swipe
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  }, []);
+
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+    if (!isFlipped || isAnimating) {
+      touchStartX.current = null;
+      touchStartY.current = null;
+      return;
+    }
+
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+    const deltaX = touchEndX - touchStartX.current;
+    const deltaY = touchEndY - touchStartY.current;
+
+    // Only trigger swipe if horizontal movement is greater than vertical
+    // and the swipe distance is significant (> 50px)
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+      if (deltaX > 0) {
+        // Swipe right = Know
+        handleRate('good');
+      } else {
+        // Swipe left = Don't Know
+        handleRate('again');
+      }
+    }
+
+    touchStartX.current = null;
+    touchStartY.current = null;
+  }, [isFlipped, isAnimating, handleRate]);
+
   // Keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Arrow keys for navigation (work anytime)
-      if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        goToPrevious();
-        return;
-      }
-      if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        goToNext();
-        return;
+      // Arrow keys for navigation when not flipped
+      if (!isFlipped) {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          goToPrevious();
+          return;
+        }
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          goToNext();
+          return;
+        }
       }
 
-      // Number keys for rating (only when flipped)
-      if (!isFlipped) return;
-
-      switch (e.key) {
-        case '1':
-          handleRate('again');
-          break;
-        case '2':
-          handleRate('hard');
-          break;
-        case '3':
-          handleRate('good');
-          break;
-        case '4':
-          handleRate('easy');
-          break;
+      // When flipped, arrow keys rate the card
+      if (isFlipped) {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          handleRate('again'); // Don't Know
+          return;
+        }
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          handleRate('good'); // Know
+          return;
+        }
       }
     };
 
@@ -125,8 +166,16 @@ export default function FlashcardDeck({
     );
   }
 
+  // Swipe animation classes
+  const getSwipeClass = () => {
+    if (!swipeDirection) return '';
+    return swipeDirection === 'left'
+      ? 'animate-swipe-left'
+      : 'animate-swipe-right';
+  };
+
   return (
-    <div className="flex flex-col items-center gap-8 px-4 w-full max-w-3xl mx-auto">
+    <div className="flex flex-col items-center gap-6 px-4 w-full max-w-3xl mx-auto">
       {/* Progress indicator */}
       <div className="flex items-center gap-4 w-full justify-center">
         <span className="text-sm text-gray-400">
@@ -140,15 +189,20 @@ export default function FlashcardDeck({
         </div>
       </div>
 
-      {/* Flashcard */}
-      <div className="w-full">
+      {/* Flashcard with swipe support */}
+      <div
+        ref={cardRef}
+        className={`w-full transition-transform duration-300 ${getSwipeClass()}`}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         <FlashCard
           flashcard={currentCard}
           onFlip={setIsFlipped}
         />
       </div>
 
-      {/* Confidence buttons - only show when flipped */}
+      {/* Know/Don't Know buttons - only show when flipped */}
       <div className={`transition-opacity duration-300 ${isFlipped ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
         <ConfidenceButtons
           onRate={handleRate}
@@ -161,10 +215,19 @@ export default function FlashcardDeck({
       {!isFlipped && (
         <div className="text-sm text-gray-500 text-center space-y-1">
           <p>
-            Press <kbd className="rounded bg-[#1a1a24] border border-pink-500/20 px-2 py-1 text-pink-400">Space</kbd> to flip the card
+            Press <kbd className="rounded bg-[#1a1a24] border border-pink-500/20 px-2 py-1 text-pink-400">Space</kbd> to flip
           </p>
           <p>
             Use <kbd className="rounded bg-[#1a1a24] border border-pink-500/20 px-2 py-1 text-pink-400">←</kbd> <kbd className="rounded bg-[#1a1a24] border border-pink-500/20 px-2 py-1 text-pink-400">→</kbd> to navigate
+          </p>
+        </div>
+      )}
+      {isFlipped && (
+        <div className="text-sm text-gray-500 text-center">
+          <p>
+            <kbd className="rounded bg-[#1a1a24] border border-pink-500/20 px-2 py-1 text-pink-400">←</kbd> Don&apos;t Know
+            {' '}&bull;{' '}
+            <kbd className="rounded bg-[#1a1a24] border border-pink-500/20 px-2 py-1 text-pink-400">→</kbd> Know
           </p>
         </div>
       )}

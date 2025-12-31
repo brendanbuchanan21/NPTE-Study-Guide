@@ -8,13 +8,6 @@ interface ConfidenceButtonsProps {
   disabled?: boolean;
 }
 
-const buttons: { rating: ConfidenceRating; label: string; bgColor: string; hoverColor: string; key: string }[] = [
-  { rating: 'again', label: 'Again', bgColor: 'bg-red-500/80', hoverColor: 'hover:bg-red-500', key: '1' },
-  { rating: 'hard', label: 'Hard', bgColor: 'bg-orange-500/80', hoverColor: 'hover:bg-orange-500', key: '2' },
-  { rating: 'good', label: 'Good', bgColor: 'bg-emerald-500/80', hoverColor: 'hover:bg-emerald-500', key: '3' },
-  { rating: 'easy', label: 'Easy', bgColor: 'bg-pink-500/80', hoverColor: 'hover:bg-pink-500', key: '4' },
-];
-
 function formatInterval(days: number): string {
   if (days === 0) return '<1d';
   if (days === 1) return '1d';
@@ -31,27 +24,48 @@ export default function ConfidenceButtons({
 }: ConfidenceButtonsProps) {
   return (
     <div className="flex flex-col gap-3">
-      <p className="text-center text-sm text-gray-400">How well did you know this?</p>
-      <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
-        {buttons.map((button) => (
-          <button
-            key={button.rating}
-            onClick={() => onRate(button.rating)}
-            disabled={disabled}
-            className={`flex flex-col items-center rounded-lg px-3 sm:px-4 py-2 text-white transition-all border border-transparent hover:border-white/20 ${button.bgColor} ${button.hoverColor} ${
-              disabled ? 'cursor-not-allowed opacity-50' : 'hover:scale-105 hover:shadow-lg'
-            }`}
-          >
-            <span className="font-medium text-sm sm:text-base">{button.label}</span>
-            {intervals && (
-              <span className="text-xs opacity-80">
-                {formatInterval(intervals[button.rating])}
-              </span>
-            )}
-            <span className="text-xs opacity-60">[{button.key}]</span>
-          </button>
-        ))}
+      <div className="flex justify-center gap-4">
+        {/* Don't Know - maps to 'again' */}
+        <button
+          onClick={() => onRate('again')}
+          disabled={disabled}
+          className={`flex flex-col items-center rounded-xl px-8 py-4 text-white transition-all border-2 border-red-500/50 bg-red-500/20 hover:bg-red-500/40 hover:border-red-500 ${
+            disabled ? 'cursor-not-allowed opacity-50' : 'hover:scale-105 hover:shadow-lg'
+          }`}
+        >
+          <svg className="w-8 h-8 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+          <span className="font-semibold text-base">Don&apos;t Know</span>
+          {intervals && (
+            <span className="text-xs opacity-70 mt-1">
+              See again {formatInterval(intervals.again)}
+            </span>
+          )}
+        </button>
+
+        {/* Know - maps to 'good' */}
+        <button
+          onClick={() => onRate('good')}
+          disabled={disabled}
+          className={`flex flex-col items-center rounded-xl px-8 py-4 text-white transition-all border-2 border-emerald-500/50 bg-emerald-500/20 hover:bg-emerald-500/40 hover:border-emerald-500 ${
+            disabled ? 'cursor-not-allowed opacity-50' : 'hover:scale-105 hover:shadow-lg'
+          }`}
+        >
+          <svg className="w-8 h-8 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+          <span className="font-semibold text-base">Know</span>
+          {intervals && (
+            <span className="text-xs opacity-70 mt-1">
+              See again {formatInterval(intervals.good)}
+            </span>
+          )}
+        </button>
       </div>
+      <p className="text-center text-xs text-gray-500">
+        Swipe left for Don&apos;t Know, right for Know
+      </p>
     </div>
   );
 }
