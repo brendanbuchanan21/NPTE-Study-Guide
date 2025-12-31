@@ -28,8 +28,12 @@ export default function FlashCard({ flashcard, onFlip }: FlashCardProps) {
   // Global keyboard listener for spacebar
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Don't trigger if user is typing in an input
-      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
+      // Don't trigger if user is typing in an input or pressing a button
+      if (
+        e.target instanceof HTMLInputElement ||
+        e.target instanceof HTMLTextAreaElement ||
+        e.target instanceof HTMLButtonElement
+      ) {
         return;
       }
 
@@ -43,19 +47,10 @@ export default function FlashCard({ flashcard, onFlip }: FlashCardProps) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [handleFlip]);
 
-  const handleLocalKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === ' ' || e.key === 'Enter') {
-      e.preventDefault();
-      handleFlip();
-    }
-  };
-
   return (
     <div
       className="perspective-1000 w-full cursor-pointer"
       onClick={handleFlip}
-      onKeyDown={handleLocalKeyDown}
-      tabIndex={0}
       role="button"
       aria-label={isFlipped ? 'Show question' : 'Show answer'}
     >
