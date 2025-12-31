@@ -23,7 +23,7 @@ const LOCAL_STORAGE_KEY = 'npte-quiz-progress';
 const SESSION_STORAGE_KEY = 'npte-quiz-session';
 
 export function useQuizProgress(categoryId?: string) {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const [history, setHistory] = useState<Map<string, QuestionHistory[]>>(new Map());
   const [loading, setLoading] = useState(true);
   const [syncing, setSyncing] = useState(false);
@@ -32,6 +32,11 @@ export function useQuizProgress(categoryId?: string) {
   // Load history and session on mount
   useEffect(() => {
     async function loadData() {
+      // Wait for auth to finish loading before fetching data
+      if (authLoading) {
+        return;
+      }
+
       setLoading(true);
 
       // Load session state from sessionStorage (persists within tab/browser session)
@@ -85,7 +90,7 @@ export function useQuizProgress(categoryId?: string) {
     }
 
     loadData();
-  }, [user, categoryId]);
+  }, [user, categoryId, authLoading]);
 
   // Save an answer
   const saveAnswer = useCallback(async (
