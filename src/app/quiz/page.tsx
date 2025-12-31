@@ -14,6 +14,24 @@ export default function QuizPage() {
     return questions.filter(q => categorySubs.some(s => s.id === q.subcategory_id)).length;
   };
 
+  // Get total quiz progress
+  const getTotalQuizProgress = () => {
+    let answered = 0;
+    let correct = 0;
+
+    questions.forEach(q => {
+      const entries = history.get(q.id);
+      if (entries && entries.length > 0) {
+        answered++;
+        if (entries[entries.length - 1].is_correct) {
+          correct++;
+        }
+      }
+    });
+
+    return { answered, correct, total: questions.length };
+  };
+
   // Get quiz progress for a category
   const getCategoryQuizProgress = (categoryId: string) => {
     const categorySubs = subcategories.filter(s => s.category_id === categoryId);
@@ -37,6 +55,9 @@ export default function QuizPage() {
     return { answered, correct, total: categoryQuestions.length };
   };
 
+  const totalStats = loading ? { answered: 0, correct: 0, total: questions.length } : getTotalQuizProgress();
+  const totalAccuracy = totalStats.answered > 0 ? Math.round((totalStats.correct / totalStats.answered) * 100) : 0;
+
   return (
     <div>
       <Header
@@ -53,7 +74,44 @@ export default function QuizPage() {
           </p>
         </div>
 
-        <h2 className="mb-4 text-lg font-semibold text-white">Select a Category</h2>
+        {/* Mixed Quiz Option */}
+        <div className="mb-6">
+          <Link
+            href="/quiz/mixed"
+            className="card p-6 group block border-2 border-dashed border-pink-500/30 hover:border-pink-500/60 bg-gradient-to-br from-pink-500/5 to-purple-500/5"
+          >
+            <div className="flex items-start gap-4">
+              <div className="h-12 w-12 rounded-lg transition-transform group-hover:scale-110 flex items-center justify-center bg-gradient-to-br from-pink-500 to-purple-500">
+                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <h3 className="font-semibold text-white group-hover:text-pink-400 transition-colors">Mixed Quiz</h3>
+                <p className="mt-1 text-sm text-gray-500">Random questions from all categories - simulate the real exam</p>
+                <div className="mt-3 flex items-center gap-4 text-sm">
+                  <span className="text-gray-400">{totalStats.answered}/{totalStats.total} answered</span>
+                  {totalStats.answered > 0 && (
+                    <span className={totalAccuracy >= 70 ? 'text-green-400' : 'text-amber-400'}>
+                      {totalAccuracy}% correct
+                    </span>
+                  )}
+                </div>
+                {/* Progress bar */}
+                {totalStats.total > 0 && (
+                  <div className="mt-2 h-1.5 bg-gray-800 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-pink-500 to-purple-500 rounded-full transition-all"
+                      style={{ width: `${(totalStats.answered / totalStats.total) * 100}%` }}
+                    />
+                  </div>
+                )}
+              </div>
+            </div>
+          </Link>
+        </div>
+
+        <h2 className="mb-4 text-lg font-semibold text-white">By Category</h2>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {categories.map((category) => {
