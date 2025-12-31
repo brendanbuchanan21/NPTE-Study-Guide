@@ -88,10 +88,14 @@ export default function StudyCategoryPage({ params }: StudyCategoryPageProps) {
       correct: studyStats.correct + (rating !== 'again' ? 1 : 0),
     };
     setStudyStats(newStats);
+
+    // Save session with new stats immediately
+    saveSession(currentIndex, newStats);
   };
 
   const handleIndexChange = (newIndex: number) => {
     setCurrentIndex(newIndex);
+    // Save session with current stats and new index
     saveSession(newIndex, studyStats);
   };
 

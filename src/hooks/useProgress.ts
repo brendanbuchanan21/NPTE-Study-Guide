@@ -18,16 +18,15 @@ export function useProgress() {
   const [syncing, setSyncing] = useState(false);
 
   // Load progress from localStorage or API
-  useEffect(() => {
-    async function loadProgress() {
-      // Wait for auth to finish loading
-      if (authLoading) {
-        return;
-      }
+  const loadProgress = useCallback(async () => {
+    // Wait for auth to finish loading
+    if (authLoading) {
+      return;
+    }
 
-      setLoading(true);
+    setLoading(true);
 
-      if (user) {
+    if (user) {
         // Fetch from API when authenticated
         try {
           const response = await fetch('/api/progress');
@@ -60,10 +59,11 @@ export function useProgress() {
       }
 
       setLoading(false);
-    }
-
-    loadProgress();
   }, [user, authLoading]);
+
+  useEffect(() => {
+    loadProgress();
+  }, [loadProgress]);
 
   // Save progress for a flashcard
   const saveProgress = useCallback(async (
@@ -144,5 +144,6 @@ export function useProgress() {
     saveProgress,
     getProgress,
     getDueCards,
+    refetch: loadProgress,
   };
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Header from '@/components/layout/Header';
 import Link from 'next/link';
 import { categories, getFlashcardsForCategory, flashcards } from '@/lib/seed-data';
@@ -7,10 +8,65 @@ import { useProgress } from '@/hooks/useProgress';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { useAuth } from '@/contexts/AuthContext';
 
+const SESSION_KEY = 'npte-study-session';
+
+interface StudySession {
+  categoryId: string;
+  currentIndex: number;
+  studyStats: { studied: number; correct: number };
+}
+
 export default function StudyPage() {
   const { user } = useAuth();
-  const { progress, loading: progressLoading, getDueCards } = useProgress();
-  const { analytics, loading: analyticsLoading } = useAnalytics();
+  const { progress, loading: progressLoading, getDueCards, refetch: refetchProgress } = useProgress();
+  const { analytics, loading: analyticsLoading, refetch: refetchAnalytics } = useAnalytics();
+  const [sessions, setSessions] = useState<Map<string, StudySession>>(new Map());
+
+  // Load all active sessions and refetch data on mount/focus
+  useEffect(() => {
+    const loadSessions = () => {
+      const sessionMap = new Map<string, StudySession>();
+      categories.forEach(category => {
+        try {
+          const stored = sessionStorage.getItem(`${SESSION_KEY}-${category.id}`);
+          if (stored) {
+            const session: StudySession = JSON.parse(stored);
+            sessionMap.set(category.id, session);
+          }
+        } catch (error) {
+          console.error('Error loading session:', error);
+        }
+      });
+      setSessions(sessionMap);
+    };
+
+    // Load sessions immediately
+    loadSessions();
+
+    // Refetch data when page becomes visible (e.g., back button)
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        loadSessions();
+        refetchProgress?.();
+        refetchAnalytics?.();
+      }
+    };
+
+    // Also refetch on focus (for tab switching)
+    const handleFocus = () => {
+      loadSessions();
+      refetchProgress?.();
+      refetchAnalytics?.();
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('focus', handleFocus);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('focus', handleFocus);
+    };
+  }, [refetchProgress, refetchAnalytics]);
 
   const loading = user ? analyticsLoading : progressLoading;
 
@@ -103,12 +159,14 @@ export default function StudyPage() {
             const cards = getFlashcardsForCategory(category.id);
             const cardCount = cards.length;
             const { learned, due } = loading ? { learned: 0, due: cardCount } : getCategoryProgress(category.id);
+            const session = sessions.get(category.id);
+            const hasActiveSession = session && session.currentIndex > 0;
 
             return (
               <Link
                 key={category.id}
                 href={`/study/${category.id}`}
-                className="card p-6 group"
+                className={`card p-6 group ${hasActiveSession ? 'ring-2 ring-pink-500/50' : ''}`}
               >
                 <div className="flex items-start gap-4">
                   <div
@@ -121,9 +179,24 @@ export default function StudyPage() {
                     />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-white group-hover:text-pink-400 transition-colors">{category.name}</h3>
+                    <div className="flex items-center gap-2">
+                      <h3 className="font-semibold text-white group-hover:text-pink-400 transition-colors">{category.name}</h3>
+                      {hasActiveSession && (
+                        <span className="text-xs bg-pink-500/20 text-pink-400 px-2 py-0.5 rounded-full">
+                          In Progress
+                        </span>
+                      )}
+                    </div>
                     <p className="mt-1 text-sm text-gray-500">{category.description}</p>
-                    <div className="mt-3 flex items-center gap-4 text-sm">
+
+                    {/* Show session progress if active */}
+                    {hasActiveSession && session && (
+                      <div className="mt-2 text-sm text-pink-400">
+                        Card {session.currentIndex + 1} of {cardCount} • {session.studyStats.studied} studied this session
+                      </div>
+                    )}
+
+                    <div className="mt-2 flex items-center gap-4 text-sm">
                       <span className="text-gray-400">{learned}/{cardCount} learned</span>
                       {due > 0 && (
                         <span className="text-pink-400">{due} due</span>
