@@ -64,12 +64,17 @@ interface AnalyticsData {
 }
 
 export function useAnalytics() {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const [analytics, setAnalytics] = useState<AnalyticsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const fetchAnalytics = useCallback(async () => {
+    // Wait for auth to finish loading
+    if (authLoading) {
+      return;
+    }
+
     if (!user) {
       setLoading(false);
       return;
@@ -91,7 +96,7 @@ export function useAnalytics() {
     } finally {
       setLoading(false);
     }
-  }, [user]);
+  }, [user, authLoading]);
 
   useEffect(() => {
     fetchAnalytics();

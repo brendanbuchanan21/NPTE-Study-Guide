@@ -12,7 +12,7 @@ interface ProgressMap {
 }
 
 export function useProgress() {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const [progress, setProgress] = useState<Map<string, UserFlashcardProgress>>(new Map());
   const [loading, setLoading] = useState(true);
   const [syncing, setSyncing] = useState(false);
@@ -20,6 +20,11 @@ export function useProgress() {
   // Load progress from localStorage or API
   useEffect(() => {
     async function loadProgress() {
+      // Wait for auth to finish loading
+      if (authLoading) {
+        return;
+      }
+
       setLoading(true);
 
       if (user) {
@@ -58,7 +63,7 @@ export function useProgress() {
     }
 
     loadProgress();
-  }, [user]);
+  }, [user, authLoading]);
 
   // Save progress for a flashcard
   const saveProgress = useCallback(async (

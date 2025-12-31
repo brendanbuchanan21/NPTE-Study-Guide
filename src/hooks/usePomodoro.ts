@@ -27,12 +27,17 @@ interface PomodoroStats {
 const LOCAL_STORAGE_KEY = 'npte-pomodoro-sessions';
 
 export function usePomodoro() {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const [stats, setStats] = useState<PomodoroStats | null>(null);
   const [loading, setLoading] = useState(true);
 
   // Fetch stats from API or localStorage
   const fetchStats = useCallback(async () => {
+    // Wait for auth to finish loading
+    if (authLoading) {
+      return;
+    }
+
     setLoading(true);
 
     if (user) {
@@ -101,7 +106,7 @@ export function usePomodoro() {
     }
 
     setLoading(false);
-  }, [user]);
+  }, [user, authLoading]);
 
   useEffect(() => {
     fetchStats();
