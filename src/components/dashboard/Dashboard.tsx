@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import Header from '@/components/layout/Header';
 import Link from 'next/link';
 import { categories, flashcards, subcategories } from '@/lib/seed-data';
@@ -8,9 +9,32 @@ import { useProgress } from '@/hooks/useProgress';
 import { useAuth } from '@/contexts/AuthContext';
 
 export default function Dashboard() {
-  const { user } = useAuth();
-  const { analytics, loading: analyticsLoading } = useAnalytics();
-  const { progress, loading: progressLoading, getDueCards } = useProgress();
+  const { user, loading: authLoading } = useAuth();
+  const { analytics, loading: analyticsLoading, refetch: refetchAnalytics } = useAnalytics();
+  const { progress, loading: progressLoading, getDueCards, refetch: refetchProgress } = useProgress();
+
+  // Refetch data when page becomes visible (e.g., back button)
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        refetchAnalytics?.();
+        refetchProgress?.();
+      }
+    };
+
+    const handleFocus = () => {
+      refetchAnalytics?.();
+      refetchProgress?.();
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('focus', handleFocus);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('focus', handleFocus);
+    };
+  }, [refetchAnalytics, refetchProgress]);
 
   // Calculate cards per category
   const getCardCount = (categoryId: string) => {

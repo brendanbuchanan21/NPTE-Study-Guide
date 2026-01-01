@@ -3832,6 +3832,1149 @@ export const flashcards: Omit<Flashcard, 'created_at'>[] = [
     source_page_number: null,
     tags: ['tethered cord', 'spinal cord', 'pediatric'],
   },
+
+  // ==================== PNF TECHNIQUES ====================
+
+  {
+    id: 'fc-pnf-techniques-1',
+    subcategory_id: 'modalities-pnf',
+    front_text: 'What is Rhythmic Initiation in PNF?',
+    back_text: 'Rhythmic Initiation:\n\nProgression: PROM → AAROM → AROM → RROM\n\nEmphasis: Agonist movement (unidirectional)\n\nPurpose:\n• Initiate movement\n• Teach the pattern\n• Synchronize movement components\n\nNeurophysiology:\n• Decreases activity in reticular activating system\n• Leads to decreased alpha motor neuron excitability\n\nBest for: Patients with rigidity, difficulty initiating movement (e.g., Parkinson\'s)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['PNF', 'rhythmic initiation', 'techniques'],
+  },
+  {
+    id: 'fc-pnf-techniques-2',
+    subcategory_id: 'modalities-pnf',
+    front_text: 'What is Rhythmic Rotation in PNF?',
+    back_text: 'Rhythmic Rotation:\n\nDescription: Active or passive movement in ROTATION along longitudinal axis\n\nPurpose:\n• Increase ROM\n• Especially good for hypertonicity\n\nNeurophysiology:\n• Stimulates mechanoreceptors\n• Relaxation response through rotational input\n\nApplication:\n• Use slow, rhythmic rotational movements\n• Can be done passively or with patient assistance\n• Effective for reducing muscle guarding',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['PNF', 'rhythmic rotation', 'techniques'],
+  },
+  {
+    id: 'fc-pnf-techniques-3',
+    subcategory_id: 'modalities-pnf',
+    front_text: 'What is Hold-Relax Active Movement in PNF?',
+    back_text: 'Hold-Relax Active Movement:\n\nSequence:\n1. Isometric contraction in MID-SHORTENED position\n2. Relax into LENGTHENED position\n3. Quick stretch\n4. Progress to AAROM/AROM/RROM\n\nPurpose:\n• Movement initiation\n• Address hypotonia and weakness\n\nDifference from Contract-Relax:\n• Uses isometric (not isotonic) contraction\n• Followed by active movement progression\n\nBest for: Patients with hypotonia or difficulty initiating movement',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['PNF', 'hold-relax', 'techniques'],
+  },
+  {
+    id: 'fc-pnf-techniques-4',
+    subcategory_id: 'modalities-pnf',
+    front_text: 'What is Slow Reversal in PNF?',
+    back_text: 'Slow Reversal:\n\nDescription: Concentric contractions of agonists WITHOUT relaxation between reversals\n\nSequence: Agonist contraction → immediate antagonist contraction → repeat\n\nPurpose:\n• Increase agonist motion\n• Strengthen both agonist AND antagonist\n• Improve coordination of reciprocal movements\n\nKey Point: NO pause between direction changes\n\nApplication:\n• Good for improving active ROM\n• Builds strength in both directions\n• Enhances movement coordination',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['PNF', 'slow reversal', 'techniques'],
+  },
+
+  // ==================== TYPES OF PREVENTION ====================
+
+  {
+    id: 'fc-prevention-types-1',
+    subcategory_id: 'prof-ethics',
+    front_text: 'What are the three types of prevention in healthcare?',
+    back_text: 'Types of Prevention:\n\nPRIMARY PREVENTION:\n• Goal: Prevent disease BEFORE it occurs\n• Target: Healthy individuals\n• Examples:\n  - Immunizations\n  - Tobacco cessation programs\n  - Needle exchange programs\n  - Micronutrient supplementation\n  - Exercise programs for healthy adults\n\nSECONDARY PREVENTION:\n• Goal: Early detection & treatment in SUBCLINICAL stages\n• Examples:\n  - Pap smears, mammograms\n  - Colonoscopies\n  - Blood pressure screenings\n  - Fall risk assessments\n\nTERTIARY PREVENTION:\n• Goal: Reduce disease IMPACT, manage symptoms\n• Target: Diagnosed patients\n• Examples:\n  - PT for burn patients\n  - Cardiac rehab post-MI\n  - Diabetic foot care',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['prevention', 'primary', 'secondary', 'tertiary', 'public health'],
+  },
+
+  // ==================== UTI ====================
+
+  {
+    id: 'fc-uti-1',
+    subcategory_id: 'system-renal',
+    front_text: 'What are the differences between Upper and Lower UTI?',
+    back_text: 'Urinary Tract Infections:\n\nUPPER UTI (Pyelonephritis, Glomerulonephritis):\n• Infection of kidney or ureters\n• Symptoms:\n  - Unilateral COSTOVERTEBRAL tenderness\n  - FLANK pain\n  - Ipsilateral SHOULDER pain (referred)\n  - FEVER and chills\n  - Skin hypersensitivity\n  - Hematuria, pyuria, bacteriuria\n  - Nocturia\n\nLOWER UTI (Cystitis, Urethritis):\n• Infection of bladder or urethra\n• Symptoms:\n  - Urinary FREQUENCY\n  - Urinary URGENCY\n  - LOW BACK pain\n  - Pelvic/lower abdominal pain\n  - DYSURIA (painful urination)\n  - Hematuria, pyuria, bacteriuria\n  - Dyspareunia (painful intercourse)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['UTI', 'pyelonephritis', 'cystitis', 'urinary'],
+  },
+
+  // ==================== LAB VALUES SUMMARY ====================
+
+  {
+    id: 'fc-lab-values-comprehensive-1',
+    subcategory_id: 'cardio-vitals',
+    front_text: 'What are critical lab values for PT practice?',
+    back_text: 'Critical Lab Values:\n\nBLOOD GLUCOSE:\n• Normal fasting: 60-99 mg/dL\n• Hypoglycemia: <70 mg/dL (RED FLAG)\n• Pre-diabetes: 100-125 mg/dL\n• Diabetes: >126 mg/dL\n• Exercise concern: >250-300 mg/dL\n• DKA risk: >300-350 mg/dL\n\nHbA1c:\n• Normal: 4-6%\n• Goal for diabetics: <7%\n\nABG VALUES:\n• pH: 7.35-7.45\n• PaCO₂: 35-45 mmHg\n• HCO₃⁻: 22-26 mEq/L\n• PaO₂: 60-100 mmHg\n• O₂ sat: 95-98% (keep >90% during activity)\n\nELECTROLYTES:\n• Na⁺: 135-145 mEq/L\n• K⁺: 3.5-5.0 mEq/L\n• Cl⁻: 95-105 mEq/L\n• Ca²⁺: 9-11 mg/dL\n\nRENAL:\n• BUN: 10-20 mg/dL\n• Creatinine: 0.5-1.2 mg/dL',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['lab values', 'glucose', 'ABG', 'electrolytes'],
+  },
+
+  // ==================== MSK CONDITIONS DETAIL ====================
+
+  {
+    id: 'fc-msk-impingement-1',
+    subcategory_id: 'msk-shoulder',
+    front_text: 'What is shoulder impingement syndrome?',
+    back_text: 'Impingement Syndrome:\n\nMechanism:\n• Common in throwing, swimming, racquet sports\n• Humeral head and rotator cuff tendons impinged under acromion and coracoacromial arch\n\nPresentation:\n• PAINFUL ARC: 60°-120° of abduction\n• Positive special tests (Neer, Hawkins-Kennedy)\n• Pain with overhead activities\n\nTreatment:\n• RICE, NSAIDs\n• Rotator cuff strengthening\n• Scapular stability exercises\n• Improved biomechanics\n• Posture correction\n• Activity modification\n\nStages (Neer Classification):\n• Stage I: Edema/hemorrhage (<25 yo)\n• Stage II: Fibrosis/tendinitis (25-40 yo)\n• Stage III: Bone spurs/tears (>40 yo)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['impingement', 'shoulder', 'rotator cuff'],
+  },
+  {
+    id: 'fc-msk-rct-1',
+    subcategory_id: 'msk-shoulder',
+    front_text: 'What is the presentation and treatment timeline for rotator cuff tears?',
+    back_text: 'Rotator Cuff Tear:\n\nEtiology:\n• Impaired blood supply to tendon\n• Microtrauma → degeneration\n• Acute trauma (less common)\n\nPresentation:\n• NIGHT or RESTING pain\n• Limitation of abduction and lateral rotation\n• Positive special tests (drop arm, empty can)\n• Weakness with specific movements\n\nTreatment Timeline:\n• Initial: RICE, NSAIDs\n• Progress: PROM → AAROM → AROM\n• Isometrics → strengthening\n\nReturn to Activity:\n• ARTHROSCOPIC/mini-open repair: 6 weeks for light activities\n• TRADITIONAL open repair: 12 weeks\n• MASSIVE tear: 6-12 MONTHS before heavy resistance\n\nKey: Protect repair, gradual progression',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['rotator cuff', 'tear', 'shoulder', 'timeline'],
+  },
+
+  // ==================== AQUATIC THERAPY EFFECTS ====================
+
+  {
+    id: 'fc-aquatic-effects-1',
+    subcategory_id: 'modalities-hydro',
+    front_text: 'What are the physiological effects of aquatic therapy?',
+    back_text: 'Effects of Aquatic Therapy:\n\nCARDIOVASCULAR:\n• Heart rate: DECREASES\n• Blood pressure: DECREASES\n• Stroke volume: INCREASES\n• Cardiac output: INCREASES\n\nRESPIRATORY:\n• Vital capacity: DECREASES (hydrostatic pressure on chest)\n• Work of breathing: INCREASES\n\nMUSCULOSKELETAL:\n• Weight bearing: DECREASES\n• Edema: DECREASES (hydrostatic pressure)\n\nNote: Water immersion causes central blood shift, increasing preload and stroke volume',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['aquatic therapy', 'hydrotherapy', 'cardiovascular', 'effects'],
+  },
+
+  // ==================== SPINE MOBILIZATIONS ====================
+
+  {
+    id: 'fc-spine-mob-1',
+    subcategory_id: 'modalities-manual',
+    front_text: 'How do you perform spine mobilizations for flexion vs extension limitations?',
+    back_text: 'Spine Mobilizations:\n\nRule: Only perform POSTERIOR-TO-ANTERIOR (P-A) mobilizations for safety\n\nFOR FLEXION OR EXTENSION:\n• P-A glide on SPINOUS PROCESS (central/bilateral)\n\nFOR SIDE BENDING OR ROTATION:\n• P-A glide on TRANSVERSE PROCESS (unilateral)\n\nOPEN THE GAP (limited flexion):\n• Move TOP vertebra anteriorly/superiorly\n\nCLOSE THE GAP (limited extension):\n• Move BOTTOM vertebra anteriorly/superiorly\n\nMnemonic "C" Hand:\n• Fingers = top vertebra (SP & TP)\n• Thumb = bottom vertebra\n\n"Bar opening → pop the TOP cap"\n"Bar closing → BOTTOMS up!"',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['spine mobilization', 'P-A glide', 'manual therapy'],
+  },
+
+  // ==================== MUSCLE STRAIN GRADES ====================
+
+  {
+    id: 'fc-strain-grades-1',
+    subcategory_id: 'msk-fundamentals',
+    front_text: 'What are the grades of muscle strain (1°, 2°, 3°)?',
+    back_text: 'Muscle Strain Grades:\n\n1° STRAIN (Mild):\n• Few fibers torn\n• Minor weakness, swelling, spasm\n• Minor loss of function\n• Pain on isometric contraction: YES\n• Pain on stretch: YES\n\n2° STRAIN (Moderate):\n• ~Half of fibers torn\n• Moderate-major weakness (reflex inhibition)\n• Moderate-major swelling, spasm\n• Moderate-major loss of function\n• Pain on isometric: YES\n• Pain on stretch: YES\n\n3° STRAIN (Severe/Rupture):\n• ALL fibers torn (complete rupture)\n• Major weakness and disability\n• Moderate swelling/spasm\n• Pain on isometric: NO/MINOR (nothing to contract!)\n• Pain on stretch: NO (nothing to stretch!)\n\nMechanism: Overstretch/overload',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['muscle strain', 'grades', 'injury'],
+  },
+
+  // ==================== LIGAMENT SPRAIN GRADES ====================
+
+  {
+    id: 'fc-sprain-grades-1',
+    subcategory_id: 'msk-fundamentals',
+    front_text: 'What are the grades of ligament sprain (1°, 2°, 3°)?',
+    back_text: 'Ligament Sprain Grades:\n\n1° SPRAIN (Mild):\n• Few fibers torn (stretched)\n• Minor weakness, swelling\n• NO instability\n• Normal joint play\n• Pain on stretch: YES\n\n2° SPRAIN (Moderate):\n• ~Half of ligament torn (partial tear)\n• Moderate swelling, disability\n• SOME instability\n• Normal joint play\n• Pain on stretch: YES\n\n3° SPRAIN (Severe/Rupture):\n• ALL fibers torn (complete rupture)\n• Moderate-major swelling\n• SIGNIFICANT instability\n• Normal to EXCESSIVE joint play\n• Pain on stretch: NO (ligament disrupted)\n\nKey Difference from Strains:\n• Sprains: NO pain on isometric contraction (ligaments are passive)\n• Grade III sprains may have less pain due to complete disruption',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ligament sprain', 'grades', 'instability'],
+  },
+
+  // ==================== TENDINOSIS VS PARATENONITIS ====================
+
+  {
+    id: 'fc-tendon-pathology-1',
+    subcategory_id: 'msk-fundamentals',
+    front_text: 'What is the difference between tendinosis and paratenonitis?',
+    back_text: 'Tendon Pathologies:\n\nPARATENONITIS (Tendinitis):\n• INFLAMMATION of tendon sheath\n• Acute or chronic onset\n• Due to OVERUSE\n• Swelling present\n• Warmth, crepitus possible\n\nTENDINOSIS:\n• INTRATENDINOUS DEGENERATION\n• NO inflammation\n• Chronic condition\n• Thickening of tendon\n• Microtears, collagen breakdown\n\nCommon Features:\n• Minor-moderate weakness\n• Minor-moderate disability\n• Pain on stretch: YES\n• Pain with loading\n\nKey Point: "Tendinitis" is often actually tendinosis (degeneration without true inflammation)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['tendinosis', 'tendinitis', 'paratenonitis'],
+  },
+
+  // ==================== GU TERMINOLOGY ====================
+
+  {
+    id: 'fc-gu-terms-1',
+    subcategory_id: 'gigu-incontinence',
+    front_text: 'What are important GU terminology terms?',
+    back_text: 'GU Terminology:\n\nURINE OUTPUT:\n• ANURIA: <100 mL/24 hours (inadequate output)\n• OLIGURIA: <400 mL/24 hours\n• Normal: ~1500 mL/24 hours\n\nURINARY FREQUENCY:\n• Normal: 6-8 times/day\n• Abnormal: >8 times/day\n\nOTHER TERMS:\n• DYSURIA: Painful urination\n• HEMATURIA: Blood in urine\n• PYURIA: Pus in urine\n• NOCTURIA: Nighttime urination\n• NEPHROLITHIASIS: Kidney stones\n• ENDOMETRIUM: Inner uterine lining (sheds monthly)\n• IMPOTENCE: Inability to ejaculate or obtain orgasm\n• DYSPAREUNIA: Painful intercourse',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['GU terminology', 'anuria', 'dysuria', 'urinary'],
+  },
+
+  // ==================== HYPERMAGNESEMIA ====================
+
+  {
+    id: 'fc-hypermagnesemia-1',
+    subcategory_id: 'metabolic-obesity',
+    front_text: 'What is hypermagnesemia and its signs/symptoms?',
+    back_text: 'Hypermagnesemia:\n\nDefinition: Serum magnesium >3 mg/dL\n\nCAUSES:\n• Chronic renal failure (can\'t excrete)\n• Overuse of antacids/laxatives with Mg\n• Severe dehydration\n• Diabetic ketoacidosis (DKA)\n• Trauma, burns, sepsis\n\nSIGNS/SYMPTOMS:\n• DIMINISHED REFLEXES (hyporeflexia)\n• Muscle WEAKNESS\n• FLACCID paralysis\n• Respiratory impairment\n• BRADYCARDIA\n• Hypotension\n• Heart block\n\nKey Point: Think "everything slows down" - reflexes, heart, muscles\n\nOpposite of hypomagnesemia (hyperreflexia, tetany)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['hypermagnesemia', 'electrolytes', 'labs'],
+  },
+
+  // ==================== MMT POSITIONS ====================
+
+  {
+    id: 'fc-mmt-positions-1',
+    subcategory_id: 'msk-fundamentals',
+    front_text: 'What are the testing positions for common MMTs?',
+    back_text: 'MMT Testing Positions:\n\nSUPINE:\n• Abdominals\n• Biceps\n• Iliopsoas (hip flexion)\n• Tibialis anterior/posterior\n• Wrist flexors/extensors\n\nSIDE LYING:\n• Gluteus medius/minimus (hip ABD)\n• Hip adductors\n\nPRONE:\n• Back extensors\n• Gastrocnemius\n• Gluteus maximus (hip EXT)\n• Hamstrings\n• Soleus\n\nSITTING:\n• Quadriceps (knee extension)\n• Deltoids\n• Triceps\n\nRemember: Position is chosen to:\n• Isolate muscle\n• Allow gravity resistance\n• Stabilize proximal segments',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['MMT', 'manual muscle testing', 'positions'],
+  },
+
+  // ==================== BRUCE PROTOCOL ====================
+
+  {
+    id: 'fc-bruce-protocol-1',
+    subcategory_id: 'cardio-vitals',
+    front_text: 'What is the Bruce Protocol for exercise testing?',
+    back_text: 'Bruce Protocol:\n\nType: INCLINE TREADMILL test\n\nFormat:\n• 3-minute stages\n• Speed AND incline increase each stage\n\nStages:\n• Stage 1: 1.7 mph, 10% grade\n• Stage 2: 2.5 mph, 12% grade\n• Stage 3: 3.4 mph, 14% grade\n• Stage 4: 4.2 mph, 16% grade\n• Stage 5: 5.0 mph, 18% grade\n\nUse:\n• Cardiac stress testing\n• VO2max estimation\n• Diagnose CAD\n• Exercise prescription\n\nModified Bruce:\n• Starts with 2 warm-up stages\n• 0% and 5% grade at 1.7 mph\n• For deconditioned patients',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['Bruce protocol', 'stress test', 'exercise testing'],
+  },
+
+  // ==================== EXERCISE AND HEART EFFECTS ====================
+
+  {
+    id: 'fc-exercise-heart-1',
+    subcategory_id: 'cardio-vitals',
+    front_text: 'What are the cardiovascular responses to exercise?',
+    back_text: 'Cardiovascular Responses to Exercise:\n\nNORMAL RESPONSES:\n• HR: INCREASES (linear with intensity)\n• SBP: INCREASES (linear with intensity)\n• DBP: STAYS SAME (±10 mmHg)\n• Diastolic time: DECREASES\n\nABNORMAL RESPONSES:\n• SBP drops >10 mmHg\n• DBP increases >10 mmHg\n• Excessive HR increase\n• No HR increase (chronotropic incompetence)\n\nBETA-BLOCKERS:\n• Blunt HR response\n• Use RPE instead of HR targets\n• Borg RPE: 6-20 scale\n• Multiply RPE × 10 ≈ HR\n\nMEAN ARTERIAL PRESSURE:\nMAP = (SBP + 2×DBP) / 3\nor (SBP + DBP) / 2 (simplified)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['exercise', 'cardiovascular', 'blood pressure', 'heart rate'],
+  },
+
+  // ==================== ANKLE SPRAIN GRADING ====================
+
+  {
+    id: 'fc-ankle-sprain-grade-1',
+    subcategory_id: 'msk-ankle-foot',
+    front_text: 'What is the West Point Ankle Sprain Grading System?',
+    back_text: 'West Point Ankle Sprain Grading:\n\nGRADE 1 (Mild):\n• Ligament: ATFL only, stretched\n• Edema: Slight, local\n• Weight-bearing: Full or partial\n• Instability: NONE\n\nGRADE 2 (Moderate):\n• Ligament: ATFL + CFL, partial tear\n• Edema: Moderate, local\n• Weight-bearing: Difficult without crutches\n• Instability: None or SLIGHT\n\nGRADE 3 (Severe):\n• Ligament: ATFL + CFL + PTFL, complete tear\n• Edema: Significant, DIFFUSE\n• Weight-bearing: Impossible without significant pain\n• Instability: DEFINITE\n\nLigament Order (most to least injured):\nATFL → CFL → PTFL',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ankle sprain', 'grading', 'ATFL', 'CFL', 'PTFL'],
+  },
+
+  // ==================== REFERRED PAIN PATTERNS ====================
+
+  {
+    id: 'fc-referred-pain-1',
+    subcategory_id: 'gigu-incontinence',
+    front_text: 'What are the abdominal quadrant referred pain patterns?',
+    back_text: 'Abdominal Referred Pain Patterns:\n\nRIGHT UPPER QUADRANT (RUQ):\n• Gallbladder (cholecystitis)\n• Head of pancreas\n• Peptic ulcers\n\nLEFT UPPER QUADRANT (LUQ):\n• Tail of pancreas\n• Spleen pathology\n\nRIGHT LOWER QUADRANT (RLQ):\n• APPENDICITIS\n• Crohn\'s disease\n\nLEFT LOWER QUADRANT (LLQ):\n• DIVERTICULITIS\n• Ulcerative colitis\n• IBS\n\nSHOULDER REFERRED PAIN:\n• RIGHT shoulder: Gallbladder, liver, head of pancreas\n• LEFT shoulder: Heart, tail of pancreas, spleen, diaphragm',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['referred pain', 'abdominal', 'quadrants'],
+  },
+  {
+    id: 'fc-referred-pain-2',
+    subcategory_id: 'gigu-incontinence',
+    front_text: 'What are the clinical signs for abdominal pathologies?',
+    back_text: 'Abdominal Pathology Signs:\n\nAPPENDICITIS:\n• McBurney\'s Point (RLQ)\n• Rebound tenderness (Blumberg\'s sign)\n• Rovsing\'s sign (LLQ pressure → RLQ pain)\n• Psoas sign, Obturator sign\n• Markle\'s sign\n• "Pinch an inch" on RIGHT\n\nCHOLECYSTITIS (Gallbladder):\n• Murphy\'s sign (positive)\n• Boas sign (radiates to right scapula)\n\nPANCREATITIS:\n• Cullen\'s sign (periumbilical bruising)\n• Grey Turner\'s sign (flank bruising)\n• Pain radiates to BACK\n• Worse in SUPINE\n\nSPLEEN RUPTURE:\n• Kehr\'s sign (LEFT shoulder pain)\n\nDIVERTICULITIS:\n• "Pinch an inch" on LEFT',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['appendicitis', 'cholecystitis', 'pancreatitis', 'clinical signs'],
+  },
+
+  // ==================== THA PRECAUTIONS ====================
+
+  {
+    id: 'fc-tha-precautions-1',
+    subcategory_id: 'msk-hip',
+    front_text: 'What are THA precautions for anterior vs posterior approach?',
+    back_text: 'Total Hip Arthroplasty Precautions:\n\nPOSTERIOR/POSTEROLATERAL APPROACH:\n• Avoid hip FLEXION past 90°\n• Avoid hip ADDUCTION past neutral\n• Avoid hip INTERNAL ROTATION past neutral\n• (Flexion + Adduction + IR = dislocation risk)\n\nANTERIOR/ANTEROLATERAL APPROACH:\n• Avoid hip EXTENSION past neutral\n• Avoid hip ADDUCTION\n• Avoid hip EXTERNAL ROTATION past neutral\n• Avoid combined ABD + Flexion + ER\n\nMnemonic:\n• POSTERIOR: No "FAIR" position (Flexion, Adduction, IR)\n• ANTERIOR: No extension, ER\n\nBoth: Avoid hip flexion >90°, no low chairs',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['THA', 'hip arthroplasty', 'precautions', 'posterior', 'anterior'],
+  },
+  {
+    id: 'fc-tha-rehab-1',
+    subcategory_id: 'msk-hip',
+    front_text: 'What are the THA rehabilitation phases?',
+    back_text: 'THA Rehabilitation Phases:\n\nPHASE 1 - MAXIMAL PROTECTION (0-4 weeks):\n• Education on precautions\n• Usually WBAT with walker/crutches\n• Ankle pumps for DVT prevention\n• Maximize functional mobility\n• Gentle AROM within precautions\n\nPHASE 2 - MODERATE PROTECTION (4-6 weeks):\n• Regain strength and endurance\n• Strengthen hip ABDuctors and ERs\n• Restore ROM within precautions\n• Progress to cane\n\nPHASE 3 - MINIMAL PROTECTION (12+ weeks):\n• Return to sport/higher-level activities\n• Advanced strengthening\n• Balance training\n• May discontinue precautions (surgeon-dependent)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['THA', 'rehabilitation', 'phases'],
+  },
+
+  // ==================== TKA REHAB ====================
+
+  {
+    id: 'fc-tka-rehab-1',
+    subcategory_id: 'msk-knee',
+    front_text: 'What are the TKA rehabilitation stages and ROM goals?',
+    back_text: 'Total Knee Arthroplasty Rehab:\n\nSTAGE I (Weeks 1-4):\n• Goals:\n  - Control swelling and pain\n  - ROM: 0° - 90° (EXTENSION priority!)\n  - Quad strength: 3/5 to 4/5\n• Interventions:\n  - PROM, AAROM, AROM\n  - Quad sets, SLR\n  - Gait training with AD\n\nSTAGE II (Weeks 4-8):\n• Goals:\n  - ROM: 0° - 110°\n  - LE strength: 4/5 to 5/5\n• Interventions:\n  - Balance and proprioception training\n  - Functional activities\n  - Progress strengthening\n\nKey Points:\n• Extension more important than flexion initially\n• Need 65° for walking, 90° for stairs\n• 110° for rising from low chair',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['TKA', 'rehabilitation', 'ROM goals'],
+  },
+
+  // ==================== ROTATOR CUFF TESTS ====================
+
+  {
+    id: 'fc-rtc-tests-advanced-1',
+    subcategory_id: 'msk-shoulder',
+    front_text: 'What are the Hornblower sign and ER lag sign?',
+    back_text: 'Advanced Rotator Cuff Tests:\n\nHORNBLOWER SIGN:\n• Position: Shoulder 90° in scapular plane, elbow 90° flexion\n• Action: Patient performs ER against resistance\n• Positive: WEAKNESS, inability to externally rotate\n• Indicates: Infraspinatus/Teres minor pathology\n\nEXTERNAL ROTATION LAG SIGN:\n• Position: PT passively abducts arm 90°, maximum ER\n• Action: PT releases - patient tries to hold position\n• Positive: Inability to MAINTAIN ER position (arm drops into IR)\n• Indicates: INFRASPINATUS and TERES MINOR lesion\n\nBoth test posterior rotator cuff (external rotators)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['Hornblower', 'ER lag', 'rotator cuff', 'special tests'],
+  },
+  {
+    id: 'fc-rtc-tests-advanced-2',
+    subcategory_id: 'msk-shoulder',
+    front_text: 'What are the Belly-press and Lift-off tests for subscapularis?',
+    back_text: 'Subscapularis Tests:\n\nBELLY-PRESS TEST (Napoleon test):\n• Position: Patient presses palm into abdomen\n• Action: PT applies resistance trying to pull hand away\n• Positive: IR weakness, asymmetry, inability to maintain pressure, elbow drops back\n• Indicates: Subscapularis pathology\n\nLIFT-OFF SIGN (Gerber\'s test):\n• Position: Hand placed on lower back (palm out)\n• Action: Patient lifts hand away from back\n• Positive: Inability to lift hand away from back\n• Indicates: SUBSCAPULARIS lesion\n\nBelly-press preferred when patient can\'t reach behind back\n\nSubscapularis = only RTC muscle that internally rotates',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['Belly-press', 'Lift-off', 'subscapularis', 'special tests'],
+  },
+
+  // ==================== HEAT MODALITY PARAMETERS ====================
+
+  {
+    id: 'fc-heat-transfer-1',
+    subcategory_id: 'modalities-thermal',
+    front_text: 'What are the heat transfer mechanisms in therapeutic modalities?',
+    back_text: 'Heat Transfer Mechanisms:\n\nCONDUCTION (direct contact):\n• Hot packs\n• Paraffin\n• Ice massage\n• Cold packs\n\nCONVECTION (fluid movement):\n• Whirlpool\n• Fluidotherapy\n• Contrast baths\n\nCONVERSION (energy → heat):\n• Ultrasound\n• Shortwave diathermy (SWD)\n• Microwave diathermy\n\nRADIATION:\n• Infrared lamps\n\nTemperatures:\n• Hot pack water: 165-170°F\n• Paraffin: 125-127°F (6:1 or 7:1 wax:oil)\n• Whirlpool: Tepid 79-92°F, Neutral 92-96°F, Warm 99-104°F',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['heat transfer', 'conduction', 'convection', 'conversion', 'modalities'],
+  },
+
+  // ==================== SPINE ROM VALUES ====================
+
+  {
+    id: 'fc-spine-rom-1',
+    subcategory_id: 'msk-spine',
+    front_text: 'What are normal spine ROM values?',
+    back_text: 'Normal Spine ROM:\n\nCERVICAL:\n• Flexion: 80-90°\n• Extension: 70°\n• Side bending: 20-45°\n• Rotation: 70-90°\n\nTHORACIC:\n• Flexion: 20-45°\n• Extension: 25-45°\n• Side bending: 20-40°\n• Rotation: 35-50°\n\nLUMBAR:\n• Flexion: 40-60°\n• Extension: 20-35°\n• Side bending: 15-20°\n• Rotation: 3-18° (very limited!)\n\nTMJ:\n• Opening: 35-55mm\n• Lateral deviation: 10-15mm\n• Protrusion: 7mm\n\nNote: Lumbar rotation very limited due to facet orientation',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['spine ROM', 'cervical', 'thoracic', 'lumbar', 'TMJ'],
+  },
+
+  // ==================== MMT GRADING SCALE ====================
+
+  {
+    id: 'fc-mmt-grading-1',
+    subcategory_id: 'msk-fundamentals',
+    front_text: 'What is the MMT grading scale (0-5)?',
+    back_text: 'Manual Muscle Testing Grades:\n\n5/5 NORMAL:\n• Full ROM against GRAVITY\n• With MAXIMUM resistance\n\n4/5 GOOD:\n• Full ROM against gravity\n• With MODERATE resistance\n\n3/5 FAIR:\n• Full ROM against GRAVITY\n• With NO resistance\n\n2/5 POOR:\n• Full ROM in GRAVITY-ELIMINATED position\n• Cannot move against gravity\n\n1/5 TRACE:\n• Palpable muscle contraction\n• NO movement\n\n0/5 ZERO:\n• NO contraction palpated\n\nPlus/Minus modifiers:\n• 4+: Nearly normal strength\n• 3-: Full ROM but position breaks easily',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['MMT', 'grading', 'muscle testing'],
+  },
+
+  // ==================== BPPV DETAILED ====================
+
+  {
+    id: 'fc-bppv-detailed-1',
+    subcategory_id: 'neuro-vestibular',
+    front_text: 'What is the difference between canalithiasis and cupulolithiasis in BPPV?',
+    back_text: 'BPPV Pathophysiology:\n\nCANALITHIASIS:\n• Otoconia FREE-FLOATING in semicircular canal\n• Duration: < 1 MINUTE\n• Most common type\n• Responds well to repositioning maneuvers\n\nCUPULOLITHIASIS:\n• Otoconia ATTACHED to cupula\n• Duration: > 1 MINUTE (persistent)\n• Nystagmus lasts longer\n• May be more resistant to treatment\n\nNYSTAGMUS RULES:\n• POSTERIOR canal: Upbeat + torsional\n• ANTERIOR canal: Downbeat + torsional\n• HORIZONTAL canal: Horizontal nystagmus\n\nDirection:\n• RIGHT torsional = Right-sided BPPV\n• GEOTROPIC: Toward ground\n• AGEOTROPIC: Away from ground (cupulolithiasis)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['BPPV', 'canalithiasis', 'cupulolithiasis', 'nystagmus', 'vestibular'],
+  },
+
+  // ==================== FOOT, LEG & ANKLE DIFFERENTIAL DIAGNOSIS ====================
+
+  {
+    id: 'fc-ankle-dd-1',
+    subcategory_id: 'msk-ankle-foot',
+    front_text: 'What is the presentation and special test for Plantar Fasciitis?',
+    back_text: 'PLANTAR FASCIITIS\n\nAge: 20-60 years\nMOI: Gradual onset, no known cause\n\nPresentation:\n• Painful sole of foot under heel when weight-bearing\n• WORSE first thing in morning (first step pain)\n• Pronated foot or flattened arches\n• Passive great toe extension is painful\n• Plantar aspect of heel tender on palpation\n\nSpecial Test: WINDLASS TEST\n• Dorsiflexion of great toe reproduces pain\n\nRisk Factors:\n• Pes planus\n• Tight gastrocnemius/Achilles\n• Obesity\n• Prolonged standing',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['plantar fasciitis', 'heel pain', 'windlass test'],
+  },
+  {
+    id: 'fc-ankle-dd-2',
+    subcategory_id: 'msk-ankle-foot',
+    front_text: 'What is the presentation of Achilles Tendinitis?',
+    back_text: 'ACHILLES TENDINITIS\n\nAge: 20-40 years\nMOI: Overuse\n\nPresentation:\n• Jumping and running increase symptoms on posterior ankle\n• Slight swelling on posterior ankle\n• Active AND passive dorsiflexion painful and limited\n• Passive dorsiflexion LIMITED with knee in EXTENDED position\n  (tests gastrocnemius)\n• Resisted plantarflexion is painful\n\nKey Differentiator:\n• Limited DF with knee extended = gastrocnemius involvement\n• DF improves with knee flexion = isolated gastrocnemius\n\nRisk Factors:\n• Runners\n• Sudden increase in activity\n• Poor footwear',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['achilles tendinitis', 'posterior ankle', 'overuse'],
+  },
+  {
+    id: 'fc-ankle-dd-3',
+    subcategory_id: 'msk-ankle-foot',
+    front_text: 'What is the presentation of Gastrocnemius Strain?',
+    back_text: 'GASTROCNEMIUS STRAIN\n\nAge: 20-40 years\nMOI: Sudden overload\nGrades: 1, 2, 3\n\nPresentation:\n• Pain in UPPER CALF\n• Heel raise increases symptoms\n• Antalgic gait\n• Active AND passive dorsiflexion painful and limited with knee EXTENDED\n• Resisted plantarflexion painful\n• Tender mid to upper calf on palpation\n\nKey Differentiators:\n• SUDDEN onset (vs gradual in tendinitis)\n• Pain in UPPER calf (vs lower in Achilles issues)\n• May have palpable defect in Grade 2-3\n\n"Tennis Leg" = classic gastrocnemius strain',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['gastrocnemius strain', 'calf strain', 'tennis leg'],
+  },
+  {
+    id: 'fc-ankle-dd-4',
+    subcategory_id: 'msk-ankle-foot',
+    front_text: 'What is the presentation of Posterior Tibialis Tendinitis?',
+    back_text: 'POSTERIOR TIBIALIS TENDINITIS\n\nAge: 20-40 years\nMOI: Overuse with flat, pronated foot\n\nPresentation:\n• Pain on MEDIAL ankle throughout tendon\n• Swelling may be present on medial ankle\n• Tenderness over medial ankle\n• Active AND passive plantarflexion and EVERSION painful\n• Resisted INVERSION with plantarflexed foot is painful\n\nFunction: Posterior tibialis = PRIMARY INVERTER\n\nProgression can lead to:\n• Adult-acquired flatfoot deformity\n• "Too many toes" sign (visible laterally from behind)\n\nKey: Pain with inversion resistance in plantarflexion',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['posterior tibialis', 'medial ankle', 'flatfoot'],
+  },
+  {
+    id: 'fc-ankle-dd-5',
+    subcategory_id: 'msk-ankle-foot',
+    front_text: 'What is the presentation of Anterior Tibialis Tendinitis?',
+    back_text: 'ANTERIOR TIBIALIS TENDINITIS\n\nAge: 15-45 years\nMOI: Overuse\n\nPresentation:\n• Symptoms increase with repetitive dorsiflexion on anterior lower leg\n• Combined active plantarflexion and inversion movements painful\n• Passive plantarflexion painful\n• Resisted DORSIFLEXION painful\n• Tenderness over anterior lower leg/tendon\n\nFunction: Anterior tibialis = PRIMARY DORSIFLEXOR\n\nDifferentiators:\n• Anterior leg pain (vs posterior in Achilles)\n• Pain with resisted dorsiflexion (vs plantarflexion)\n\nRisk: Runners, hikers (uphill walking)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['anterior tibialis', 'dorsiflexion', 'anterior ankle'],
+  },
+  {
+    id: 'fc-ankle-dd-6',
+    subcategory_id: 'msk-ankle-foot',
+    front_text: 'What is Shin Splints (Medial Tibial Stress Syndrome)?',
+    back_text: 'SHIN SPLINTS (Medial Tibial Stress Syndrome)\n\nAge: 15-30 years\nMOI: Overuse\n\nPresentation:\n• Pain on anterior lower leg, POSTERIOR-MEDIAL lower leg\n• Active combined plantarflexion and inversion painful\n• Resisted plantarflexion AND eversion painful\n• Tenderness on POSTEROMEDIAL calf (along tibial border)\n\nKey Features:\n• DIFFUSE tenderness along medial tibia\n  (vs focal point in stress fracture)\n• Pain decreases with activity warm-up\n  (vs stress fracture worsens)\n\nRisk Factors:\n• Overpronation\n• Sudden increase in activity\n• Hard running surfaces\n• Poor footwear',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['shin splints', 'MTSS', 'medial tibial stress syndrome'],
+  },
+  {
+    id: 'fc-ankle-dd-7',
+    subcategory_id: 'msk-ankle-foot',
+    front_text: 'What is Anterior Compartment Syndrome?',
+    back_text: 'ANTERIOR COMPARTMENT SYNDROME\n\nMOI: Direct trauma, muscle hypertrophy, fracture\n\nPathophysiology: Increased pressure in anterior compartment causing ISCHEMIC condition\n\nPresentation:\n• Severe cramping, DIFFUSE pain, tightness\n• Pain DECREASES with rest, INCREASES with activity\n• Pain WORSENS with stretching\n• Tender and TIGHT compartment on palpation\n\n6 P\'s:\n• Pain (out of proportion)\n• Pallor\n• Paresis (weakness)\n• Paresthesia\n• Pulselessness\n• Pressure (tense compartment)\n\nACUTE = EMERGENCY SURGERY (fasciotomy)\n\nNote: Can also have chronic exertional compartment syndrome',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['compartment syndrome', 'emergency', '6 Ps', 'fasciotomy'],
+  },
+  {
+    id: 'fc-ankle-dd-8',
+    subcategory_id: 'msk-ankle-foot',
+    front_text: 'What is Morton\'s Neuroma?',
+    back_text: 'MORTON\'S NEUROMA\n\nAge: 40-60 years\nMOI: Gradual, unknown cause\n\nPathology: Thickening of interdigital nerve\nMost common: Between 3rd and 4th metatarsals\n\nPresentation:\n• Weight-bearing increases symptoms on sole of foot\n• Pronated foot or flattened arch observed\n• Passive toe extension painful\n• Tenderness with palpation in WEB SPACE of toes\n• Burning, numbness between toes\n\nSpecial Test: MULDER\'S CLICK\n• Squeeze metatarsals while pressing plantar web space\n• Produces palpable click and pain\n\nRisk Factors:\n• High heels\n• Tight shoes\n• Repetitive stress',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['Morton neuroma', 'interdigital nerve', 'Mulder click'],
+  },
+  {
+    id: 'fc-ankle-dd-9',
+    subcategory_id: 'msk-ankle-foot',
+    front_text: 'What is Tarsal Tunnel Syndrome?',
+    back_text: 'TARSAL TUNNEL SYNDROME\n\nAge: 25-50 years\nMOI: Post-traumatic, rapid weight gain, fluid retention, inflammatory, abnormal biomechanics, valgus foot deformity\n\nPathology: Compression of POSTERIOR TIBIAL NERVE\n\nPresentation:\n• Symptoms at medial malleolus, distribution of posterior tibial nerve\n• May radiate up leg OR down into medial arch, plantar surface, toes\n• Symptoms increase with excessive pronation in walking/running\n• Pronated foot, pes planus observed\n• Passive plantarflexion and eversion painful\n• Resisted toe flexion painful\n\nSpecial Test: TINEL\'S SIGN positive at tarsal tunnel\n\nThink: "Carpal tunnel of the ankle"',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['tarsal tunnel syndrome', 'posterior tibial nerve', 'Tinel sign'],
+  },
+  {
+    id: 'fc-ankle-dd-10',
+    subcategory_id: 'msk-ankle-foot',
+    front_text: 'What is the presentation of Metatarsal Stress Fracture?',
+    back_text: 'METATARSAL STRESS FRACTURE\n\nAge: 15-45 years\nMOI: Overuse (repetitive loading)\n\nMost Common: 2nd and 3rd metatarsals\n\nPresentation:\n• Symptoms increase with weight-bearing activities on forefoot\n• Tenderness FOCAL over fracture site\n  (vs diffuse in shin splints)\n• Swelling over dorsum of foot\n• Pain worsens progressively\n\nDiagnostic Testing:\n• Palpation\n• Tuning fork test\n• Ultrasound\n• Bone scan (early detection)\n• MRI\n• CT scan\n• X-ray (may be negative for 2-3 weeks)\n\n"March Fracture" = classic metatarsal stress fracture',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['stress fracture', 'metatarsal', 'march fracture'],
+  },
+  {
+    id: 'fc-ankle-dd-11',
+    subcategory_id: 'msk-ankle-foot',
+    front_text: 'What is the presentation of Midfoot Sprain?',
+    back_text: 'MIDFOOT SPRAIN (Lisfranc Injury)\n\nAge: 15-40 years\nMOI: High impact landing, foot twisted when in fixed position\n\nPresentation:\n• Walking on toes increases symptoms on midfoot\n• Generalized tenderness of midfoot\n• Pain during passive midfoot pronation and supination\n  while hindfoot is stabilized\n• Swelling, ecchymosis on dorsum\n• Inability to bear weight (severe)\n\nDiagnostic: Weight-bearing lateral and AP radiographs\n• Look for widening between 1st and 2nd metatarsal bases\n\nIMPORTANT: Often missed!\n• High suspicion in high-energy mechanism\n• Missed Lisfranc leads to chronic midfoot arthritis',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['midfoot sprain', 'Lisfranc injury', 'tarsometatarsal'],
+  },
+  {
+    id: 'fc-ankle-dd-12',
+    subcategory_id: 'msk-ankle-foot',
+    front_text: 'What is Sever\'s Disease (Calcaneal Apophysitis)?',
+    back_text: 'SEVER\'S DISEASE (Calcaneal Apophysitis)\n\nAge: 8-13 years (PEDIATRIC)\nMOI: Traction apophysitis at Achilles tendon insertion\n\nCauses: Foot pronation, tight gastroc-soleus complex, jumping/landing\n\nPresentation:\n• Limited dorsiflexion and stiffness\n• Pain over POSTERIOR-INFERIOR heel\n• Pain increases with weight-bearing\n• Pain RESOLVES with rest\n• Bilateral in 60% of cases\n\nSpecial Test: SQUEEZE TEST\n• Medial-lateral compression of calcaneus reproduces pain\n\nDiagnostic: X-ray (may show fragmentation of apophysis)\n\nTreatment:\n• Activity modification\n• Heel cups/lifts\n• Stretching gastrocnemius/soleus\n• Self-limiting: resolves with skeletal maturity',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['Sever disease', 'calcaneal apophysitis', 'pediatric', 'heel pain'],
+  },
+  {
+    id: 'fc-ankle-dd-13',
+    subcategory_id: 'msk-ankle-foot',
+    front_text: 'What are Forefoot Varus and Forefoot Valgus?',
+    back_text: 'FOREFOOT STRUCTURAL DEFORMITIES\n\nFOREFOOT VARUS:\n• Forefoot is INVERTED with subtalar joint in neutral\n• Medial side of forefoot elevated relative to lateral\n• Compensation: Excessive PRONATION during stance\n• Common finding in pes planus\n\nFOREFOOT VALGUS:\n• Forefoot is EVERTED with subtalar joint in neutral\n• Lateral side of forefoot elevated relative to medial\n• Compensation: Excessive SUPINATION during stance\n• Associated with lateral ankle instability\n\nAssessment:\n• Patient prone, subtalar in neutral\n• Compare plane of metatarsal heads to calcaneus\n\nClinical Significance:\n• Both lead to compensatory motions\n• Can contribute to overuse injuries',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['forefoot varus', 'forefoot valgus', 'structural deformity'],
+  },
+
+  // ==================== STROKE SYNDROMES ====================
+
+  {
+    id: 'fc-stroke-aca-1',
+    subcategory_id: 'neuro-stroke',
+    front_text: 'What are the signs of Anterior Cerebral Artery (ACA) Syndrome?',
+    back_text: 'ANTERIOR CEREBRAL ARTERY SYNDROME\n\nMotor/Sensory:\n• C/L Hemiparesis - mainly LOWER EXTREMITY\n• C/L Hemisensory loss - mainly LE\n\nOther Signs:\n• Urinary incontinence\n• Problems with imitation and bimanual tasks\n• Apraxia\n• ABULIA: Slowness, delay, lack of spontaneity, motor inaction\n• C/L grasp reflex\n• Sucking reflex\n\nMnemonic: "ACA = LEG"\n• Anterior Cerebral Artery affects the LEG predominantly\n\nNote: ACA supplies medial surface of frontal and parietal lobes (leg area of homunculus)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ACA', 'stroke', 'anterior cerebral artery'],
+  },
+  {
+    id: 'fc-stroke-mca-1',
+    subcategory_id: 'neuro-stroke',
+    front_text: 'What are the signs of Middle Cerebral Artery (MCA) Syndrome?',
+    back_text: 'MIDDLE CEREBRAL ARTERY SYNDROME\n\nMotor/Sensory:\n• C/L Hemiparesis - mainly UPPER EXTREMITY and FACE\n• C/L Hemisensory loss - mainly UE\n• C/L Homonymous Hemianopsia (HH)\n\nLanguage (if dominant hemisphere):\n• BROCA\'s aphasia (expressive, nonfluent)\n• WERNICKE\'s aphasia (receptive, fluent)\n• Global aphasia\n\nPerceptual (if non-dominant hemisphere):\n• Unilateral neglect\n• Depth perception deficits\n• Spatial relations problems\n• Agnosia\n\nOther:\n• Limb-kinetic apraxia\n• Loss of conjugate gaze to opposite side\n• Ataxia of C/L limb\n• Pure motor hemiplegia (LACUNAR STROKE)\n\nMnemonic: "MCA = ARM and FACE"',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['MCA', 'stroke', 'middle cerebral artery', 'aphasia'],
+  },
+  {
+    id: 'fc-stroke-pca-1',
+    subcategory_id: 'neuro-stroke',
+    front_text: 'What are the signs of Posterior Cerebral Artery (PCA) Syndrome?',
+    back_text: 'POSTERIOR CEREBRAL ARTERY SYNDROME\n\nPERIPHERAL TERRITORY:\n• C/L Homonymous Hemianopsia\n• Visual agnosia\n• Prosopagnosia (can\'t recognize faces)\n• Topographic disorientation\n• Dyslexia WITHOUT agraphia\n• Color naming (anomia) and discrimination problems\n• Memory defect\n\nCENTRAL TERRITORY:\n• Central post-stroke (THALAMIC) pain\n• Involuntary movements:\n  - Choreoathetosis\n  - Intention tremor\n  - Hemiballismus\n• C/L hemiplegia\n• WEBER\'S SYNDROME: CN III palsy + C/L hemiplegia\n• Paresis of vertical eye movements\n• Slight miosis, ptosis\n• Sluggish pupillary light response\n\nMnemonic: "PCA = VISION and THALAMUS"',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['PCA', 'stroke', 'posterior cerebral artery', 'thalamic pain'],
+  },
+
+  // ==================== AFO TYPES ====================
+
+  {
+    id: 'fc-afo-types-1',
+    subcategory_id: 'equip-orthotic',
+    front_text: 'What are the different types of AFOs and their functions?',
+    back_text: 'AFO TYPES:\n\n1. POSTERIOR LEAF SPRING:\n• Bends backward in early stance, recoils in swing\n• Assists dorsiflexion\n• Lightweight, NO medial-lateral stability\n\n2. DORSIFLEXION SPRING ASSIST (Klenzak):\n• Spring compresses in stance, rebounds in swing\n• Steel spring, bulkier\n• AVOID with spasticity\n\n3. POSTERIOR STOP AFO:\n• LIMITS plantarflexion, prevents toe drag\n• Creates flexion force at knee in early stance\n• Prevents hyperextension\n\n4. ANTERIOR STOP AFO:\n• LIMITS dorsiflexion\n• Helps achieve propulsion in late stance\n• For triceps surae paralysis\n\n5. SOLID AFO:\n• Limits ALL foot/ankle motion\n• Plastic, trimlines anterior to malleoli',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['AFO', 'orthosis', 'posterior leaf spring', 'Klenzak'],
+  },
+
+  // ==================== WALKER TYPES ====================
+
+  {
+    id: 'fc-walker-types-1',
+    subcategory_id: 'equip-assistive',
+    front_text: 'What are the differences between anterior and posterior walkers?',
+    back_text: 'WALKER TYPES:\n\nROLLATOR (with wheels):\n• Most commonly used\n• Allows continuous forward motion\n\nFORWARD (ANTERIOR) WALKER:\n• Walker in FRONT of patient\n• Encourages FORWARD trunk lean\n• Provides MAXIMUM ANTERIOR stability\n• May increase flexed posture\n\nPOSTERIOR (REVERSE) WALKER:\n• Walker BEHIND patient\n• Encourages TRUNK EXTENSION\n• Promotes shoulder depression\n• Encourages elbow extension\n• Neutral wrist position\n• May DECREASE SCISSORING\n• Better for upright posture\n\nGAIT TRAINER:\n• Offers MAXIMAL support to UE and trunk\n• For patients needing most assistance\n\nPediatric Note:\n• Power wheelchair can be used as early as 18 months',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['walker', 'anterior walker', 'posterior walker', 'rollator'],
+  },
+
+  // ==================== PERCEPTUAL DISORDERS ====================
+
+  {
+    id: 'fc-percept-1',
+    subcategory_id: 'neuro-perception',
+    front_text: 'What are the key perceptual disorders in stroke patients?',
+    back_text: 'PERCEPTUAL DISORDERS:\n\nBODY SCHEME DISORDERS:\n• UNILATERAL NEGLECT: Inability to integrate stimuli from one side (usually LEFT); lesion in RIGHT parietal lobe\n• ANOSOGNOSIA: Lack of awareness/denial of paretic extremity or disability\n• SOMATOAGNOSIA: Lack of awareness of body structure and relationship of parts\n• RIGHT-LEFT DISCRIMINATION: Can\'t identify right/left of self or others\n• FINGER AGNOSIA: Can\'t identify fingers\n\nSPATIAL RELATIONS:\n• FIGURE-GROUND: Can\'t distinguish figure from background\n• FORM DISCRIMINATION: Can\'t perceive subtle differences in form/shape\n\nAPRAXIAS:\n• IDEOMOTOR: Can do habitual tasks automatically but NOT on command (concept-performance breakdown)\n• IDEATIONAL: Can\'t perform motor acts automatically OR on command (concept is lost)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['perception', 'neglect', 'agnosia', 'apraxia'],
+  },
+
+  // ==================== HAND DEFORMITIES ====================
+
+  {
+    id: 'fc-hand-deform-1',
+    subcategory_id: 'msk-wrist-hand',
+    front_text: 'What are the common hand deformities and their causes?',
+    back_text: 'HAND DEFORMITIES:\n\nNERVE PALSIES:\n• APE HAND: Wasting of thenar eminence; MEDIAN nerve; can\'t oppose thumb\n• BISHOP\'S/BENEDICTION: Wasting of hypothenar; ULNAR nerve\n• CLAW FINGERS: Combined median + ulnar palsy; MCP hyperextension with IP flexion\n\nRHEUMATOID DEFORMITIES:\n• BOUTONNIERE: PIP FLEXION + DIP EXTENSION\n• SWAN NECK: PIP EXTENSION + DIP FLEXION\n\nOTHER:\n• DUPUYTREN CONTRACTURE: Palmar fascia contracture; fixed MCP and PIP flexion\n• TRIGGER FINGER: Tendon sticking due to thickened flexor sheath\n• DE QUERVAIN\'S: EPB and APL tendinitis; positive FINKELSTEIN\'S test\n\nMnemonic for Swan vs Boutonniere:\n• "Swan = Straight PIP" (extension)\n• "Boutonniere = Bent PIP" (flexion)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['hand deformity', 'ape hand', 'swan neck', 'boutonniere'],
+  },
+
+  // ==================== UMN vs LMN ====================
+
+  {
+    id: 'fc-umn-lmn-1',
+    subcategory_id: 'neuro-fundamentals',
+    front_text: 'What are the differences between UMN and LMN lesions?',
+    back_text: 'UMN vs LMN LESIONS:\n\n| Feature | UMN | LMN |\n|---------|-----|-----|\nLocation | CNS (above anterior horn) | PNS (at/below anterior horn)\nTone | HYPERTONIC (spastic) | HYPOTONIC (flaccid)\nReflexes | HYPERREFLEXIA | HYPOREFLEXIA\nBabinski | POSITIVE (upgoing toe) | Negative\nClonus | Present | Absent\nAtrophy | Disuse (slow, widespread) | Neurogenic (rapid, focal)\nInvoluntary | Muscle SPASMS | FASCICULATIONS\n\nUMN Conditions:\n• Stroke, MS, SCI (above injury)\n\nLMN Conditions:\n• GBS, Polio, peripheral neuropathy\n\nALS: BOTH UMN + LMN signs!',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['UMN', 'LMN', 'spasticity', 'flaccid'],
+  },
+
+  // ==================== HEART SOUNDS ====================
+
+  {
+    id: 'fc-heart-sounds-1',
+    subcategory_id: 'cardio-examination',
+    front_text: 'What are the heart sounds and their significance?',
+    back_text: 'HEART SOUNDS:\n\nS1 ("LUB"):\n• AV valves closing (Mitral + Tricuspid)\n• Onset of SYSTOLE\n\nS2 ("DUB"):\n• Semilunar valves closing (Aortic + Pulmonic)\n• Onset of DIASTOLE\n\nS3 (VENTRICULAR GALLOP):\n• Early diastole\n• HALLMARK SIGN OF CHF\n• "Ken-TUC-ky" rhythm\n• Normal in young, athletes\n\nS4 (ATRIAL GALLOP):\n• Late diastole\n• Associated with:\n  - MI\n  - HTN\n  - LV hypertrophy\n• "TEN-nes-see" rhythm\n\nAUSCULTATION LANDMARKS:\n• Aortic: 2nd ICS, RIGHT sternal border\n• Pulmonic: 2nd ICS, LEFT sternal border\n• Tricuspid: 4th ICS, LEFT sternal border\n• Mitral: 5th ICS, LEFT MIDCLAVICULAR (best for S3)\n• Erb\'s Point: 3rd LEFT ICS',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['heart sounds', 'S3', 'S4', 'auscultation'],
+  },
+
+  // ==================== BLOOD PRESSURE CLASSIFICATION ====================
+
+  {
+    id: 'fc-bp-class-1',
+    subcategory_id: 'cardio-examination',
+    front_text: 'What is the blood pressure classification?',
+    back_text: 'BLOOD PRESSURE CLASSIFICATION (2017 ACC/AHA):\n\n| Category | Systolic | | Diastolic |\n|----------|----------|---|----------|\n| Normal | <120 | AND | <80 |\n| Elevated | 120-129 | AND | <80 |\n| Stage 1 HTN | 130-139 | OR | 80-89 |\n| Stage 2 HTN | ≥140 | OR | ≥90 |\n| HTN Crisis | >180 | AND/OR | >120 |\n\nHEART RATE:\n• Normal adults: 60-100 bpm (avg 80)\n• Athletes: 40-60 bpm\n• Newborns: 80-180 bpm (avg 130)\n• Tachycardia: >100 bpm\n• Bradycardia: <60 bpm\n\nPULSE GRADING:\n• 0: Absent\n• 1+: Diminished, barely palpable\n• 2+: Normal\n• 3+: Full, increased\n• 4+: Bounding',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['blood pressure', 'hypertension', 'heart rate'],
+  },
+
+  // ==================== LEFT vs RIGHT HEART FAILURE ====================
+
+  {
+    id: 'fc-heart-failure-1',
+    subcategory_id: 'cardio-conditions',
+    front_text: 'What are the differences between left and right heart failure?',
+    back_text: 'LEFT vs RIGHT HEART FAILURE:\n\nLEFT HEART FAILURE:\n• LV insult → fluid backs up into LUNGS\n• PULMONARY edema\n\nHallmark Signs:\n• Shortness of breath (SOB)\n• Cough (pink frothy sputum)\n• Orthopnea\n• Paroxysmal nocturnal dyspnea\n• Crackles/rales\n\nRIGHT HEART FAILURE:\n• RV insult → fluid backs up into VENOUS system\n• SYSTEMIC congestion\n\nHallmark Signs:\n• Jugular Venous Distention (JVD)\n• PERIPHERAL edema (legs, ankles)\n• Hepatomegaly\n• Ascites\n• Weight gain\n\nMnemonic:\n• "LEFT = LUNGS"\n• "RIGHT = REST of body"',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['heart failure', 'CHF', 'left heart', 'right heart'],
+  },
+
+  // ==================== EDEMA PITTING SCALE ====================
+
+  {
+    id: 'fc-edema-scale-1',
+    subcategory_id: 'cardio-examination',
+    front_text: 'What is the pitting edema grading scale?',
+    back_text: 'PITTING EDEMA SCALE:\n\n1+ Trace:\n• Barely detectable indentation\n• Slight pit, no visible distortion\n• Disappears rapidly\n\n2+ Mild:\n• Slight indentation\n• Returns to normal in ≤15 seconds\n\n3+ Moderate:\n• Deep indentation\n• Returns to normal within 30 seconds\n\n4+ Severe:\n• Very deep indentation\n• Lasts >30 seconds\n• Visible swelling of extremity\n\nMeasurement:\n• Press firmly with thumb for 5 seconds\n• Measure depth and rebound time\n\nLocations to assess:\n• Ankle (medial malleolus)\n• Shin (tibial surface)\n• Sacrum (in bedridden patients)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['edema', 'pitting edema', 'grading'],
+  },
+
+  // ==================== ABI - ANKLE BRACHIAL INDEX ====================
+
+  {
+    id: 'fc-abi-1',
+    subcategory_id: 'cardio-examination',
+    front_text: 'How do you interpret Ankle-Brachial Index (ABI)?',
+    back_text: 'ANKLE-BRACHIAL INDEX (ABI):\n\nFormula: Ankle SBP ÷ Brachial SBP\n\nINTERPRETATION:\n• >1.2: FALSELY ELEVATED\n  (diabetes, calcified arteries)\n\n• 0.95-1.19: NORMAL\n\n• 0.75-0.94: MILD arterial disease\n  (intermittent claudication)\n\n• 0.50-0.74: MODERATE arterial disease\n  (rest pain may occur)\n\n• <0.50: SEVERE arterial disease\n  (tissue loss, gangrene risk)\n\nCLINICAL IMPLICATIONS:\n• ABI <0.9 = PAD diagnosis\n• <0.5 = NO compression therapy!\n• Toe-brachial index (TBI) used if ABI falsely elevated\n  - Normal TBI: >0.7',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ABI', 'ankle brachial index', 'PAD', 'arterial disease'],
+  },
+
+  // ==================== OUTCOME MEASURES ====================
+
+  {
+    id: 'fc-outcome-gcs-1',
+    subcategory_id: 'neuro-assessment',
+    front_text: 'What is the Glasgow Coma Scale (GCS)?',
+    back_text: 'GLASGOW COMA SCALE (GCS):\n\nEYE OPENING (1-4):\n• 4: Spontaneous\n• 3: To voice\n• 2: To pain\n• 1: None\n\nVERBAL RESPONSE (1-5):\n• 5: Oriented\n• 4: Confused\n• 3: Inappropriate words\n• 2: Incomprehensible sounds\n• 1: None\n\nMOTOR RESPONSE (1-6):\n• 6: Obeys commands\n• 5: Localizes pain\n• 4: Withdraws from pain\n• 3: Flexion (decorticate)\n• 2: Extension (decerebrate)\n• 1: None\n\nSCORING:\n• 13-15: MILD TBI\n• 9-12: MODERATE TBI\n• ≤8: SEVERE TBI (coma)\n\nTotal possible: 3-15',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['GCS', 'Glasgow Coma Scale', 'TBI'],
+  },
+  {
+    id: 'fc-outcome-rancho-1',
+    subcategory_id: 'neuro-assessment',
+    front_text: 'What are the Rancho Los Amigos Levels of Cognitive Functioning?',
+    back_text: 'RANCHO LOS AMIGOS LEVELS (LOCF):\n\nLevel I: NO RESPONSE\n• Total assistance\n\nLevel II: GENERALIZED RESPONSE\n• Inconsistent, non-purposeful\n\nLevel III: LOCALIZED RESPONSE\n• Inconsistent response to stimuli\n\nLevel IV: CONFUSED-AGITATED\n• Heightened activity, bizarre behavior\n• MOST CHALLENGING for therapy\n\nLevel V: CONFUSED-INAPPROPRIATE\n• Non-agitated, follows simple commands\n\nLevel VI: CONFUSED-APPROPRIATE\n• Goal-directed with cues\n\nLevel VII: AUTOMATIC-APPROPRIATE\n• Appropriate in familiar settings\n• Robot-like, poor insight\n\nLevel VIII: PURPOSEFUL-APPROPRIATE\n• Independent function\n• May have cognitive deficits\n\nNote: Level IV most difficult - keep environment calm, minimize stimulation',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['Rancho Los Amigos', 'LOCF', 'TBI', 'cognitive'],
+  },
+  {
+    id: 'fc-outcome-ashworth-1',
+    subcategory_id: 'neuro-assessment',
+    front_text: 'What is the Modified Ashworth Scale for spasticity?',
+    back_text: 'MODIFIED ASHWORTH SCALE:\n\n0: No increase in tone\n\n1: Slight increase\n• Catch and release at end of ROM\n\n1+: Slight increase\n• Catch followed by minimal resistance through <50% of ROM\n\n2: More marked increase\n• Through MOST of ROM\n• Limb easily moved\n\n3: Considerable increase\n• Passive movement DIFFICULT\n\n4: Rigid\n• Affected part RIGID in flexion or extension\n\nKEY POINTS:\n• Velocity-dependent (move at consistent speed)\n• Position patient consistently\n• Higher score = more spasticity\n• Used for UMN lesions (stroke, MS, SCI, CP)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['Ashworth', 'spasticity', 'tone', 'UMN'],
+  },
+  {
+    id: 'fc-outcome-balance-1',
+    subcategory_id: 'neuro-assessment',
+    front_text: 'What are the key balance and fall risk assessments?',
+    back_text: 'BALANCE AND FALL RISK TESTS:\n\nBERG BALANCE SCALE:\n• 14 tasks, scored 0-4 each\n• Maximum: 56 points\n• <45: Increased FALL RISK\n• <36: High fall risk (almost 100%)\n\nTIMED UP AND GO (TUG):\n• Stand from chair, walk 3m, turn, return, sit\n• <10 sec: Normal\n• 10-20 sec: Functional mobility\n• >20 sec: Impaired mobility\n• >30 sec: HIGH FALL RISK\n\nFUNCTIONAL REACH TEST:\n• Distance reached forward beyond arm length\n• <6 inches: Increased fall risk\n• Compare to age/gender norms\n\n6-MINUTE WALK TEST:\n• Measures aerobic capacity/endurance\n• Walk as far as possible in 6 min\n• Assistive devices permitted if normally used',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['Berg balance', 'TUG', 'fall risk', 'functional reach'],
+  },
+
+  // ==================== FIBROMYALGIA vs MPS ====================
+
+  {
+    id: 'fc-fibro-mps-1',
+    subcategory_id: 'msk-conditions',
+    front_text: 'What are the differences between Fibromyalgia and Myofascial Pain Syndrome?',
+    back_text: 'FIBROMYALGIA vs MYOFASCIAL PAIN SYNDROME:\n\n| Feature | Fibromyalgia | MPS |\n|---------|--------------|-----|\n| Pain location | Widespread | Localized/Regional |\n| Key finding | TENDER POINTS | TRIGGER POINTS |\n| Referred pain | NO | YES |\n| Muscle band | NO tight band | TIGHT BAND present |\n| Fatigue | YES (significant) | NO |\n| Sleep | Unrefreshing, disturbed | Not affected |\n| Morning stiffness | YES | Variable |\n| ROM | Decreased | Decreased |\n| Posture | Affected | Affected |\n\nFIBROMYALGIA:\n• 11 of 18 tender points for diagnosis\n• Chronic, widespread pain >3 months\n\nMYOFASCIAL PAIN SYNDROME:\n• Local twitch response\n• Jump sign\n• Treatment: Trigger point release, dry needling',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['fibromyalgia', 'myofascial pain', 'trigger points', 'tender points'],
+  },
+
+  // ==================== ALS ====================
+
+  {
+    id: 'fc-als-1',
+    subcategory_id: 'neuro-conditions',
+    front_text: 'What is the presentation of ALS (Lou Gehrig\'s Disease)?',
+    back_text: 'AMYOTROPHIC LATERAL SCLEROSIS (ALS)\n\nAlso known as: Lou Gehrig\'s Disease\n\nPathophysiology:\n• Progressive degeneration of MOTOR NEURONS\n• Affects spinal cord, brainstem, motor cortex\n• BOTH UMN + LMN signs\n\nAffected:\n• UMNs in cortex and corticospinal tracts\n• Brainstem nuclei: CN V, VII, IX, X, XII\n• Anterior horn cells\n\nSPARED:\n• CN III, IV, VI (eye movements preserved)\n• SENSORY system intact\n• Spinocerebellar tracts\n• Bowel/bladder (until late)\n\nPresentation:\n• Asymmetrical, focal at onset\n• Cervical extensor weakness typical\n• LMN signs: Weakness, hyporeflexia, atrophy, FASCICULATIONS\n• UMN signs: Spasticity, hyperreflexia\n• Bulbar signs: Dysarthria, dysphagia\n\nProgression: Relentless, fatal (2-5 years)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ALS', 'Lou Gehrig', 'motor neuron disease', 'UMN', 'LMN'],
+  },
+
+  // ==================== ANGINA TYPES ====================
+
+  {
+    id: 'fc-angina-1',
+    subcategory_id: 'cardio-conditions',
+    front_text: 'What are the types of angina pectoris?',
+    back_text: 'ANGINA PECTORIS:\n\nDefinition: Chest discomfort from myocardial ischemia\n• Location: Above waist (chest, neck, jaw, arm)\n• Description: Pressure, burning, tightness, squeezing\n\nTYPES:\n\nSTABLE ANGINA:\n• Occurs with EXERTION\n• Predictable pattern\n• Relieved by REST or NITROGLYCERIN\n• Lasts 3-5 minutes\n\nUNSTABLE ANGINA:\n• Occurs at REST\n• WORSENS with activity\n• New onset or changing pattern\n• Requires IMMEDIATE medical treatment\n• Pre-infarction angina\n\nVARIANT (PRINZMETAL\'S) ANGINA:\n• Caused by VASOSPASM\n• No occlusive disease\n• Occurs at rest, often at night\n• ST ELEVATION on ECG\n\nExercise: Stop if angina occurs; do not resume until medically cleared',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['angina', 'stable', 'unstable', 'Prinzmetal'],
+  },
+
+  // ==================== BREATHING EXERCISES ====================
+
+  {
+    id: 'fc-breathing-1',
+    subcategory_id: 'cardio-intervention',
+    front_text: 'What are the types of breathing exercises?',
+    back_text: 'BREATHING EXERCISES:\n\nDIAPHRAGMATIC BREATHING:\n• Increase ventilation, improve gas exchange\n• Decrease workload, facilitate relaxation\n• Facilitate outward abdominal motion\n• Reduce upper rib cage motion\n• Indications: Obstructive/restrictive disease, post-op, excessive secretions\n• NOT best for chronic pulmonary dysfunction\n\nPURSED LIP BREATHING:\n• Prolonged expiration through pursed lips\n• Prevents airway collapse (COPD)\n• Reduces air trapping\n• Ratio: 1:2 or 1:4 (inhale:exhale)\n\nLATERAL COSTAL BREATHING:\n• For asymmetrical chest expansion\n• Relieve localized consolidation\n\nSEGMENTAL BREATHING:\n• Improve ventilation to hypoventilated segments\n• Restore functional residual capacity\n\nIncentive Spirometry:\n• Visual feedback for sustained inspiration\n• Prevents atelectasis post-op',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['breathing exercises', 'diaphragmatic', 'pursed lip', 'pulmonary'],
+  },
+
+  // ==================== BREATH SOUNDS ====================
+
+  {
+    id: 'fc-breath-sounds-1',
+    subcategory_id: 'cardio-examination',
+    front_text: 'What are normal and abnormal breath sounds?',
+    back_text: 'BREATH SOUNDS:\n\nNORMAL:\n• VESICULAR: Soft, low-pitched; I > E\n  (heard over most lung fields)\n• BRONCHIAL: Loud, high-pitched; E > I\n  (heard over trachea)\n\nADVENTITIOUS (Abnormal):\n• WHEEZE: Continuous, high-pitched\n  - During EXPIRATION\n  - Asthma, COPD, airway narrowing\n\n• CRACKLE (Rales): Brief, popping\n  - Atelectasis, fibrosis, pulmonary edema\n  - Fine = early inspiration\n  - Coarse = throughout inspiration\n\n• RHONCHI: Low-pitched rattling/snoring\n  - Pneumonia, bronchitis\n  - Secretions in large airways\n\n• STRIDOR: Harsh, high-pitched crowing\n  - UPPER airway obstruction\n  - Medical EMERGENCY\n\nVOICE SOUNDS:\n• Egophony: "E" sounds like "A" (consolidation)\n• Bronchophony: "99" heard clearly (abnormal)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['breath sounds', 'wheeze', 'crackle', 'rhonchi', 'stridor'],
+  },
+
+  // ==================== POSTURAL DRAINAGE POSITIONS ====================
+
+  {
+    id: 'fc-postural-drain-1',
+    subcategory_id: 'cardio-intervention',
+    front_text: 'What are the postural drainage positions by lung segment?',
+    back_text: 'POSTURAL DRAINAGE POSITIONS:\n\nUPPER LOBES:\n• Apical: SUPINE or sitting upright\n• Anterior: SUPINE, flat\n• Posterior: PRONE or lean forward (over pillow)\n\nMIDDLE LOBE/LINGULA:\n• Table elevated 12 inches (foot end)\n• Side-lying with rotation\n• Right middle lobe: Left side-lying, 1/4 turn back\n• Lingula: Right side-lying, 1/4 turn back\n\nLOWER LOBES (BASAL):\n• Table elevated 18 inches (foot end)\n• Superior: PRONE, flat\n• Anterior basal: SUPINE, Trendelenburg\n• Lateral basal: Side-lying, Trendelenburg\n• Posterior basal: PRONE, Trendelenburg\n\nCONTRAINDICATIONS to head-down:\n• Increased ICP\n• Uncontrolled HTN\n• Recent esophageal surgery\n• Hemoptysis',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['postural drainage', 'chest PT', 'lung segments'],
+  },
+
+  // ==================== SCI FUNCTIONAL LEVELS ====================
+
+  {
+    id: 'fc-sci-levels-1',
+    subcategory_id: 'neuro-sci',
+    front_text: 'What are the SCI functional levels C1-C6?',
+    back_text: 'SCI FUNCTIONAL LEVELS (C1-C6):\n\nC1-C3:\n• Spared: Face, neck muscles\n• Function: Talking, sipping, chewing\n• Ventilator DEPENDENT\n\nC4:\n• Key muscle: DIAPHRAGM (partial), Trapezius\n• Function: Respiration, scapular elevation\n• May wean from vent\n\nC5:\n• Key muscles: BICEPS, Brachialis, Deltoid\n• Function: Shoulder flex/abd to 90°, elbow flexion\n• Can feed self with setup\n• Power wheelchair with hand controls\n\nC6:\n• Key muscles: Wrist extensors (ECRL, ECRB), Pec Major\n• Function: TENODESIS grasp\n• Can do transfers with sliding board\n• May drive with hand controls\n\nMnemonic: "C5 FLEXES, C6 EXTENDS (wrist)"',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['SCI', 'spinal cord injury', 'functional levels', 'tetraplegia'],
+  },
+  {
+    id: 'fc-sci-levels-2',
+    subcategory_id: 'neuro-sci',
+    front_text: 'What are the SCI functional levels C7-T1 and below?',
+    back_text: 'SCI FUNCTIONAL LEVELS (C7-T1+):\n\nC7:\n• Key muscle: TRICEPS, finger extensors\n• Function: Elbow extension, transfers\n• Independent wheelchair mobility\n• Can drive adapted vehicle\n\nC8:\n• Key muscles: Finger flexors, thumb\n• Function: Improved grip strength\n• Independent ADLs\n\nT1:\n• Key muscles: Hand intrinsics\n• Function: Fine motor, dexterity\n• Full UE function\n\nT6-T12:\n• Trunk control progressively improves\n• T10+: Good sitting balance\n\nL1-L2:\n• Hip flexion (iliopsoas)\n• May ambulate with KAFO + crutches\n\nL3-L4:\n• Knee extension (quads)\n• May ambulate with AFO + cane\n\nL5-S1:\n• Ankle function\n• Community ambulation possible',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['SCI', 'spinal cord injury', 'paraplegia', 'functional levels'],
+  },
+
+  // ==================== AGE-RELATED CHANGES ====================
+
+  {
+    id: 'fc-aging-1',
+    subcategory_id: 'system-interactions',
+    front_text: 'What are the age-related changes by body system?',
+    back_text: 'AGE-RELATED CHANGES:\n\nCARDIOVASCULAR:\n• Heart muscle degeneration\n• Valves thicken and stiffen\n• Resting BP rises (systolic > diastolic)\n• Decreased VO2 max and HR max\n\nPULMONARY:\n• Increased RR\n• Decreased lung elasticity\n• Increased residual volume (RV)\n• Decreased vital capacity (VC) and FEV1\n• Impaired cough mechanism\n\nINTEGUMENTARY:\n• Decreased collagen and hydration\n• Dry, yellowed, inelastic skin\n• Delayed wound healing\n• Decreased sweat production\n• Impaired temperature regulation\n\nVISION:\n• Presbyopia: Can\'t focus properly\n• Cataracts: Central vision loss first\n• Glaucoma: PERIPHERAL vision loss (tunnel vision)\n• Macular Degeneration: CENTRAL vision loss',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['aging', 'geriatric', 'age-related changes'],
+  },
+
+  // ==================== NORMAL END FEELS ====================
+
+  {
+    id: 'fc-end-feels-1',
+    subcategory_id: 'msk-fundamentals',
+    front_text: 'What are normal and abnormal end feels?',
+    back_text: 'END FEELS:\n\nNORMAL:\n• BONE TO BONE: Hard, abrupt stop\n  - Example: Elbow extension\n• SOFT TISSUE APPROXIMATION: Soft, spongy\n  - Example: Knee flexion, elbow flexion\n• TISSUE STRETCH: Firm, slight give\n  - Example: Ankle DF, shoulder ER, finger extension\n\nABNORMAL:\n• MUSCLE SPASM: Sudden stop with rebound\n  - Early: Protective (injury)\n  - Late: Instability or pain\n• CAPSULAR (hard): Frozen shoulder\n• CAPSULAR (soft): Synovitis, edema\n• SPRINGY BLOCK: Internal derangement\n  - Example: Meniscus tear\n• EMPTY: No resistance, patient stops due to pain\n  - Example: Acute bursitis, fracture, tumor\n\nKey: Empty end feel = pathology; refer!',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['end feel', 'joint assessment', 'range of motion'],
+  },
+
+  // ==================== CARPAL BONE PALPATION ====================
+
+  {
+    id: 'fc-carpal-palp-1',
+    subcategory_id: 'msk-wrist-hand',
+    front_text: 'Where do you palpate the carpal bones?',
+    back_text: 'CARPAL BONE PALPATION:\n\nPROXIMAL ROW (lateral to medial):\n• SCAPHOID: Anatomical snuffbox, distal to radial styloid\n  - Most commonly FRACTURED carpal\n• LUNATE: Distal and ulnar to Lister\'s tubercle\n  - Most commonly DISLOCATED carpal\n• TRIQUETRUM: Distal to ulnar styloid\n• PISIFORM: Palmar surface, at distal wrist crease\n  - Sits ON TOP of triquetrum\n\nDISTAL ROW (lateral to medial):\n• TRAPEZIUM: Proximal to 1st MC base, distal to scaphoid\n  - Tubercle at thenar eminence base\n• TRAPEZOID: Proximal to 2nd MC\n• CAPITATE: Small depression proximal to 3rd MC\n  - LARGEST carpal bone\n• HAMATE: Hook palpated distal and radial to pisiform\n\nMnemonic: "Some Lovers Try Positions That They Can\'t Handle"',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['carpal bones', 'wrist palpation', 'scaphoid', 'lunate'],
+  },
+
+  // ==================== DERMATOMES ====================
+
+  {
+    id: 'fc-dermatome-1',
+    subcategory_id: 'neuro-fundamentals',
+    front_text: 'What are the key dermatome landmarks for the upper extremity?',
+    back_text: 'UPPER EXTREMITY DERMATOMES:\n\nC1: Vertex of skull\nC2: Temple, forehead, occiput\nC3: Entire neck, posterior cheek\nC4: Shoulder area, clavicle\n\nC5: DELTOID area, lateral arm\nC6: THUMB and lateral forearm\nC7: MIDDLE FINGER, posterior forearm\nC8: LITTLE FINGER, medial forearm\nT1: Medial arm, axilla\nT2: Medial arm to elbow\n\nKEY LANDMARKS:\n• C5 = Lateral elbow\n• C6 = Thumb\n• C7 = Middle finger\n• C8 = Little finger\n• T1 = Medial elbow\n\nClinical: Test light touch and pinprick in dermatomal pattern',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['dermatome', 'sensory', 'upper extremity'],
+  },
+  {
+    id: 'fc-dermatome-2',
+    subcategory_id: 'neuro-fundamentals',
+    front_text: 'What are the key dermatome landmarks for the lower extremity?',
+    back_text: 'LOWER EXTREMITY DERMATOMES:\n\nL1: Back, groin, upper hip\nL2: Anterior thigh\nL3: KNEE (anterior/medial)\nL4: MEDIAL leg, medial foot, BIG TOE\nL5: LATERAL leg, dorsum foot, TOES 1-3\nS1: LATERAL foot, LITTLE TOE, posterior leg\nS2: Posterior thigh\nS3: Groin, medial thigh to knee\nS4-S5: Perineum, genitals (saddle area)\n\nKEY LANDMARKS:\n• L3 = Knee\n• L4 = Medial malleolus\n• L5 = Dorsum of foot (between 1st-2nd toe)\n• S1 = Lateral malleolus, heel\n\nSaddle Anesthesia (S2-S5):\n• RED FLAG for cauda equina syndrome!',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['dermatome', 'sensory', 'lower extremity'],
+  },
+
+  // ==================== MYOTOMES ====================
+
+  {
+    id: 'fc-myotome-1',
+    subcategory_id: 'neuro-fundamentals',
+    front_text: 'What are the key myotome levels?',
+    back_text: 'MYOTOMES:\n\nUPPER EXTREMITY:\n• C1-C2: Neck flexion\n• C3: Neck side flexion\n• C4: Shoulder shrug (trapezius)\n• C5: Shoulder ABDUCTION, elbow FLEXION\n• C6: Wrist EXTENSION, elbow flexion\n• C7: Elbow EXTENSION, wrist flexion\n• C8: FINGER FLEXION, thumb extension\n• T1: Finger ABDUCTION (intrinsics)\n\nLOWER EXTREMITY:\n• L1-L2: Hip FLEXION\n• L3: KNEE EXTENSION\n• L4: Ankle DORSIFLEXION\n• L5: Great toe EXTENSION (EHL)\n• S1: Ankle PLANTARFLEXION, hip extension\n• S2: Knee FLEXION\n\nMnemonic:\n"C5-6 picks up sticks (flex elbow)\nC7-8 lays them straight (extend elbow)"',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['myotome', 'motor', 'muscle testing'],
+  },
+
+  // ==================== DEEP TENDON REFLEXES ====================
+
+  {
+    id: 'fc-reflex-1',
+    subcategory_id: 'neuro-fundamentals',
+    front_text: 'What are the deep tendon reflexes and their spinal levels?',
+    back_text: 'DEEP TENDON REFLEXES:\n\n• C5-C6: BICEPS reflex\n• C5-C6: BRACHIORADIALIS reflex\n• C7-C8: TRICEPS reflex\n• L3-L4: PATELLAR (knee jerk) reflex\n• S1-S2: ACHILLES (ankle jerk) reflex\n\nGRADING SCALE:\n0: Absent (areflexia)\n1+: Diminished (hyporeflexia)\n2+: NORMAL\n3+: Brisk (hyperreflexia)\n4+: Clonus (sustained beating)\n\nPATHOLOGICAL REFLEXES:\n• BABINSKI: UMN lesion (upgoing toe)\n• HOFFMAN: UMN lesion (thumb/finger flexion)\n• Clonus: UMN lesion (>3 beats abnormal)\n\nMnemonic: "1-2-3-4-5-6-7-8"\nBiceps = 5-6, Triceps = 7-8\nPatella = L3-4, Achilles = S1-2',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['reflexes', 'DTR', 'Babinski', 'neurological exam'],
+  },
+
+  // ==================== SPINAL CORD TRACTS ====================
+
+  {
+    id: 'fc-spinal-tracts-1',
+    subcategory_id: 'neuro-fundamentals',
+    front_text: 'What are the ascending (sensory) spinal cord tracts?',
+    back_text: 'ASCENDING (SENSORY) TRACTS:\n\nDORSAL COLUMNS (posterior):\n• Fasciculus CUNEATUS: UE\n  - Proprioception, vibration, 2-point discrimination\n• Fasciculus GRACILIS: LE\n  - Same sensations\n• Cross at MEDULLA\n\nSPINOTHALAMIC TRACT:\n• LATERAL: Pain and temperature\n• ANTERIOR: Light touch, pressure\n• Cross at SPINAL CORD LEVEL (1-2 levels above entry)\n\nSPINOCEREBELLAR:\n• Unconscious proprioception to cerebellum\n• Ipsilateral (doesn\'t cross)\n\nClinical:\n• Brown-Séquard: Ipsilateral DC loss, C/L spinothalamic\n• Syringomyelia: "Cape-like" pain/temp loss (central cord)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['spinal tracts', 'dorsal columns', 'spinothalamic', 'ascending'],
+  },
+
+  // ==================== BRAIN LOBES ====================
+
+  {
+    id: 'fc-brain-lobes-1',
+    subcategory_id: 'neuro-fundamentals',
+    front_text: 'What are the functions of each brain lobe?',
+    back_text: 'BRAIN LOBE FUNCTIONS:\n\nFRONTAL LOBE:\n• Precentral gyrus = PRIMARY MOTOR cortex\n• Broca\'s area = EXPRESSIVE speech\n• Executive function, personality, judgment\n• Mnemonic: "BEAN" = Broca Expressive Aphasia Nonfluent\n\nPARIETAL LOBE:\n• Postcentral gyrus = PRIMARY SENSORY cortex\n• Spatial awareness, body scheme\n• Lesion: Tactile agnosia, neglect\n\nTEMPORAL LOBE:\n• Wernicke\'s area = RECEPTIVE speech\n• Hearing, memory, emotion\n• Mnemonic: "NEW GIB" = NonExpressive Wernicke Gibberish\n\nOCCIPITAL LOBE:\n• PRIMARY VISUAL cortex\n• Lesion: C/L homonymous hemianopsia, visual agnosia\n\nCEREBELLUM:\n• Coordination, balance, motor learning',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['brain lobes', 'Broca', 'Wernicke', 'motor cortex'],
+  },
+
+  // ==================== MULTIPLE SCLEROSIS ====================
+
+  {
+    id: 'fc-ms-1',
+    subcategory_id: 'neuro-conditions',
+    front_text: 'What is the presentation of Multiple Sclerosis?',
+    back_text: 'MULTIPLE SCLEROSIS (MS)\n\nPathology:\n• Autoimmune demyelination of CNS (UMN)\n• White matter plaques\n• Relapsing-remitting most common\n\nSigns & Symptoms:\n• FATIGUE: Most common symptom\n• OPTIC NEURITIS: Often first symptom\n  - Marcus Gunn pupil (APD)\n• Nystagmus\n• Intention tremor, ataxia\n• Spasticity, hyperreflexia\n• Foot drop, vaulting gait\n• Lhermitte\'s sign (electric shock with neck flexion)\n• UHTHOFF\'S PHENOMENON: Symptoms worsen with heat\n\nCharcot\'s Triad:\n• Intention tremor\n• Scanning speech\n• Nystagmus\n\nTreatment:\n• Avoid HEAT and fatigue\n• Energy conservation\n• Aerobic exercise beneficial',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['MS', 'multiple sclerosis', 'demyelination', 'Uhthoff'],
+  },
+
+  // ==================== PARKINSON'S DISEASE ====================
+
+  {
+    id: 'fc-parkinsons-1',
+    subcategory_id: 'neuro-conditions',
+    front_text: 'What are the cardinal signs of Parkinson\'s Disease?',
+    back_text: 'PARKINSON\'S DISEASE\n\nPathology:\n• Loss of dopamine in substantia nigra\n• Basal ganglia disorder\n\nCARDINAL SIGNS (TRAP):\n• T: TREMOR (resting, "pill-rolling")\n• R: RIGIDITY (leadpipe or cogwheel)\n• A: AKINESIA/Bradykinesia (slow movement)\n• P: POSTURAL instability\n\nOther Features:\n• Shuffling gait (festinating)\n• Decreased arm swing\n• Masked facies (expressionless)\n• Micrographia (small handwriting)\n• Freezing (motor blocks)\n• Forward flexed posture\n• Retropulsion\n\nNOT AFFECTED: Sensation, cognition (early)\n\nTreatment:\n• Large amplitude movements (LSVT BIG)\n• External cues (visual, auditory)\n• Rhythmic auditory stimulation',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['Parkinson', 'TRAP', 'basal ganglia', 'tremor'],
+  },
+
+  // ==================== GBS vs MG ====================
+
+  {
+    id: 'fc-gbs-mg-1',
+    subcategory_id: 'neuro-conditions',
+    front_text: 'What are the differences between GBS and Myasthenia Gravis?',
+    back_text: 'GBS vs MYASTHENIA GRAVIS:\n\nGUILLAIN-BARRÉ SYNDROME (GBS):\n• Location: Peripheral nerves (LMN)\n• Pattern: ASCENDING weakness\n  - Starts in legs, moves up\n• Onset: Acute (days-weeks)\n• Often follows viral illness\n• Areflexia, flaccid paralysis\n• Sensory involvement possible\n• Recovery: Months, often complete\n• Risk: Respiratory failure\n\nMYASTHENIA GRAVIS (MG):\n• Location: Neuromuscular junction (NMJ)\n• Pattern: DESCENDING, fluctuating\n  - Starts with eyes/face\n• Hallmarks:\n  - Ptosis (drooping eyelids)\n  - Diplopia\n  - FATIGABLE weakness\n  - Worse at END of day\n• Reflexes: NORMAL\n• No sensory loss\n• Tensilon test positive',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['GBS', 'Guillain-Barré', 'myasthenia gravis', 'NMJ'],
+  },
+
+  // ==================== BASAL GANGLIA vs CEREBELLAR ====================
+
+  {
+    id: 'fc-bg-cerebellar-1',
+    subcategory_id: 'neuro-conditions',
+    front_text: 'What are the differences between basal ganglia and cerebellar lesions?',
+    back_text: 'BASAL GANGLIA vs CEREBELLAR LESIONS:\n\nBASAL GANGLIA:\n• Akinesia/Bradykinesia\n• RESTING tremor (decreases with movement)\n• Rigidity (leadpipe/cogwheel)\n• Chorea (involuntary jerky movements)\n• Athetosis (slow writhing)\n• Hemiballismus (violent flinging)\n• Examples: Parkinson\'s, Huntington\'s\n\nCEREBELLAR:\n• Ataxia (incoordination)\n• INTENTION tremor (increases with movement)\n• Dysmetria (past-pointing)\n• Dysdiadochokinesia (can\'t do rapid alternating)\n• Nystagmus\n• Scanning/slurred speech\n• Hypotonia\n• Wide-based gait\n\nMnemonic for Cerebellar:\n"DANISH"\nDysmetria, Ataxia, Nystagmus, Intention tremor, Scanning speech, Hypotonia',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['basal ganglia', 'cerebellum', 'tremor', 'ataxia'],
+  },
+
+  // ==================== WOUND HEALING PHASES ====================
+
+  {
+    id: 'fc-wound-healing-1',
+    subcategory_id: 'integ-wounds',
+    front_text: 'What are the phases of wound healing?',
+    back_text: 'WOUND HEALING PHASES:\n\nPHASE 1: INFLAMMATION (Day 0-10)\n• Hemostasis (clotting)\n• Vasodilation, increased permeability\n• Phagocytosis (neutrophils, macrophages)\n• Signs: Redness, warmth, swelling, pain\n\nPHASE 2: PROLIFERATION (Day 3-20)\n• Granulation tissue forms\n• Fibroblasts secrete COLLAGEN\n• Angiogenesis (new blood vessels)\n• Epithelialization (wound contracts)\n• RED, beefy tissue = healthy\n\nPHASE 3: MATURATION/REMODELING (Day 9-2 years)\n• Collagen reorganizes\n• Scar strengthens\n• Initial: 15% tensile strength\n• Maximum: 80% tensile strength\n\nWOUND COLORS:\n• RED: Healthy granulation (protect)\n• YELLOW: Slough/fibrin (debride)\n• BLACK: Eschar/necrosis (debride)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['wound healing', 'inflammation', 'proliferation', 'remodeling'],
+  },
+
+  // ==================== BURN ZONES ====================
+
+  {
+    id: 'fc-burn-zones-1',
+    subcategory_id: 'integ-burns',
+    front_text: 'What are the three zones of a burn injury?',
+    back_text: 'BURN INJURY ZONES (Jackson\'s):\n\nZONE OF COAGULATION (center):\n• IRREVERSIBLE cell death\n• Maximum damage\n• Requires skin graft\n• White/charred appearance\n\nZONE OF STASIS (middle):\n• POTENTIALLY REVERSIBLE\n• Decreased perfusion\n• Cells may die within 24-48 hours if untreated\n• Critical zone for intervention\n• Goal: Prevent conversion to coagulation\n\nZONE OF HYPEREMIA (outer):\n• MINIMAL damage\n• Increased blood flow\n• Should recover in 7-10 days\n• Inflammatory response\n\nClinical Implications:\n• Adequate resuscitation prevents zone extension\n• Infection increases zone of coagulation\n• Edema peaks at 24-48 hours',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['burns', 'zone of coagulation', 'zone of stasis'],
+  },
+
+  // ==================== PREGNANCY CHANGES ====================
+
+  {
+    id: 'fc-pregnancy-1',
+    subcategory_id: 'system-interactions',
+    front_text: 'What are the physiological changes during pregnancy?',
+    back_text: 'PREGNANCY CHANGES:\n\nPOSTURAL:\n• Increased lumbar lordosis\n• Increased cervical lordosis\n• Kyphosis\n• Scapular protraction\n• Forward head posture\n• Anterior pelvic tilt\n\nCARDIOVASCULAR:\n• Blood volume increases 40-50%\n• HR increases 10-20 bpm\n• SUPINE HYPOTENSIVE SYNDROME:\n  - Avoid supine after 1st trimester\n  - Uterus compresses IVC\n  - Position: LEFT SIDE-LYING preferred\n\nMUSCULOSKELETAL:\n• Ligament laxity (relaxin hormone)\n• Diastasis recti (rectus separation)\n  - >4 finger widths = use binder\n\nEXERCISE:\n• 3-4 days/week recommended\n• Avoid Valsalva maneuver\n• Avoid supine exercise\n• Weight gain: 25-35 lbs normal',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['pregnancy', 'diastasis recti', 'supine hypotension'],
+  },
+
+  // ==================== FRACTURES ====================
+
+  {
+    id: 'fc-fractures-1',
+    subcategory_id: 'msk-wrist-hand',
+    front_text: 'What are Colles\' and Smith fractures?',
+    back_text: 'WRIST FRACTURES:\n\nCOLLES\' FRACTURE:\n• Distal radius fracture\n• FOOSH injury (Fall On OutStretched Hand)\n• DORSAL displacement\n• "DINNER FORK" deformity\n• Most common wrist fracture\n• Apex volar angulation\n\nSMITH FRACTURE:\n• Distal radius fracture\n• "Reverse Colles\'"\n• PALMAR (volar) displacement\n• "GARDEN SPADE" deformity\n• Fall on back of hand\n• Apex dorsal angulation\n\nMnemonic:\n• Colles = Christmas tree (apex points down/volar)\n• Smith = Shovel/Spade (apex points up/dorsal)\n\nOther Wrist Fractures:\n• Scaphoid: Snuffbox tenderness, FOOSH\n• Barton: Intra-articular distal radius',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['Colles fracture', 'Smith fracture', 'wrist', 'FOOSH'],
+  },
+
+  // ==================== ELBOW CONDITIONS ====================
+
+  {
+    id: 'fc-elbow-dd-1',
+    subcategory_id: 'msk-elbow',
+    front_text: 'What are lateral and medial epicondylitis?',
+    back_text: 'ELBOW EPICONDYLITIS:\n\nLATERAL EPICONDYLITIS (Tennis Elbow):\n• Degeneration of ECRB (extensor carpi radialis brevis)\n• Ages 30-50\n• Pain at LATERAL epicondyle\n• Painful: Passive wrist FLEXION\n• Painful: Resisted wrist EXTENSION\n• Cozen\'s test, Mill\'s test positive\n\nMEDIAL EPICONDYLITIS (Golfer\'s Elbow):\n• Degeneration of pronator teres, FCR\n• Pain at MEDIAL epicondyle\n• Painful: Passive wrist EXTENSION\n• Painful: Resisted wrist FLEXION\n• Less common than lateral\n\nTreatment for Both:\n• RICE, NSAIDs\n• TENS\n• Counterforce brace\n• Eccentric strengthening\n• Address grip strength\n\nMnemonic: "Tennis = Outside (Lateral)"',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['lateral epicondylitis', 'medial epicondylitis', 'tennis elbow', 'golfer elbow'],
+  },
+
+  // ==================== SHOULDER CONDITIONS ====================
+
+  {
+    id: 'fc-shoulder-dd-1',
+    subcategory_id: 'msk-shoulder',
+    front_text: 'What are the common shoulder conditions?',
+    back_text: 'SHOULDER CONDITIONS:\n\nADHESIVE CAPSULITIS (Frozen Shoulder):\n• Dense fibrosis of capsule\n• Restricted AROM AND PROM\n• Capsular pattern: ER > Abd > IR\n• Ages 40-65, females, diabetics\n• Treatment: GH mobs, ROM, may need MUA\n\nIMPINGEMENT SYNDROME:\n• Supraspinatus compressed under acromion\n• PAINFUL ARC: 60-120°\n• Neer, Hawkins-Kennedy positive\n• Treatment: RC/scapular strengthening\n\nROTATOR CUFF TEAR:\n• Microtrauma, degeneration\n• Night/resting pain\n• Loss of abduction/ER\n• Drop arm test positive\n• Treatment: PROM→AAROM→strengthening\n\nLABRAL TEAR (SLAP):\n• Superior labrum, biceps anchor\n• Clicking, catching\n• O\'Brien\'s test positive',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['adhesive capsulitis', 'impingement', 'rotator cuff tear', 'SLAP'],
+  },
+
+  // ==================== AQUATIC THERAPY ====================
+
+  {
+    id: 'fc-aquatic-1',
+    subcategory_id: 'therapeutic-modalities',
+    front_text: 'What are the physiological effects of aquatic therapy?',
+    back_text: 'AQUATIC THERAPY EFFECTS:\n\nCARDIOVASCULAR:\n• DECREASED HR and BP\n• INCREASED stroke volume and cardiac output\n• Compression effect on vessels\n\nRESPIRATORY:\n• DECREASED vital capacity\n• INCREASED work of breathing\n• Hydrostatic pressure on chest\n\nMUSCULOSKELETAL:\n• DECREASED weight bearing\n• DECREASED edema\n• Decreased joint compression\n\nHYDROSTATIC PRESSURE EFFECTS:\n• Decreases effusion\n• Assists venous return\n• Induces bradycardia\n\nWEIGHT BEARING BY DEPTH:\n• C7 level: 10% body weight\n• Xiphoid process: 33%\n• ASIS: 50%\n\nBUOYANCY:\n• Assists movement toward surface\n• Resists movement away from surface\n• Used for strengthening and ROM',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['aquatic therapy', 'hydrotherapy', 'buoyancy', 'hydrostatic pressure'],
+  },
+
+  // ==================== DEHYDRATION ====================
+
+  {
+    id: 'fc-dehydration-1',
+    subcategory_id: 'metabolic-conditions',
+    front_text: 'What are the types of dehydration?',
+    back_text: 'DEHYDRATION TYPES:\n\nLOSS OF WATER WITHOUT SOLUTES:\n(Hypertonic/Hypernatremic)\n• Excess concentration of solutes\n• Water moves OUT of cells\n• Severe CELLULAR dehydration\n• Causes: Inadequate intake, diabetes insipidus\n• Signs: Thirst, dry mucous membranes\n\nLOSS OF WATER AND SOLUTES:\n(Isotonic)\n• Proportional loss\n• Causes:\n  - Hemorrhage\n  - Profuse perspiration\n  - GI losses (vomiting, diarrhea)\n• Signs: Hypotension, tachycardia\n\nLOSS OF SOLUTES WITHOUT WATER:\n(Hypotonic/Hyponatremic)\n• Water moves INTO cells\n• Cell swelling\n• Causes: Excessive water intake, SIADH\n• Signs: Confusion, nausea, seizures',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['dehydration', 'hyponatremia', 'hypernatremia', 'fluid balance'],
+  },
+
+  // ==================== ENDOCRINE SYSTEM ====================
+
+  {
+    id: 'fc-endocrine-1',
+    subcategory_id: 'metabolic-conditions',
+    front_text: 'What are the key endocrine glands and their hormones?',
+    back_text: 'ENDOCRINE GLANDS:\n\nHYPOTHALAMUS:\n• Regulates ANS and homeostasis\n• "TALE": Temperature, Appetite, Libido, Emotion\n• Controls pituitary gland\n\nPITUITARY ("Master Gland"):\n• ANTERIOR: GH, ACTH, FSH, Prolactin, LH, TSH\n• POSTERIOR: ADH (antidiuretic), Oxytocin\n\nTHYROID:\n• T3, T4: Metabolism regulation\n• Hypo: Fatigue, weight gain, cold intolerance\n• Hyper: Weight loss, heat intolerance, tremor\n\nADRENAL GLANDS:\n• CORTEX:\n  - Aldosterone (fluid balance)\n  - Cortisol (metabolism, immune)\n• MEDULLA:\n  - Epinephrine, Norepinephrine\n  - Fight-or-flight response\n\nPANCREAS:\n• Insulin: Lowers blood glucose\n• Glucagon: Raises blood glucose',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['endocrine', 'pituitary', 'thyroid', 'adrenal'],
+  },
+
+  // ==================== ECG/AV BLOCKS ====================
+
+  {
+    id: 'fc-av-blocks-1',
+    subcategory_id: 'cardio-conditions',
+    front_text: 'What are the types of AV blocks?',
+    back_text: 'AV BLOCKS:\n\nFIRST DEGREE:\n• PR interval >0.20 seconds\n• PROLONGED but consistent\n• No dropped beats\n• Usually benign\n\nSECOND DEGREE - MOBITZ TYPE I (Wenckebach):\n• PR interval PROGRESSIVELY LENGTHENS\n• Then dropped beat\n• "Longer, longer, drop"\n• Usually benign, may observe\n\nSECOND DEGREE - MOBITZ TYPE II:\n• PR interval CONSTANT\n• Sudden dropped beats\n• More serious - may progress to 3rd degree\n• Often needs pacemaker\n\nTHIRD DEGREE (Complete):\n• NO conduction through AV node\n• Atria and ventricles beat independently\n• "AV dissociation"\n• Requires pacemaker\n\nMnemonic:\n• Mobitz I = "I get longer and tired"\n• Mobitz II = "II sudden death of the beat"',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['AV block', 'ECG', 'Wenckebach', 'Mobitz'],
+  },
+
+  // ==================== EXERCISE TERMINATION ====================
+
+  {
+    id: 'fc-exercise-term-1',
+    subcategory_id: 'cardio-intervention',
+    front_text: 'What are the criteria to terminate exercise testing?',
+    back_text: 'EXERCISE TEST TERMINATION CRITERIA:\n\nABSOLUTE (Must Stop):\n• ST depression ≥2.0 mm (ischemia)\n• Drop in SBP >10 mmHg with increased workload\n• Angina (moderate to severe)\n• CNS symptoms (ataxia, dizziness)\n• Signs of poor perfusion (cyanosis, pallor)\n• Sustained VT\n• Patient requests to stop\n\nBLOOD GAS CRITERIA:\n• PaO2 <55 mmHg or falls >20 mmHg\n• PaCO2 >65 mmHg or rises >10 mmHg\n• SpO2 <88%\n\nBP CRITERIA:\n• SBP >250 mmHg\n• DBP increases >20 mmHg\n\nOTHER:\n• Maximal SOB\n• Fatigue, leg cramps\n• Equipment failure\n• Arrhythmias (PVCs, new BBB)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['exercise test', 'termination criteria', 'stress test'],
+  },
+
+  // ==================== PULMONARY FUNCTION TESTS ====================
+
+  {
+    id: 'fc-pft-1',
+    subcategory_id: 'cardio-examination',
+    front_text: 'How do you interpret pulmonary function tests?',
+    back_text: 'PULMONARY FUNCTION TESTS:\n\nKEY VALUES:\n• Tidal Volume (TV): ~500 mL\n• FVC: Total exhaled after max inspiration\n• FEV1: Volume exhaled in FIRST SECOND\n• FEV1/FVC ratio: Normal >70%\n\nOBSTRUCTIVE (COPD, Asthma):\n• FEV1: DECREASED\n• FVC: Normal or decreased\n• FEV1/FVC: <70% (hallmark)\n• Air trapping, hyperinflation\n• Increased RV, TLC\n\nRESTRICTIVE (Fibrosis, Kyphoscoliosis):\n• FEV1: Decreased\n• FVC: DECREASED\n• FEV1/FVC: Normal or >80%\n• Can\'t expand lungs fully\n• Decreased TLC\n\n6-MINUTE WALK TEST:\n• Measures aerobic capacity\n• Walk as far as possible\n• Assistive devices allowed',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['PFT', 'pulmonary function', 'FEV1', 'obstructive', 'restrictive'],
+  },
+
+  // ==================== VENTILATION/PERFUSION ====================
+
+  {
+    id: 'fc-vq-1',
+    subcategory_id: 'cardio-conditions',
+    front_text: 'What is ventilation/perfusion (V/Q) matching?',
+    back_text: 'VENTILATION/PERFUSION (V/Q):\n\nNORMAL V/Q = 0.8\n\nUPRIGHT POSITION:\n• Gravity increases blood flow to BASES\n• Ventilation also greater at bases (but less so)\n\nAPICES (top of lungs):\n• V/Q ratio INCREASED\n• "Dead space" - ventilated but not perfused\n• Wasted ventilation\n\nBASES (bottom of lungs):\n• V/Q ratio DECREASED\n• "Shunt" - perfused but not ventilated\n• Blood passes without gas exchange\n\nV/Q MISMATCH:\n• SHUNT (low V/Q): Atelectasis, pneumonia\n  - Blood bypasses alveoli\n• DEAD SPACE (high V/Q): PE\n  - Ventilation wasted on unperfused areas\n\nPositioning:\n• Good lung DOWN maximizes perfusion\n• Bad lung DOWN for secretion drainage',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['V/Q', 'ventilation', 'perfusion', 'shunt', 'dead space'],
+  },
+
+  // ==================== CRANIAL NERVES ====================
+
+  {
+    id: 'fc-cn-1',
+    subcategory_id: 'neuro-fundamentals',
+    front_text: 'What are the cranial nerves and how are they tested?',
+    back_text: 'CRANIAL NERVES:\n\nI OLFACTORY: Smell (each nostril)\nII OPTIC: Vision, visual fields\nIII OCULOMOTOR: Pupil, eyelid, most eye movements\nIV TROCHLEAR: Superior oblique (look down and in)\nV TRIGEMINAL: Face sensation, mastication\n  • Neuralgia = "Tic Douloureux"\nVI ABDUCENS: Lateral rectus (lateral gaze)\nVII FACIAL: Facial expression, taste (ant 2/3)\n  • Bell\'s palsy (can\'t close eye, smile)\nVIII VESTIBULOCOCHLEAR: Hearing, balance\n  • Weber, Rinne tests\nIX GLOSSOPHARYNGEAL: Taste (post 1/3), gag\nX VAGUS: Swallowing, voice, gag\nXI ACCESSORY: SCM, trapezius\nXII HYPOGLOSSAL: Tongue movement\n  • Deviation TOWARD lesion side\n\nMnemonic: "Oh Oh Oh To Touch And Feel Very Good Velvet, AH"',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['cranial nerves', 'CN', 'neurological exam'],
+  },
+
+  // ==================== FIM SCALE ====================
+
+  {
+    id: 'fc-fim-1',
+    subcategory_id: 'neuro-assessment',
+    front_text: 'What is the Functional Independence Measure (FIM)?',
+    back_text: 'FUNCTIONAL INDEPENDENCE MEASURE (FIM):\n\n7 = COMPLETE INDEPENDENCE\n  • No helper, no device\n\n6 = MODIFIED INDEPENDENCE\n  • Uses device, extra time, or safety concerns\n\n5 = SUPERVISION/SETUP\n  • Helper provides cueing, setup only\n  • No physical contact\n\n4 = MINIMAL ASSIST\n  • Patient does 75%+\n  • Helper touches patient\n\n3 = MODERATE ASSIST\n  • Patient does 50-74%\n\n2 = MAXIMAL ASSIST\n  • Patient does 25-49%\n\n1 = TOTAL ASSIST\n  • Patient does <25%\n\n18 ITEMS ASSESSED:\n• Self-care (6)\n• Sphincter control (2)\n• Transfers (3)\n• Locomotion (2)\n• Communication (2)\n• Social cognition (3)\n\nScore range: 18-126',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['FIM', 'functional independence', 'outcome measure'],
+  },
+
+  // ==================== ASIA SCALE ====================
+
+  {
+    id: 'fc-asia-1',
+    subcategory_id: 'neuro-sci',
+    front_text: 'What is the ASIA Impairment Scale for SCI?',
+    back_text: 'ASIA IMPAIRMENT SCALE:\n\nA = COMPLETE\n• No motor or sensory function in S4-S5\n\nB = SENSORY INCOMPLETE\n• Sensory but NO motor function below level\n• Includes S4-S5 segments\n\nC = MOTOR INCOMPLETE\n• Motor function below level\n• More than half of key muscles <3/5\n\nD = MOTOR INCOMPLETE\n• Motor function below level\n• At least half of key muscles ≥3/5\n\nE = NORMAL\n• Motor and sensory function normal\n\nKEY MUSCLES TESTED (10 pairs):\n• C5: Elbow flexors (biceps)\n• C6: Wrist extensors\n• C7: Elbow extensors (triceps)\n• C8: Finger flexors\n• T1: Finger abductors\n• L2: Hip flexors\n• L3: Knee extensors\n• L4: Ankle dorsiflexors\n• L5: Great toe extensors\n• S1: Ankle plantarflexors',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ASIA', 'spinal cord injury', 'impairment scale'],
+  },
+
+  // ==================== NORMAL ROM VALUES ====================
+
+  {
+    id: 'fc-rom-1',
+    subcategory_id: 'msk-fundamentals',
+    front_text: 'What are normal ROM values for the upper extremity?',
+    back_text: 'UPPER EXTREMITY NORMAL ROM:\n\nSHOULDER:\n• Flexion: 160-180°\n• Extension: 50-60°\n• Abduction: 170-180°\n• Adduction: 50-75°\n• External rotation: 80-90°\n• Internal rotation: 60-100°\n\nELBOW:\n• Flexion: 140-150°\n• Extension: 0° (slight hyperextension normal)\n• Supination: 80-90°\n• Pronation: 80-90°\n\nWRIST:\n• Flexion: 80-90°\n• Extension: 70-90°\n• Radial deviation: 20°\n• Ulnar deviation: 30-35°\n\nTHUMB:\n• CMC flexion: 15-45°\n• CMC extension: 0-20°\n• MCP flexion: 50°\n• IP flexion: 80-90°',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ROM', 'range of motion', 'upper extremity'],
+  },
+  {
+    id: 'fc-rom-2',
+    subcategory_id: 'msk-fundamentals',
+    front_text: 'What are normal ROM values for the lower extremity?',
+    back_text: 'LOWER EXTREMITY NORMAL ROM:\n\nHIP:\n• Flexion: 110-120°\n• Extension: 10-15° (prone)\n• Abduction: 30-50°\n• Adduction: 25-30°\n• External rotation: 40-60°\n• Internal rotation: 30-40°\n\nKNEE:\n• Flexion: 130-150°\n• Extension: 0° (5-10° hyperextension normal)\n\nANKLE:\n• Dorsiflexion: 20°\n• Plantarflexion: 40-50°\n• Inversion: 35-45°\n• Eversion: 15-25°\n\nGreat Toe:\n• MTP flexion: 45°\n• MTP extension: 70-90°\n\nCapsular Patterns:\n• Hip: IR > Flex > Abd > Ext\n• Knee: Flex > Ext\n• Ankle: PF > DF',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ROM', 'range of motion', 'lower extremity'],
+  },
+
+  // ==================== ROTATOR CUFF MUSCLES ====================
+
+  {
+    id: 'fc-rotator-cuff-1',
+    subcategory_id: 'msk-shoulder',
+    front_text: 'What are the rotator cuff muscles and their actions?',
+    back_text: 'ROTATOR CUFF MUSCLES (SITS):\n\nSUPRASPINATUS:\n• Action: Initiate abduction (first 15°)\n• Test: Empty can (Jobe\'s)\n• Nerve: Suprascapular (C5-C6)\n\nINFRASPINATUS:\n• Action: External rotation (most important ER)\n• Test: ER lag sign, resist ER\n• Nerve: Suprascapular (C5-C6)\n\nTERES MINOR:\n• Action: External rotation\n• Test: Hornblower\'s sign\n• Nerve: Axillary (C5-C6)\n\nSUBSCAPULARIS:\n• Action: Internal rotation (most important IR)\n• Test: Lift-off, Belly press\n• Nerve: Upper/Lower subscapular (C5-C6)\n\nFunction:\n• Compress humeral head into glenoid\n• Dynamic stabilizers of GH joint\n\nMnemonic: "SITS" muscles sit on the rotator cuff',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['rotator cuff', 'SITS', 'supraspinatus', 'infraspinatus'],
+  },
+
+  // ==================== BRACHIAL PLEXUS ====================
+
+  {
+    id: 'fc-brachial-plexus-1',
+    subcategory_id: 'neuro-fundamentals',
+    front_text: 'What are the major nerves of the brachial plexus?',
+    back_text: 'BRACHIAL PLEXUS (C5-T1):\n\nLATERAL CORD:\n• Musculocutaneous (C5-C7)\n  - Biceps, brachialis, coracobrachialis\n  - Elbow flexion, supination\n• Lateral pectoral → pec major\n\nPOSTERIOR CORD:\n• Axillary (C5-C6)\n  - Deltoid, teres minor\n• Radial (C5-T1)\n  - Triceps, wrist/finger extensors\n  - "Wrist drop" if injured\n\nMEDIAL CORD:\n• Ulnar (C8-T1)\n  - Hand intrinsics, FCU\n  - "Claw hand"\n• Medial pectoral → pec major/minor\n\nLATERAL + MEDIAL:\n• Median (C6-T1)\n  - Forearm flexors/pronators\n  - Thenar muscles\n  - "Ape hand"\n\nMnemonic: "Robert Taylor Drinks Cold Beer"\n(Roots, Trunks, Divisions, Cords, Branches)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['brachial plexus', 'radial nerve', 'median nerve', 'ulnar nerve'],
+  },
 ];
 
 // Practice questions

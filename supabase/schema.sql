@@ -45,10 +45,11 @@ CREATE TABLE flashcards (
 );
 
 -- User flashcard progress (spaced repetition)
+-- Note: flashcard_id is NOT a foreign key because the app uses local seed data
 CREATE TABLE user_flashcard_progress (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
-  flashcard_id UUID NOT NULL REFERENCES flashcards(id) ON DELETE CASCADE,
+  flashcard_id TEXT NOT NULL,  -- Uses local seed data IDs, not DB reference
   ease_factor DECIMAL(4,2) DEFAULT 2.5,
   interval INTEGER DEFAULT 0,
   repetitions INTEGER DEFAULT 0,
@@ -71,10 +72,11 @@ CREATE TABLE questions (
 );
 
 -- User question history
+-- Note: question_id is NOT a foreign key because the app uses local seed data
 CREATE TABLE user_question_history (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
-  question_id UUID NOT NULL REFERENCES questions(id) ON DELETE CASCADE,
+  question_id TEXT NOT NULL,  -- Uses local seed data IDs, not DB reference
   selected_answer INTEGER NOT NULL,
   is_correct BOOLEAN NOT NULL,
   answered_at TIMESTAMPTZ DEFAULT NOW()
