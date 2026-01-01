@@ -130,6 +130,9 @@ export const subcategories: Omit<Subcategory, 'created_at'>[] = [
   { id: 'metabolic-pregnancy', category_id: 'metabolic', name: 'Pregnancy', description: 'Pregnancy considerations for PT' },
   { id: 'metabolic-osteoporosis', category_id: 'metabolic', name: 'Osteoporosis', description: 'Bone density, risk factors, exercise guidelines' },
   { id: 'metabolic-obesity', category_id: 'metabolic', name: 'Obesity & Metabolic Syndrome', description: 'BMI classifications, metabolic syndrome criteria' },
+  { id: 'metabolic-adrenal', category_id: 'metabolic', name: 'Adrenal Disorders', description: 'Cushing syndrome, Addison disease, and PT implications' },
+  { id: 'metabolic-electrolytes', category_id: 'metabolic', name: 'Electrolyte & Acid-Base', description: 'Electrolyte imbalances and acid-base disorders' },
+  { id: 'metabolic-renal', category_id: 'metabolic', name: 'Renal & Liver Disease', description: 'Kidney disease stages, dialysis, liver disease and exercise' },
 
   // GI/GU
   { id: 'gigu-incontinence', category_id: 'gi-gu', name: 'Incontinence', description: 'Types and treatment of urinary incontinence' },
@@ -144,6 +147,8 @@ export const subcategories: Omit<Subcategory, 'created_at'>[] = [
   { id: 'equip-orthotics', category_id: 'equipment', name: 'Orthotics', description: 'AFOs, KAFOs, spinal orthotics' },
   { id: 'equip-wheelchairs', category_id: 'equipment', name: 'Wheelchairs', description: 'Wheelchair measurements and positioning' },
   { id: 'equip-weight-bearing', category_id: 'equipment', name: 'Weight Bearing Status', description: 'Weight bearing classifications and progressions' },
+  { id: 'equip-respiratory', category_id: 'equipment', name: 'Respiratory & Monitoring', description: 'Ventilators, oxygen delivery, pulse oximetry, monitoring devices' },
+  { id: 'equip-hospital', category_id: 'equipment', name: 'Hospital Equipment', description: 'Hospital beds, positioning devices, safety equipment' },
 
   // Therapeutic Modalities
   { id: 'modalities-pnf', category_id: 'therapeutic-modalities', name: 'PNF Patterns', description: 'D1 and D2 patterns' },
@@ -1214,6 +1219,152 @@ export const flashcards: Omit<Flashcard, 'created_at'>[] = [
     tags: ['heart failure', 'left vs right'],
   },
 
+  // Additional Cardiopulmonary Flashcards - Advanced Topics
+  {
+    id: 'fc-ecg-1',
+    subcategory_id: 'cardio-ecg',
+    front_text: 'What are the normal ECG interval values?',
+    back_text: 'PR Interval: 0.12-0.20 sec (3-5 small boxes)\n- <0.12 sec: Pre-excitation (WPW)\n- >0.20 sec: AV block\n\nQRS Complex: <0.12 sec (<3 small boxes)\n- >0.12 sec: Bundle branch block or ventricular origin\n\nQT Interval: 0.36-0.44 sec (varies with HR)\n- Use QTc (corrected) = QT / sqrt(R-R interval)\n- Prolonged QTc >0.44 sec (risk of Torsades)\n\nST Segment: Isoelectric (at baseline)\n- Elevation: MI, pericarditis\n- Depression: Ischemia, digoxin effect',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ECG', 'intervals', 'normal values'],
+  },
+  {
+    id: 'fc-ecg-2',
+    subcategory_id: 'cardio-ecg',
+    front_text: 'What do ST segment changes indicate on ECG?',
+    back_text: 'ST ELEVATION:\n- Acute MI (STEMI) - convex/tombstone shape\n- Pericarditis - diffuse, concave (saddle-shaped)\n- Ventricular aneurysm - persistent after MI\n- Early repolarization (benign variant)\n\nST DEPRESSION:\n- Myocardial ischemia\n- Reciprocal changes in MI\n- Digoxin effect (scooped/sagging)\n- Hypokalemia\n- Left ventricular hypertrophy (strain pattern)\n\nSTEMI criteria: >=1mm ST elevation in 2+ contiguous leads',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ECG', 'ST segment', 'MI', 'ischemia'],
+  },
+  {
+    id: 'fc-ecg-3',
+    subcategory_id: 'cardio-ecg',
+    front_text: 'What ECG leads correspond to which cardiac territory?',
+    back_text: 'Inferior Wall (RCA): Leads II, III, aVF\n\nAnterior Wall (LAD): Leads V1-V4\n- Septal: V1-V2\n- Anterior: V3-V4\n\nLateral Wall (LCx): Leads I, aVL, V5-V6\n\nPosterior Wall: Reciprocal changes in V1-V3 (ST depression, tall R waves)\n\nMnemonic for Inferior: "2-3-F goes to the Floor"\nMnemonic for Lateral: "I Love V5-V6" (I, aVL, V5-V6)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ECG', 'cardiac territories', 'coronary arteries'],
+  },
+  {
+    id: 'fc-ecg-4',
+    subcategory_id: 'cardio-ecg',
+    front_text: 'What are the characteristics of Atrial Flutter?',
+    back_text: 'Atrial Flutter:\n- Atrial rate: 250-350 bpm (typically 300)\n- Sawtooth pattern (flutter waves) - best seen in leads II, III, aVF\n- Regular atrial activity\n- AV block present (2:1, 3:1, 4:1 ratio)\n- Ventricular rate depends on conduction ratio\n  - 2:1 block = ~150 bpm (300/2)\n  - 4:1 block = ~75 bpm (300/4)\n\nCauses: Same as A-Fib (HTN, CAD, heart disease)\nTreatment: Rate control, cardioversion, ablation',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ECG', 'atrial flutter', 'arrhythmia'],
+  },
+  {
+    id: 'fc-ecg-5',
+    subcategory_id: 'cardio-ecg',
+    front_text: 'What are Supraventricular Tachycardias (SVT)?',
+    back_text: 'SVT: Rapid rhythms originating above ventricles\nRate: Usually 150-250 bpm\nQRS: Narrow (<0.12 sec) unless aberrant conduction\n\nTypes:\n1. AVNRT (AV nodal reentrant) - most common\n   - Reentry circuit within AV node\n   - Abrupt onset/offset\n\n2. AVRT (AV reentrant) - uses accessory pathway\n   - WPW syndrome when delta wave present\n\n3. Atrial Tachycardia - ectopic atrial focus\n\nVagal Maneuvers: May terminate SVT\n- Valsalva, carotid massage, cold water to face',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ECG', 'SVT', 'tachycardia'],
+  },
+  {
+    id: 'fc-pad-1',
+    subcategory_id: 'cardio-vitals',
+    front_text: 'What is the Fontaine Classification for Peripheral Arterial Disease?',
+    back_text: 'FONTAINE CLASSIFICATION (PAD Stages):\n\nStage I: Asymptomatic\n- May have diminished pulses\n- ABI may be abnormal\n\nStage II: Intermittent Claudication\n- IIa: Claudication >200 meters\n- IIb: Claudication <200 meters\n\nStage III: Rest Pain\n- Ischemic rest pain, usually at night\n- Pain relieved by dependency\n\nStage IV: Tissue Loss\n- Ulceration and/or gangrene\n- Critical limb ischemia\n- Limb-threatening\n\nExercise indicated for Stages I-II only',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['PAD', 'Fontaine classification', 'claudication'],
+  },
+  {
+    id: 'fc-pad-2',
+    subcategory_id: 'cardio-vitals',
+    front_text: 'What is Intermittent Claudication and its exercise prescription?',
+    back_text: 'INTERMITTENT CLAUDICATION:\n- Cramping pain in calves/buttocks with walking\n- Caused by inadequate blood flow (PAD)\n- Relieved by rest (typically 2-5 minutes)\n\nEXERCISE PRESCRIPTION:\n- Walk to moderate-to-maximal claudication pain (3-4/5)\n- Rest until pain subsides\n- Resume walking\n- Duration: 30-60 min total walking time\n- Frequency: 3-5 days/week\n- 12+ weeks of supervised training\n\nExpected Outcome:\n- 100-200% increase in pain-free walking distance\n- Improved collateral circulation',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['claudication', 'PAD', 'exercise prescription'],
+  },
+  {
+    id: 'fc-cardiac-calc-1',
+    subcategory_id: 'cardio-rehab',
+    front_text: 'How do you calculate Cardiac Output and related measures?',
+    back_text: 'CARDIAC OUTPUT (CO):\nCO = Heart Rate x Stroke Volume\nNormal: 4-8 L/min (average 5 L/min)\n\nSTROKE VOLUME (SV):\nSV = End-Diastolic Volume - End-Systolic Volume\nNormal: 60-100 mL/beat\n\nCARDIAC INDEX:\nCI = CO / Body Surface Area (BSA)\nNormal: 2.5-4.0 L/min/m2\n\nEJECTION FRACTION:\nEF = (SV / EDV) x 100%\nNormal: 55-70%',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['cardiac output', 'calculations', 'hemodynamics'],
+  },
+  {
+    id: 'fc-cardiac-calc-2',
+    subcategory_id: 'cardio-rehab',
+    front_text: 'How do you calculate Heart Rate Reserve using the Karvonen Formula?',
+    back_text: 'KARVONEN FORMULA (Heart Rate Reserve Method):\n\nTarget HR = (HRmax - HRrest) x % intensity + HRrest\n\nOr: THR = HRR x % intensity + HRrest\n\nWhere:\n- HRmax = 220 - age (or from stress test)\n- HRR (Heart Rate Reserve) = HRmax - HRrest\n\nEXAMPLE:\n60-year-old, resting HR 70, target 60% intensity\n- HRmax = 220 - 60 = 160 bpm\n- HRR = 160 - 70 = 90 bpm\n- THR = (90 x 0.60) + 70 = 54 + 70 = 124 bpm\n\nTypical training range: 40-85% HRR',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['Karvonen', 'heart rate reserve', 'THR calculation'],
+  },
+  {
+    id: 'fc-rpp-1',
+    subcategory_id: 'cardio-rehab',
+    front_text: 'What is Rate Pressure Product and how is it used clinically?',
+    back_text: 'RATE PRESSURE PRODUCT (RPP):\nRPP = Heart Rate x Systolic BP\n(Also called Double Product)\n\nSIGNIFICANCE:\n- Estimates myocardial oxygen demand\n- Correlates with anginal threshold\n- Used to set safe exercise limits in cardiac patients\n\nNORMAL VALUES:\n- Rest: 5,000-10,000\n- Maximal exercise: 20,000-40,000\n- Ischemic threshold variable per patient\n\nCLINICAL USE:\n- Patient develops angina at RPP 18,000\n- Keep exercise below this threshold\n- Reproducible measure of cardiac workload',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['rate pressure product', 'double product', 'myocardial oxygen demand'],
+  },
+  {
+    id: 'fc-borg-1',
+    subcategory_id: 'cardio-rehab',
+    front_text: 'Compare the Borg RPE (6-20) Scale vs CR10 Scale',
+    back_text: 'BORG RPE SCALE (6-20):\n6 = No exertion at all\n9 = Very light\n11 = Light\n13 = Somewhat hard\n15 = Hard\n17 = Very hard\n20 = Maximal exertion\n- Multiply by 10 approximates HR\n- Target: 12-16 for moderate exercise\n\nBORG CR10 SCALE (0-10):\n0 = Nothing at all\n2 = Weak\n4 = Somewhat strong\n6 = Strong\n8 = Very strong\n10 = Extremely strong/Maximal\n- Used for dyspnea and pain\n- Target: 3-5 for pulmonary patients\n\nUse RPE when HR unreliable (beta blockers, A-fib)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['Borg scale', 'RPE', 'CR10', 'perceived exertion'],
+  },
+  {
+    id: 'fc-met-1',
+    subcategory_id: 'cardio-rehab',
+    front_text: 'What are MET values for common activities?',
+    back_text: '1 MET = 3.5 mL O2/kg/min (resting metabolic rate)\n\nSEDENTARY (<1.5 METs):\n- Lying down, watching TV, desk work\n\nLIGHT (1.5-3 METs):\n- Walking 2 mph, light housework, standing\n\nMODERATE (3-6 METs):\n- Walking 3-4 mph, cycling 10 mph\n- Golf (walking), vacuuming, raking\n\nVIGOROUS (6-9 METs):\n- Jogging 5 mph, swimming laps\n- Tennis singles, shoveling snow\n\nVERY VIGOROUS (>9 METs):\n- Running 6+ mph, competitive sports\n- Rope jumping, rowing\n\nCardiac rehab Phase I: 1-3 METs\nPhase II: 3-6 METs progressing higher',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['MET values', 'exercise intensity', 'activity levels'],
+  },
+  {
+    id: 'fc-exercise-intol-1',
+    subcategory_id: 'cardio-rehab',
+    front_text: 'What are signs of exercise intolerance requiring termination?',
+    back_text: 'ABSOLUTE INDICATIONS TO STOP:\n- Angina/chest pain\n- Severe dyspnea\n- Pallor, cyanosis, cold sweats\n- Dizziness, confusion, ataxia\n- SBP drop >10 mmHg with exertion symptoms\n- SBP >250 mmHg or DBP >115 mmHg\n- New arrhythmias (V-tach, new A-fib)\n- Signs of poor perfusion\n- Patient requests to stop\n\nRELATIVE INDICATIONS:\n- Fatigue, leg cramps, claudication\n- General malaise\n- Failure of HR to increase with exercise\n- ST changes >2mm without symptoms\n- Bundle branch block that cannot be distinguished from VT',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['exercise termination', 'exercise intolerance', 'warning signs'],
+  },
+  {
+    id: 'fc-htn-1',
+    subcategory_id: 'cardio-vitals',
+    front_text: 'What are the ACC/AHA Blood Pressure Classifications (2017)?',
+    back_text: 'BLOOD PRESSURE CATEGORIES:\n\nNormal: SBP <120 AND DBP <80 mmHg\n\nElevated: SBP 120-129 AND DBP <80 mmHg\n\nStage 1 Hypertension:\nSBP 130-139 OR DBP 80-89 mmHg\n\nStage 2 Hypertension:\nSBP >=140 OR DBP >=90 mmHg\n\nHypertensive Crisis: SBP >180 AND/OR DBP >120 mmHg\n- Urgency: No organ damage, lower BP gradually\n- Emergency: Organ damage present, immediate treatment\n\nNote: Classification based on higher category if SBP and DBP fall into different categories',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['hypertension', 'blood pressure classification', 'ACC/AHA'],
+  },
+  {
+    id: 'fc-ortho-hypotension-1',
+    subcategory_id: 'cardio-vitals',
+    front_text: 'What are the diagnostic criteria for Orthostatic Hypotension?',
+    back_text: 'ORTHOSTATIC HYPOTENSION CRITERIA:\nWithin 3 minutes of standing from supine:\n- SBP drop >=20 mmHg, OR\n- DBP drop >=10 mmHg, OR\n- Symptoms of cerebral hypoperfusion\n\nSYMPTOMS:\n- Lightheadedness, dizziness\n- Blurred vision\n- Weakness, fatigue\n- Syncope/near-syncope\n- Neck/shoulder pain ("coat hanger")\n\nCAUSES:\n- Medications (antihypertensives, diuretics)\n- Dehydration/hypovolemia\n- Autonomic dysfunction (diabetes, Parkinson)\n- Prolonged bed rest\n- Elderly\n\nPT: Gradual position changes, compression stockings, adequate hydration',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['orthostatic hypotension', 'postural hypotension', 'blood pressure'],
+  },
+  {
+    id: 'fc-venous-arterial-1',
+    subcategory_id: 'cardio-vitals',
+    front_text: 'What are the distinguishing features of Arterial vs Venous vs Neuropathic Ulcers?',
+    back_text: 'ARTERIAL ULCERS:\n- Location: Toes, dorsum of foot, lateral malleolus\n- Appearance: Deep, punched-out, pale base\n- Pain: Severe, worse with elevation\n- Pulses: Diminished/absent, ABI <0.9\n- Treatment: Revascularization, NO compression\n\nVENOUS ULCERS:\n- Location: Medial malleolus (gaiter area)\n- Appearance: Shallow, irregular, ruddy base\n- Pain: Mild, improved with elevation\n- Skin: Hemosiderin staining, edema\n- Treatment: Compression therapy\n\nNEUROPATHIC ULCERS:\n- Location: Plantar surface, pressure areas\n- Appearance: Deep, surrounded by callus\n- Pain: Minimal (sensory loss)\n- Skin: Warm, dry, may have deformity\n- Treatment: Offloading, debridement',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ulcer types', 'arterial', 'venous', 'neuropathic'],
+  },
+
   // ==================== INTEGUMENTARY ====================
 
   {
@@ -1242,6 +1393,179 @@ export const flashcards: Omit<Flashcard, 'created_at'>[] = [
     source_pdf_id: null,
     source_page_number: null,
     tags: ['wound healing', 'phases'],
+  },
+
+  // Additional Integumentary Flashcards
+  {
+    id: 'fc-wound-class-1',
+    subcategory_id: 'integ-wounds',
+    front_text: 'What is the Wagner Wound Classification System for diabetic foot ulcers?',
+    back_text: 'WAGNER CLASSIFICATION:\n\nGrade 0: Intact skin, pre-ulcerative lesion\n- High-risk foot (callus, deformity)\n\nGrade 1: Superficial ulcer\n- Partial or full thickness\n\nGrade 2: Deep ulcer extending to tendon, ligament, or joint capsule\n\nGrade 3: Deep ulcer with abscess, osteomyelitis, or septic arthritis\n\nGrade 4: Localized gangrene (forefoot or heel)\n\nGrade 5: Extensive gangrene requiring amputation\n\nHigher grades = increased risk of amputation',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['Wagner classification', 'diabetic foot ulcer', 'wound staging'],
+  },
+  {
+    id: 'fc-wound-class-2',
+    subcategory_id: 'integ-wounds',
+    front_text: 'What are the components of the PUSH Tool for wound assessment?',
+    back_text: 'PUSH = Pressure Ulcer Scale for Healing\n\nTHREE COMPONENTS:\n\n1. SURFACE AREA (Length x Width in cm2)\n- 0: 0 cm2 (healed)\n- 1-10: Increasing size categories\n\n2. EXUDATE AMOUNT\n- 0: None\n- 1: Light\n- 2: Moderate\n- 3: Heavy\n\n3. TISSUE TYPE\n- 0: Closed/resurfaced\n- 1: Epithelial tissue\n- 2: Granulation tissue\n- 3: Slough\n- 4: Necrotic tissue (eschar)\n\nTotal Score: 0-17 (lower = better healing)\nTrack weekly to monitor progress',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['PUSH tool', 'wound assessment', 'pressure ulcer'],
+  },
+  {
+    id: 'fc-dressing-1',
+    subcategory_id: 'integ-wounds',
+    front_text: 'How do you select wound dressings based on wound characteristics?',
+    back_text: 'DRESSING SELECTION BY WOUND TYPE:\n\nDRY WOUNDS (need moisture):\n- Hydrogels - donate moisture, autolytic debridement\n- Hydrocolloids - occlusive, maintain moist environment\n\nMODERATE EXUDATE:\n- Foams - absorbent, cushioning\n- Hydrocolloids - absorb light-moderate exudate\n\nHEAVY EXUDATE:\n- Alginates - highly absorbent, from seaweed\n- Hydrofibers - absorb and gel\n\nINFECTED WOUNDS:\n- Silver dressings - antimicrobial\n- Cadexomer iodine\n- Avoid occlusive dressings\n\nGRANULATING WOUNDS:\n- Non-adherent dressings\n- Foams, hydrocolloids\n\nRemember: "Moist wound healing"',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['wound dressings', 'dressing selection', 'wound care'],
+  },
+  {
+    id: 'fc-dressing-2',
+    subcategory_id: 'integ-wounds',
+    front_text: 'What are the characteristics and uses of common wound dressings?',
+    back_text: 'HYDROGELS:\n- 80-99% water, cooling\n- Donate moisture, autolytic debridement\n- Use: Dry wounds, burns, necrotic tissue\n\nHYDROCOLLOIDS:\n- Occlusive, waterproof\n- Form gel with exudate\n- Use: Light-moderate exudate, protection\n\nFOAMS:\n- Absorbent, cushioning, non-adherent\n- Use: Moderate exudate, fragile skin\n\nALGINATES:\n- From seaweed, highly absorbent\n- Form gel, hemostatic\n- Use: Heavy exudate, bleeding wounds\n\nTRANSPARENT FILMS:\n- Occlusive, allows visualization\n- Use: IV sites, superficial wounds, secondary dressing',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['wound dressings', 'hydrogel', 'alginate', 'foam'],
+  },
+  {
+    id: 'fc-debridement-1',
+    subcategory_id: 'integ-wounds',
+    front_text: 'What are the different types of wound debridement?',
+    back_text: 'SHARP/SURGICAL DEBRIDEMENT:\n- Fastest, most aggressive\n- Uses scalpel, scissors, curette\n- PT can perform conservative sharp debridement\n- Indicated for infected wounds, thick eschar\n\nENZYMATIC DEBRIDEMENT:\n- Topical enzymes (collagenase/Santyl)\n- Selective, breaks down necrotic tissue\n- Slower, requires daily application\n\nAUTOLYTIC DEBRIDEMENT:\n- Body\'s own enzymes\n- Uses occlusive/semi-occlusive dressings\n- Slowest, most selective, least painful\n- Contraindicated in infection\n\nMECHANICAL DEBRIDEMENT:\n- Wet-to-dry dressings (non-selective)\n- Whirlpool, pulsed lavage\n- Can damage healthy tissue',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['debridement', 'sharp', 'enzymatic', 'autolytic', 'mechanical'],
+  },
+  {
+    id: 'fc-debridement-2',
+    subcategory_id: 'integ-wounds',
+    front_text: 'When is each type of debridement indicated or contraindicated?',
+    back_text: 'SHARP DEBRIDEMENT:\n- Indicated: Infection, sepsis, thick eschar, cellulitis\n- Contraindicated: Dry stable eschar (heel), anticoagulated patients (relative)\n\nENZYMATIC:\n- Indicated: Non-infected wounds, patients who cannot tolerate sharp\n- Contraindicated: Heavily infected wounds\n\nAUTOLYTIC:\n- Indicated: Clean wounds with slough, patient comfort priority\n- Contraindicated: Infected wounds, immunocompromised, ischemic tissue\n\nMECHANICAL:\n- Indicated: Large amounts of necrotic tissue, infected wounds\n- Contraindicated: Clean granulating wounds, fragile tissue\n\nDRY STABLE HEEL ESCHAR:\n- Do NOT debride unless signs of infection\n- Acts as biological dressing',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['debridement', 'indications', 'contraindications'],
+  },
+  {
+    id: 'fc-npwt-1',
+    subcategory_id: 'integ-wounds',
+    front_text: 'What is Negative Pressure Wound Therapy (NPWT) and its indications?',
+    back_text: 'NPWT (Wound VAC):\nApplies controlled negative pressure to wound bed\n\nMECHANISM:\n- Removes excess exudate\n- Reduces edema\n- Promotes granulation tissue\n- Contracts wound edges\n- Increases blood flow\n\nINDICATIONS:\n- Chronic wounds (pressure ulcers, diabetic ulcers)\n- Acute/traumatic wounds\n- Dehisced surgical wounds\n- Partial thickness burns\n- Skin flaps and grafts\n\nCONTRAINDICATIONS:\n- Necrotic tissue (must debride first)\n- Untreated osteomyelitis\n- Malignancy in wound\n- Exposed blood vessels/organs\n- Unexplored fistulas\n\nPressure: -75 to -125 mmHg typically',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['NPWT', 'wound VAC', 'negative pressure'],
+  },
+  {
+    id: 'fc-graft-1',
+    subcategory_id: 'integ-wounds',
+    front_text: 'What are the types of skin grafts and their characteristics?',
+    back_text: 'SPLIT-THICKNESS SKIN GRAFT (STSG):\n- Epidermis + partial dermis\n- From thigh, buttocks, abdomen\n- Heals by epithelialization\n- More fragile, less cosmetic\n- Used for large areas, burns\n\nFULL-THICKNESS SKIN GRAFT (FTSG):\n- Epidermis + full dermis\n- From groin, postauricular, supraclavicular\n- Better durability and cosmesis\n- Used for face, hands, joints\n- Requires well-vascularized bed\n\nGRAFT FAILURE CAUSES:\n- Hematoma/seroma (most common)\n- Infection\n- Shearing forces\n- Poor recipient bed\n\nPT: Immobilize 5-7 days, no ROM across graft initially',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['skin graft', 'STSG', 'FTSG', 'graft care'],
+  },
+  {
+    id: 'fc-graft-2',
+    subcategory_id: 'integ-wounds',
+    front_text: 'What is the post-operative care for skin grafts?',
+    back_text: 'IMMEDIATE POST-OP (Days 1-5):\n- Immobilize graft site\n- Bolster dressing in place\n- Elevate to reduce edema\n- No ROM across graft\n- Avoid shear forces\n\nDAYS 5-7:\n- First dressing change\n- Gentle ROM if graft adhered\n- Continue to protect from shear\n\nWEEKS 2-4:\n- Progressive ROM\n- Begin light functional activities\n- Compression for edema control\n- Moisturize with lanolin-free lotion\n\nLONG-TERM:\n- Sun protection (SPF 30+) for 1 year\n- Compression garments if needed\n- Scar massage after graft mature\n- Monitor for contracture',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['skin graft', 'post-operative care', 'rehabilitation'],
+  },
+  {
+    id: 'fc-scar-1',
+    subcategory_id: 'integ-wounds',
+    front_text: 'What are scar management techniques and when to initiate them?',
+    back_text: 'SCAR MASSAGE:\n- Begin when wound fully closed (no open areas)\n- Usually 2-3 weeks post-closure\n- Circular, perpendicular, and longitudinal directions\n- 5-10 min, 2-3x daily\n- Use lotion or silicone gel\n\nCOMPRESSION THERAPY:\n- 24-48 hours after wound closure\n- 23 hours/day for 6-12 months\n- 25-40 mmHg pressure\n- Custom garments for burns\n\nSILICONE:\n- Sheets or gel\n- Begin 2 weeks post-closure\n- Wear 12-24 hours/day\n- Reduces hypertrophic scarring\n\nSTRETCHING/SPLINTING:\n- Prevent contracture\n- Position opposite to contracture\n- Sustained low-load stretch',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['scar management', 'scar massage', 'compression'],
+  },
+  {
+    id: 'fc-scar-2',
+    subcategory_id: 'integ-wounds',
+    front_text: 'What is the difference between hypertrophic scars and keloids?',
+    back_text: 'HYPERTROPHIC SCAR:\n- Stays within wound boundaries\n- Raised, red, firm\n- Develops within 4-8 weeks\n- May regress over 1-2 years\n- Common at joints/flexor surfaces\n- Responds well to pressure therapy\n\nKELOID:\n- Extends BEYOND wound boundaries\n- Raised, firm, can be painful/pruritic\n- May develop months to years later\n- Does NOT regress spontaneously\n- Higher incidence in darker skin\n- More resistant to treatment\n- Genetic predisposition\n\nBOTH TREATMENTS:\n- Silicone sheets/gel\n- Compression\n- Steroid injections\n- Surgery (keloids often recur)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['hypertrophic scar', 'keloid', 'scar types'],
+  },
+  {
+    id: 'fc-estim-wound-1',
+    subcategory_id: 'integ-wounds',
+    front_text: 'How is electrical stimulation used for wound healing?',
+    back_text: 'E-STIM FOR WOUND HEALING:\n\nMECHANISM:\n- Increases blood flow\n- Attracts growth factors\n- Stimulates fibroblasts and keratinocytes\n- Enhances protein synthesis\n- Antimicrobial effects\n\nTYPES:\n- High-Volt Pulsed Current (HVPC) most common\n- Direct current (galvanic)\n- Low-intensity direct current (LIDC)\n\nPARAMETERS (HVPC):\n- Negative polarity for infection/inflammation\n- Positive polarity for granulation/epithelialization\n- 100-150 pps\n- Submotor intensity\n- 60 min, 5-7 days/week\n\nINDICATIONS:\n- Stage III-IV pressure ulcers\n- Diabetic ulcers\n- Venous ulcers\n- Chronic non-healing wounds',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['electrical stimulation', 'wound healing', 'HVPC'],
+  },
+  {
+    id: 'fc-compression-1',
+    subcategory_id: 'integ-ulcers',
+    front_text: 'What are the indications and contraindications for compression therapy?',
+    back_text: 'INDICATIONS:\n- Venous insufficiency/ulcers (primary indication)\n- Lymphedema\n- Post-surgical edema\n- DVT prophylaxis\n- Chronic venous disease\n\nABSOLUTE CONTRAINDICATIONS:\n- Arterial insufficiency (ABI <0.5)\n- Severe peripheral neuropathy\n- Acute DVT (first 24-48 hours)\n- Acute cellulitis/infection\n- Heart failure (uncompensated)\n\nRELATIVE CONTRAINDICATIONS:\n- ABI 0.5-0.8 (use modified compression)\n- Fragile skin\n- Dermatitis in treatment area\n\nCOMPRESSION LEVELS:\n- Light: 8-15 mmHg (prevention)\n- Moderate: 15-20 mmHg (mild edema)\n- Firm: 20-30 mmHg (moderate venous disease)\n- Extra firm: 30-40 mmHg (severe/ulcers)\n- 40-50+ mmHg: lymphedema',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['compression therapy', 'venous insufficiency', 'contraindications'],
+  },
+  {
+    id: 'fc-compression-2',
+    subcategory_id: 'integ-ulcers',
+    front_text: 'What are the types of compression therapy for venous ulcers?',
+    back_text: 'MULTILAYER BANDAGE SYSTEMS:\n- 4-layer: gauze, padding, compression, cohesive\n- Sustained 40 mmHg at ankle\n- Changed weekly\n- Gold standard for venous ulcers\n\nUNNA BOOT:\n- Zinc oxide impregnated gauze\n- Semi-rigid, provides support\n- Changed every 5-7 days\n- Good for ambulatory patients\n\nCOMPRESSION STOCKINGS:\n- After ulcer healed for maintenance\n- Knee-high usually sufficient\n- 30-40 mmHg for ulcer prevention\n- Replace every 3-6 months\n\nINTERMITTENT PNEUMATIC COMPRESSION:\n- Sequential inflation\n- Used adjunctively\n- Good for immobile patients\n\nAll require ABI >=0.8 (or modified approach if 0.5-0.8)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['compression therapy', 'Unna boot', 'multilayer bandage'],
+  },
+  {
+    id: 'fc-ulcer-neuro-1',
+    subcategory_id: 'integ-ulcers',
+    front_text: 'What are the characteristics of neuropathic (diabetic) foot ulcers?',
+    back_text: 'NEUROPATHIC ULCER CHARACTERISTICS:\n\nLOCATION:\n- Plantar surface (metatarsal heads, heel)\n- Areas of high pressure/friction\n- Over bony prominences\n\nAPPEARANCE:\n- Round, punched-out appearance\n- Surrounded by callus\n- Deep, may probe to bone\n- Granular base (if not infected)\n\nPAIN:\n- Minimal to absent (sensory neuropathy)\n- Patient may be unaware of ulcer\n\nSKIN:\n- Warm and dry\n- May have deformity (Charcot foot)\n- Diminished sensation (monofilament test)\n\nPULSES:\n- Usually present (unless concurrent PAD)\n\nTREATMENT PRIORITIES:\n- Offloading (total contact cast, removable walker)\n- Debridement of callus\n- Infection management\n- Blood glucose control',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['neuropathic ulcer', 'diabetic foot ulcer', 'offloading'],
+  },
+  {
+    id: 'fc-ulcer-compare-1',
+    subcategory_id: 'integ-ulcers',
+    front_text: 'What positioning and treatment principles differ between arterial and venous ulcers?',
+    back_text: 'ARTERIAL ULCER MANAGEMENT:\n- Position: Dependent (legs down) to improve blood flow\n- DO NOT elevate\n- NO compression\n- Keep warm (not hot)\n- Protect from trauma\n- Refer for revascularization\n- Light protective dressing\n- Pain management\n\nVENOUS ULCER MANAGEMENT:\n- Position: Elevated above heart\n- Compression is cornerstone (30-40 mmHg)\n- Moist wound healing\n- Exercise (calf pump activation)\n- Ambulation encouraged\n- Skin care for stasis dermatitis\n- Manage edema\n\nNEUROPATHIC ULCER MANAGEMENT:\n- Offloading critical\n- Total contact cast gold standard\n- Keep dry\n- Debride callus\n- Accommodate deformity\n- Inspect feet daily',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ulcer management', 'arterial', 'venous', 'positioning'],
+  },
+  {
+    id: 'fc-burn-1',
+    subcategory_id: 'integ-burns',
+    front_text: 'What is the Rule of Nines for estimating burn surface area?',
+    back_text: 'RULE OF NINES (Adults):\n\nHead and Neck: 9%\nEach Upper Extremity: 9% each (18% total)\nAnterior Trunk: 18%\nPosterior Trunk: 18%\nEach Lower Extremity: 18% each (36% total)\nPerineum: 1%\n\nTOTAL: 100%\n\nPEDIATRIC MODIFICATIONS:\n- Head larger (18% in infants)\n- Legs smaller proportionally\n- Use Lund-Browder chart for accuracy\n\nPALM METHOD:\n- Patient\'s palm = ~1% TBSA\n- Useful for scattered burns\n\nBurn center referral: >20% TBSA, or >10% full thickness',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['Rule of Nines', 'burn assessment', 'TBSA'],
+  },
+  {
+    id: 'fc-burn-2',
+    subcategory_id: 'integ-burns',
+    front_text: 'What are the classifications of burn depth?',
+    back_text: 'SUPERFICIAL (1st Degree):\n- Epidermis only\n- Red, dry, painful\n- Heals 3-5 days, no scarring\n- Example: Sunburn\n\nSUPERFICIAL PARTIAL THICKNESS (2nd Degree):\n- Epidermis + superficial dermis\n- Blisters, wet, very painful\n- Heals 7-21 days, minimal scarring\n\nDEEP PARTIAL THICKNESS (2nd Degree):\n- Epidermis + deep dermis\n- Mottled, may be dry or wet\n- Decreased sensation\n- May need grafting, scars likely\n\nFULL THICKNESS (3rd Degree):\n- Through entire dermis\n- Waxy, leathery, painless (nerves destroyed)\n- Requires grafting\n\n4TH DEGREE:\n- Into muscle, tendon, bone\n- Charred appearance',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['burn depth', 'burn classification', 'partial thickness', 'full thickness'],
+  },
+  {
+    id: 'fc-burn-3',
+    subcategory_id: 'integ-burns',
+    front_text: 'What are the PT considerations for burn rehabilitation?',
+    back_text: 'ACUTE PHASE:\n- Positioning: Anti-deformity (opposite contracture)\n- ROM: Early and frequent (except over grafts)\n- Edema management: Elevation\n- Splinting: Night and rest positions\n\nSURGICAL/GRAFTING PHASE:\n- Immobilize graft 5-7 days\n- Resume ROM when graft stable\n- Protect from shear\n\nREHABILITATION PHASE:\n- Aggressive ROM and stretching\n- Strengthening and conditioning\n- Scar management (pressure, silicone, massage)\n- ADL retraining\n\nANTI-DEFORMITY POSITIONS:\n- Neck: Extension, no pillows\n- Shoulder: Abduction 90 degrees\n- Elbow: Extension\n- Wrist: Extension 20-30 degrees\n- Hand: MCP flexion, IP extension\n- Hip: Extension, neutral rotation\n- Knee: Extension\n- Ankle: Neutral',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['burn rehabilitation', 'anti-deformity positioning', 'ROM'],
   },
 
   // ==================== METABOLIC/ENDOCRINE ====================
@@ -4974,6 +5298,783 @@ export const flashcards: Omit<Flashcard, 'created_at'>[] = [
     source_pdf_id: null,
     source_page_number: null,
     tags: ['brachial plexus', 'radial nerve', 'median nerve', 'ulnar nerve'],
+  },
+
+  // ==================== PRIMITIVE REFLEXES ====================
+
+  {
+    id: 'fc-reflex-primitive-1',
+    subcategory_id: 'neuro-pediatric',
+    front_text: 'What are the primitive reflexes and their integration ages?',
+    back_text: 'PRIMITIVE REFLEXES:\n\nMORO REFLEX:\n• Stimulus: Head drop, loud noise\n• Response: Arms abduct/extend, then adduct\n• Appears: Birth\n• Integrates: 3-6 months\n\nASYMMETRIC TONIC NECK REFLEX (ATNR):\n• Stimulus: Head rotation\n• Response: "Fencer" - arm/leg extend on face side, flex on skull side\n• Appears: Birth\n• Integrates: 6-7 months\n\nSYMMETRIC TONIC NECK REFLEX (STNR):\n• Stimulus: Neck flexion/extension\n• Response: Flex neck = arms flex, legs extend; Extend neck = opposite\n• Appears: 4-6 months\n• Integrates: 9-10 months\n\nPALMAR GRASP:\n• Integrates: 4-6 months\n\nPLANTAR GRASP:\n• Integrates: 9 months\n\nROOTING:\n• Integrates: 3 months',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['primitive reflexes', 'Moro', 'ATNR', 'STNR', 'pediatric'],
+  },
+  {
+    id: 'fc-reflex-primitive-2',
+    subcategory_id: 'neuro-pediatric',
+    front_text: 'What are the tonic and righting reflexes?',
+    back_text: 'TONIC REFLEXES:\n\nTONIC LABYRINTHINE REFLEX (TLR):\n• Supine: Increased extensor tone\n• Prone: Increased flexor tone\n• Integrates: 6 months\n\nLANDAU REFLEX:\n• Stimulus: Prone suspension\n• Response: Head, trunk, legs extend\n• Appears: 3-4 months\n• Integrates: 12-24 months\n\nRIGHTING REACTIONS:\n\nNECK RIGHTING:\n• Head turns → body follows (log roll)\n• Appears: Birth\n• Integrates: 4-6 months\n\nBODY RIGHTING ON BODY:\n• Segmental rotation begins\n• Appears: 4-6 months\n• Integrates: 18 months\n\nLABYRINTHINE RIGHTING:\n• Head orients to vertical\n• Appears: 2 months\n• Mature: 6 months\n\nOPTICAL RIGHTING:\n• Eyes help orient head\n• Appears: 2 months\n• Mature: 6 months',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['tonic reflexes', 'righting reactions', 'TLR', 'Landau'],
+  },
+
+  // ==================== DEVELOPMENTAL MILESTONES ====================
+
+  {
+    id: 'fc-dev-milestones-1',
+    subcategory_id: 'neuro-pediatric',
+    front_text: 'What are the gross motor milestones 0-6 months?',
+    back_text: 'GROSS MOTOR MILESTONES (0-6 months):\n\n1 MONTH:\n• Lifts head momentarily in prone\n• Physiological flexion decreasing\n• Tracks 180 degrees\n\n2 MONTHS:\n• Head to 45° in prone\n• Head bobs in supported sitting\n\n3 MONTHS:\n• Prone on elbows (forearm support)\n• Head to 90° in prone\n• Head control improving\n\n4 MONTHS:\n• Prone on extended arms\n• Rolls prone to supine\n• Brings hands to midline\n\n5 MONTHS:\n• Rolls supine to prone\n• Sits with hand support\n\n6 MONTHS:\n• Sits independently (briefly)\n• Pivots in prone\n• Weight bearing on legs when held',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['developmental milestones', 'gross motor', 'infant', 'pediatric'],
+  },
+  {
+    id: 'fc-dev-milestones-2',
+    subcategory_id: 'neuro-pediatric',
+    front_text: 'What are the gross motor milestones 6-12 months?',
+    back_text: 'GROSS MOTOR MILESTONES (6-12 months):\n\n6 MONTHS:\n• Sits independently\n• Pivots in prone\n\n7 MONTHS:\n• Gets to sitting from prone\n• Assumes quadruped\n\n8 MONTHS:\n• Sits without hand support\n• Crawls (commando) or creeps (on all fours)\n\n9 MONTHS:\n• Pulls to stand\n• Cruises holding furniture\n• Creeping well\n\n10 MONTHS:\n• Standing with one hand held\n• Transitions between positions\n\n11 MONTHS:\n• Walks with two hands held\n• Stands alone briefly\n\n12 MONTHS:\n• Walks independently (wide base)\n• Creeps up stairs\n• Can squat and return to stand',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['developmental milestones', 'gross motor', 'infant', 'walking'],
+  },
+  {
+    id: 'fc-dev-milestones-3',
+    subcategory_id: 'neuro-pediatric',
+    front_text: 'What are the gross motor milestones 1-5 years?',
+    back_text: 'GROSS MOTOR MILESTONES (1-5 years):\n\n12-15 MONTHS:\n• Walks independently\n• Creeps up stairs\n• Stoops and recovers\n\n18 MONTHS:\n• Runs stiffly\n• Walks up stairs with rail (marking time)\n• Kicks ball forward\n\n2 YEARS:\n• Runs well\n• Jumps in place\n• Walks up/down stairs (marking time)\n• Throws ball overhand\n\n3 YEARS:\n• Pedals tricycle\n• Alternates feet on stairs (up)\n• Stands on one foot 3 seconds\n• Catches large ball\n\n4 YEARS:\n• Hops on one foot\n• Alternates feet on stairs (down)\n• Skips (one foot)\n\n5 YEARS:\n• Skips (alternating feet)\n• Mature running pattern\n• Catches small ball\n• Balance beam walking',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['developmental milestones', 'gross motor', 'toddler', 'preschool'],
+  },
+
+  // ==================== GAIT DEVIATIONS ====================
+
+  {
+    id: 'fc-gait-dev-1',
+    subcategory_id: 'msk-gait',
+    front_text: 'What are the common gait deviations and their causes during stance phase?',
+    back_text: 'STANCE PHASE GAIT DEVIATIONS:\n\nTRENDELENBURG (Lateral Trunk Lean):\n• Cause: Weak GLUTEUS MEDIUS\n• Trunk leans TOWARD weak side\n• Pelvis drops on swing leg side\n\nBACKWARD TRUNK LEAN:\n• Cause: Weak HIP EXTENSORS (glut max)\n• Trunk leans posterior at heel strike\n\nFORWARD TRUNK LEAN:\n• Cause: Weak KNEE EXTENSORS (quads)\n• Or hip/knee flexion contracture\n\nGENU RECURVATUM (Knee Hyperextension):\n• Causes: Weak quads, plantar flexion contracture\n• Spasticity of plantarflexors\n\nEXCESSIVE KNEE FLEXION:\n• Causes: Weak quads, knee flexion contracture\n• Dorsiflexion limitation\n\nANTALGIC GAIT:\n• Cause: PAIN\n• Short stance on painful side\n• Decreased stride length',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['gait deviations', 'Trendelenburg', 'stance phase', 'weakness'],
+  },
+  {
+    id: 'fc-gait-dev-2',
+    subcategory_id: 'msk-gait',
+    front_text: 'What are swing phase gait deviations and compensations?',
+    back_text: 'SWING PHASE GAIT DEVIATIONS:\n\nFOOT DROP (Steppage Gait):\n• Cause: Weak DORSIFLEXORS (tibialis anterior)\n• Excessive hip/knee flexion to clear foot\n• "Steppage gait"\n\nCIRCUMDUCTION:\n• Causes: Weak hip flexors, weak dorsiflexors\n• Leg swings in arc to clear foot\n• Stiff knee\n\nHIP HIKING:\n• Cause: Cannot flex knee or dorsiflex ankle\n• Elevates pelvis to clear limb\n• Leg length discrepancy\n\nVAULTING:\n• Rising on toe of stance leg\n• Cause: Long limb, inadequate knee flexion\n• MOST ENERGY CONSUMING compensation\n\nSCISSORING:\n• Legs cross midline\n• Cause: SPASTIC adductors (CP, stroke)\n\nFESTINATING GAIT:\n• Short, shuffling, accelerating steps\n• Cause: PARKINSON\'S disease',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['gait deviations', 'foot drop', 'circumduction', 'vaulting'],
+  },
+
+  // ==================== PROSTHETIC GAIT ====================
+
+  {
+    id: 'fc-prosthetic-1',
+    subcategory_id: 'equip-prosthetic',
+    front_text: 'What are transtibial prosthetic gait deviations?',
+    back_text: 'TRANSTIBIAL (BELOW KNEE) GAIT DEVIATIONS:\n\nENERGY COST:\n• Traumatic: 25% increase\n• Vascular: 40% increase\n\nEXCESSIVE KNEE FLEXION:\n• Causes: Socket too far anterior\n• Heel too firm/high\n• Insufficient socket flexion\n\nKNEE REMAINS EXTENDED:\n• Causes: Foot too far anterior\n• SACH heel too soft\n• Heel on shoe too low\n\nUNEQUAL STRIDE LENGTH:\n• Short stride (sound side): Lack of confidence\n• Short stride (prosthetic): Knee flexion contracture\n\nABRUPT KNEE FLEXION:\n• Causes: Weak quads\n• Foot too posterior\n• Socket too flexed\n• Cushion heel too firm\n\nNote: Proper socket alignment critical for normal gait',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['transtibial', 'prosthetic gait', 'below knee amputation'],
+  },
+  {
+    id: 'fc-prosthetic-2',
+    subcategory_id: 'equip-prosthetic',
+    front_text: 'What are transfemoral prosthetic gait deviations?',
+    back_text: 'TRANSFEMORAL (ABOVE KNEE) GAIT DEVIATIONS:\n\nENERGY COST:\n• Traumatic: 68% increase\n• Vascular: 100% increase\n• Walks 30% SLOWER than non-amputee\n\nLATERAL TRUNK BENDING:\n• Causes: Short prosthesis\n• Weak hip abductors\n• Socket instability\n• Medial wall discomfort\n\nABDUCTED GAIT (Wide Base):\n• Causes: Long prosthesis\n• Abducted socket\n• Crotch discomfort\n\nVAULTING:\n• Most ENERGY CONSUMPTIVE\n• Causes: Long prosthesis\n• Excessive knee resistance\n• Inadequate suspension\n\nCIRCUMDUCTION:\n• Causes: Long prosthesis\n• Locked knee\n• Inadequate hip flexion\n\nHIP HIKING:\n• Cause: Long prosthesis\n• Inadequate knee flexion in swing',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['transfemoral', 'prosthetic gait', 'above knee amputation'],
+  },
+
+  // ==================== VESTIBULAR REHABILITATION ====================
+
+  {
+    id: 'fc-vestibular-1',
+    subcategory_id: 'neuro-vestibular',
+    front_text: 'What are the canalith repositioning maneuvers for BPPV?',
+    back_text: 'BPPV TREATMENT MANEUVERS:\n\nDIX-HALLPIKE TEST (Diagnostic):\n• Patient long sitting, head rotated 45°\n• Lie supine with head extended 30°\n• Positive: Nystagmus + vertigo\n• Tests POSTERIOR canal (most common 80%)\n\nEPLEY MANEUVER (CRP):\n• For POSTERIOR canal BPPV\n• Gold standard treatment\n• Success rate >95%\n• Series of head position changes\n• Move otoconia from canal to utricle\n\nSEMONT MANEUVER:\n• For posterior canal BPPV\n• More vigorous side-to-side movement\n• Alternative to Epley\n\nBBQ ROLL (Lempert):\n• For HORIZONTAL canal BPPV\n• 360° roll toward unaffected ear\n\nGUFONI MANEUVER:\n• For horizontal canal BPPV\n• Quick side-lying technique\n\nNote: Contraindicated with cervical pathology, vertebrobasilar insufficiency',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['BPPV', 'Epley', 'Dix-Hallpike', 'vestibular', 'canalith repositioning'],
+  },
+  {
+    id: 'fc-vestibular-2',
+    subcategory_id: 'neuro-vestibular',
+    front_text: 'What are vestibular rehabilitation exercises?',
+    back_text: 'VESTIBULAR REHABILITATION (VRT):\n\nGAZE STABILIZATION (VOR x1):\n• Focus on target, move head\n• Improves vestibulo-ocular reflex\n• Progress: Speed, background complexity\n\nHABITUATION EXERCISES:\n• Repeated exposure to provoking movements\n• Decreases dizziness response over time\n• Brandt-Daroff exercises\n\nBALANCE TRAINING:\n• Static → Dynamic progression\n• Firm → Foam → Compliant surfaces\n• Eyes open → Eyes closed\n• Narrow BOS, tandem, single leg\n\nGENERAL EXERCISES:\n• Walking with head turns\n• Ball toss while walking\n• Obstacle courses\n\nPROGRESSION PRINCIPLES:\n• Increase speed\n• Decrease base of support\n• Add cognitive tasks (dual-task)\n• Reduce visual input\n\nGoal: Improve VOR, vestibulospinal, vestibulocollic reflexes',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['vestibular rehabilitation', 'VOR', 'gaze stabilization', 'balance'],
+  },
+
+  // ==================== LYMPHEDEMA ====================
+
+  {
+    id: 'fc-lymphedema-1',
+    subcategory_id: 'integ-lymphedema',
+    front_text: 'What are the stages of lymphedema?',
+    back_text: 'LYMPHEDEMA STAGES (ISL Classification):\n\nSTAGE 0 (Latent/Subclinical):\n• No visible swelling\n• Subjective symptoms may exist\n• Impaired lymph transport\n\nSTAGE I (Mild/Reversible):\n• Pitting edema present\n• Soft, not fibrotic\n• REVERSES with elevation\n• Early accumulation of protein-rich fluid\n\nSTAGE II (Moderate/Spontaneously Irreversible):\n• Does NOT reverse with elevation\n• Tissue fibrosis begins\n• Pitting may be present initially\n• Becomes NON-PITTING over time\n\nSTAGE III (Severe/Lymphostatic Elephantiasis):\n• Significant fibrosis\n• Skin changes (papillomas, hyperkeratosis)\n• Non-pitting\n• Limb very large\n• Skin folds, infections common\n\nPrimary: Congenital/hereditary\nSecondary: Surgery, radiation, infection, trauma',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['lymphedema', 'stages', 'edema', 'fibrosis'],
+  },
+  {
+    id: 'fc-lymphedema-2',
+    subcategory_id: 'integ-lymphedema',
+    front_text: 'What is Complete Decongestive Therapy (CDT)?',
+    back_text: 'COMPLETE DECONGESTIVE THERAPY (CDT):\n\nGold standard treatment for lymphedema\nReduces volume 50-70%\n\nPHASE I (Intensive/Reductive):\n• Duration: 2-4 weeks\n• Daily sessions (4-5 days/week)\n• Goals: Reduce volume, improve skin\n\n4 COMPONENTS:\n\n1. MANUAL LYMPHATIC DRAINAGE (MLD):\n• Light skin stretching technique\n• Proximal to distal sequence\n• Moves fluid to functioning lymphatics\n\n2. COMPRESSION BANDAGING:\n• Short-stretch bandages\n• Worn 23 hours/day\n• Multiple layers with foam\n\n3. EXERCISE:\n• With bandages in place\n• ROM, flexibility, aerobic\n• Muscle pump action\n\n4. SKIN CARE:\n• Prevent infection\n• Moisturize, inspect daily\n\nPHASE II (Maintenance):\n• Compression garments\n• Self-MLD\n• Lifelong management',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['CDT', 'complete decongestive therapy', 'MLD', 'lymphedema treatment'],
+  },
+
+  // ==================== DIABETES AND EXERCISE ====================
+
+  {
+    id: 'fc-diabetes-1',
+    subcategory_id: 'metabolic-conditions',
+    front_text: 'What are the differences between Type 1 and Type 2 Diabetes?',
+    back_text: 'TYPE 1 vs TYPE 2 DIABETES:\n\nTYPE 1 (5-10% of cases):\n• Autoimmune destruction of beta cells\n• ABSOLUTE insulin deficiency\n• Requires insulin injection\n• Onset: Usually childhood/adolescence\n• Body type: Often thin\n• Ketosis prone\n\nTYPE 2 (90-95% of cases):\n• Insulin resistance + relative deficiency\n• Progressive loss of insulin secretion\n• May be controlled with diet/oral meds initially\n• Onset: Usually adult (increasing in youth)\n• Body type: Often overweight/obese\n• Less prone to ketosis\n\nBOTH TYPES:\n• Hyperglycemia\n• Long-term complications:\n  - Retinopathy\n  - Nephropathy\n  - Neuropathy\n  - Cardiovascular disease\n  - Poor wound healing',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['diabetes', 'type 1', 'type 2', 'insulin'],
+  },
+  {
+    id: 'fc-diabetes-2',
+    subcategory_id: 'metabolic-conditions',
+    front_text: 'What are the exercise precautions for diabetes?',
+    back_text: 'DIABETES EXERCISE PRECAUTIONS:\n\nPRE-EXERCISE BLOOD GLUCOSE:\n• <100 mg/dL: Eat 15g carbs before exercise\n• 100-250 mg/dL: Safe to exercise\n• >250 mg/dL: Check for KETONES\n  - If ketones present: DO NOT exercise\n\nHYPOGLYCEMIA PREVENTION:\n• Check glucose before, during, after\n• Carry fast-acting carbs (juice, glucose tabs)\n• Avoid exercise at peak insulin times\n• Inject insulin >60-90 min before exercise\n• Inject AWAY from exercising muscles\n• Exercise effect lasts 24+ hours\n\nTIMING:\n• Finish exercise 2+ hours before bedtime\n• Prevents nocturnal hypoglycemia\n\nFOOT CARE:\n• Inspect feet before/after exercise\n• Proper footwear essential\n• Avoid exercise with open wounds\n\nCONTRAINDICATIONS:\n• Proliferative retinopathy (avoid Valsalva)\n• Severe neuropathy\n• Uncontrolled hypertension',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['diabetes', 'exercise', 'hypoglycemia', 'blood glucose'],
+  },
+  {
+    id: 'fc-diabetes-3',
+    subcategory_id: 'metabolic-conditions',
+    front_text: 'What are the signs of hypoglycemia and hyperglycemia?',
+    back_text: 'HYPOGLYCEMIA vs HYPERGLYCEMIA:\n\nHYPOGLYCEMIA (<70 mg/dL):\n• Rapid onset\n• Shakiness, tremor\n• Sweating, pale, clammy\n• Tachycardia\n• Anxiety, irritability\n• Hunger\n• Confusion, dizziness\n• If severe: Seizures, LOC\n\nTreatment: 15-15 Rule\n• 15g fast carbs, wait 15 min, recheck\n• Juice, glucose tabs, candy\n\nHYPERGLYCEMIA (>250 mg/dL):\n• Gradual onset\n• Polyuria (frequent urination)\n• Polydipsia (excessive thirst)\n• Polyphagia (excessive hunger)\n• Fatigue, weakness\n• Blurred vision\n• Slow wound healing\n\nDKA (Type 1):\n• Fruity breath (ketones)\n• Kussmaul breathing (deep, rapid)\n• Nausea, vomiting\n• MEDICAL EMERGENCY',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['hypoglycemia', 'hyperglycemia', 'DKA', 'diabetic emergency'],
+  },
+
+  // ==================== CARDIAC REHABILITATION ====================
+
+  {
+    id: 'fc-cardiac-rehab-1',
+    subcategory_id: 'cardio-intervention',
+    front_text: 'What are the phases of cardiac rehabilitation?',
+    back_text: 'CARDIAC REHABILITATION PHASES:\n\nPHASE I (Inpatient):\n• Begins in hospital (ICU/CCU)\n• MET level: 1-3.5\n• Low-level activity, ADLs\n• Patient education\n• Duration: 3-5 days post-event\n• Goal: Safe discharge\n\nPHASE II (Outpatient - Early):\n• Begins 1-3 weeks post-discharge\n• Supervised, monitored exercise\n• ECG monitoring\n• Duration: 4-12 weeks\n• MET level: 3-5+\n• Goal: Return to work/ADLs\n\nPHASE III (Outpatient - Intermediate):\n• Less supervision\n• Continued exercise progression\n• MET level: 5-7+\n• Duration: Variable (months)\n\nPHASE IV (Maintenance/Community):\n• Independent exercise\n• Lifelong fitness\n• Minimal or no monitoring\n• Community-based programs',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['cardiac rehab', 'phases', 'post-MI', 'cardiac recovery'],
+  },
+  {
+    id: 'fc-cardiac-mets-1',
+    subcategory_id: 'cardio-intervention',
+    front_text: 'What are MET levels and activity examples?',
+    back_text: 'METABOLIC EQUIVALENTS (METs):\n\n1 MET = 3.5 mL O2/kg/min (resting)\n\nMET LEVELS BY ACTIVITY:\n\n1-2 METs (Light):\n• Bed rest, eating, grooming\n• Seated activities\n\n2-3 METs:\n• Showering (seated)\n• Light housework\n• Walking 2 mph\n\n3-4 METs:\n• Warm shower (standing)\n• Walking 3 mph\n• Light yard work\n• Discharge from Phase I\n\n4-5 METs:\n• Climbing stairs (slow)\n• Golf (with cart)\n• Dancing\n\n5-6 METs:\n• Sexual activity\n• Walking 4 mph\n• Cycling (leisurely)\n\n6-7 METs:\n• Shoveling snow\n• Singles tennis\n• Jogging\n\n8+ METs:\n• Running, swimming laps\n• Competitive sports\n\nCLINICAL: Each 1 MET increase = 12% decrease in mortality',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['MET', 'metabolic equivalents', 'activity levels', 'cardiac rehab'],
+  },
+
+  // ==================== LAB VALUES ====================
+
+  {
+    id: 'fc-lab-values-1',
+    subcategory_id: 'safety-labs',
+    front_text: 'What are the critical lab values for exercise?',
+    back_text: 'LAB VALUES - EXERCISE CONSIDERATIONS:\n\nHEMOGLOBIN:\n• Normal: M 14-17, F 12-16 g/dL\n• <8 g/dL: Exercise CONTRAINDICATED\n• <10 g/dL: Light activity only\n\nHEMATOCRIT:\n• Normal: M 42-52%, F 37-47%\n• <25%: No exercise\n\nPLATELETS (x1000/µL):\n• >50k: Activity as tolerated\n• 20k-50k: Light activity, ambulation\n• 10k-20k: Light ROM, ADLs\n• <10k: Bed rest\n\nWHITE BLOOD CELLS:\n• Normal: 4,300-10,800/mm³\n• <5k with fever: No exercise\n• <1k: Mask, isolation precautions\n\nPOTASSIUM:\n• Normal: 3.5-5.0 mEq/L\n• <3.0 or >6.0: No exercise (arrhythmia risk)\n\nGLUCOSE:\n• <70 mg/dL: Treat hypoglycemia first\n• >250 with ketones: No exercise',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['lab values', 'hemoglobin', 'platelets', 'exercise precautions'],
+  },
+  {
+    id: 'fc-lab-values-2',
+    subcategory_id: 'safety-labs',
+    front_text: 'What are the coagulation and blood gas lab values?',
+    back_text: 'COAGULATION LAB VALUES:\n\nPT (Prothrombin Time):\n• Normal: 11-15 seconds\n• Monitors WARFARIN (Coumadin)\n• Extrinsic pathway\n\nINR:\n• Normal: 0.9-1.1\n• Therapeutic on anticoagulation: 2.0-3.0\n• >3.0: Bleeding risk increased\n\nPTT (Partial Thromboplastin Time):\n• Normal: 25-40 seconds\n• Monitors HEPARIN\n• Intrinsic pathway\n\nARTERIAL BLOOD GASES:\n\npH:\n• Normal: 7.35-7.45\n• <7.35: Acidosis\n• >7.45: Alkalosis\n\nPaO2:\n• Normal: 80-100 mmHg\n• <60 mmHg: Respiratory failure\n\nPaCO2:\n• Normal: 35-45 mmHg\n• High = Respiratory acidosis\n• Low = Respiratory alkalosis\n\nSpO2:\n• Normal: 95-100%\n• <88-90%: Supplemental O2 needed',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['coagulation', 'PT', 'INR', 'PTT', 'blood gases', 'ABG'],
+  },
+
+  // ==================== PHARMACOLOGY ====================
+
+  {
+    id: 'fc-pharm-1',
+    subcategory_id: 'safety-pharm',
+    front_text: 'What are the effects of beta blockers on exercise?',
+    back_text: 'BETA BLOCKERS:\n\nExamples: Metoprolol, Atenolol, Propranolol\nEnding: "-olol"\n\nMECHANISM:\n• Block beta-adrenergic receptors\n• Decrease HR, BP, contractility\n• Reduce myocardial O2 demand\n\nUSES:\n• Hypertension\n• Heart failure\n• Arrhythmias\n• Post-MI\n• Angina\n\nEXERCISE IMPLICATIONS:\n• BLUNTED HR RESPONSE\n• Cannot use HR to gauge intensity\n• Use RPE (Borg scale) instead\n• May mask hypoglycemia symptoms\n\nSIDE EFFECTS:\n• Bradycardia\n• Fatigue\n• Cold extremities\n• Depression\n• Bronchospasm (non-selective)\n• Sexual dysfunction\n\nCONTRAINDICATIONS:\n• Asthma/COPD (non-selective)\n• Severe bradycardia\n• Heart block',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['beta blockers', 'pharmacology', 'exercise', 'heart rate'],
+  },
+  {
+    id: 'fc-pharm-2',
+    subcategory_id: 'safety-pharm',
+    front_text: 'What are the effects of ACE inhibitors and ARBs?',
+    back_text: 'ACE INHIBITORS:\n\nExamples: Lisinopril, Enalapril, Captopril\nEnding: "-pril"\n\nMECHANISM:\n• Block ACE → Less angiotensin II\n• Vasodilation, decreased BP\n• Decreased aldosterone → Less fluid retention\n\nUSES:\n• Hypertension\n• Heart failure\n• Post-MI\n• Diabetic nephropathy\n\nSIDE EFFECTS:\n• DRY COUGH (most common)\n• Hyperkalemia\n• Angioedema (rare, serious)\n• Hypotension\n• Dizziness\n\nCONTRAINDICATIONS:\n• Pregnancy (teratogenic)\n• Bilateral renal artery stenosis\n\nARBs (Angiotensin Receptor Blockers):\nExamples: Losartan, Valsartan\nEnding: "-sartan"\n\n• Alternative if ACE inhibitor cough\n• Similar effects without cough\n• Same contraindications',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ACE inhibitors', 'ARBs', 'pharmacology', 'hypertension'],
+  },
+  {
+    id: 'fc-pharm-3',
+    subcategory_id: 'safety-pharm',
+    front_text: 'What are the effects of statins and anticoagulants?',
+    back_text: 'STATINS (HMG-CoA Reductase Inhibitors):\n\nExamples: Atorvastatin (Lipitor), Simvastatin\nEnding: "-statin"\n\nMECHANISM:\n• Block cholesterol synthesis in liver\n• Decrease LDL ("bad") cholesterol\n\nSIDE EFFECTS:\n• MYOPATHY/MYALGIA (muscle pain)\n• Rhabdomyolysis (rare, serious)\n• Hepatotoxicity\n• GI upset\n\nPT IMPLICATION:\n• Monitor for unexplained muscle pain\n• Report to physician if severe\n\nANTICOAGULANTS:\n\nWARFARIN (Coumadin):\n• Monitor: PT/INR\n• Therapeutic INR: 2-3\n• Vitamin K is antidote\n\nHEPARIN:\n• Monitor: PTT\n• IV or subcutaneous\n• Protamine is antidote\n\nDOACs (Newer agents):\n• Rivaroxaban (Xarelto), Apixaban (Eliquis)\n• No routine monitoring needed\n\nAll increase BLEEDING RISK',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['statins', 'warfarin', 'heparin', 'anticoagulants', 'myopathy'],
+  },
+  {
+    id: 'fc-pharm-4',
+    subcategory_id: 'safety-pharm',
+    front_text: 'What are the effects of diuretics and calcium channel blockers?',
+    back_text: 'DIURETICS:\n\nTHIAZIDES (Hydrochlorothiazide):\n• First-line for HTN\n• Increase urinary output\n• Side effects: Hypokalemia, dehydration\n\nLOOP DIURETICS (Furosemide/Lasix):\n• Most potent diuretics\n• Used in heart failure, edema\n• Side effects: Hypokalemia, ototoxicity\n\nPOTASSIUM-SPARING (Spironolactone):\n• Weaker diuretic\n• Side effects: Hyperkalemia\n\nPT IMPLICATIONS:\n• Monitor for dehydration\n• Orthostatic hypotension risk\n• Fall risk in elderly\n\nCALCIUM CHANNEL BLOCKERS:\n\nExamples: Amlodipine, Diltiazem, Verapamil\nEnding: "-dipine" (dihydropyridines)\n\nMECHANISM:\n• Block Ca++ entry → Vasodilation\n• Some decrease HR (non-dihydropyridines)\n\nSIDE EFFECTS:\n• Peripheral EDEMA (ankles)\n• Hypotension, dizziness\n• Constipation\n• Grapefruit interaction',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['diuretics', 'calcium channel blockers', 'pharmacology', 'hypokalemia'],
+  },
+  {
+    id: 'fc-pharm-5',
+    subcategory_id: 'safety-pharm',
+    front_text: 'What are the effects of NSAIDs and corticosteroids?',
+    back_text: 'NSAIDs (Non-Steroidal Anti-Inflammatory):\n\nExamples: Ibuprofen, Naproxen, Aspirin\n\nMECHANISM:\n• Inhibit COX enzymes\n• Decrease prostaglandins\n• Anti-inflammatory, analgesic, antipyretic\n\nSIDE EFFECTS:\n• GI bleeding, ulcers\n• Renal impairment\n• Cardiovascular risk (long-term)\n• Delayed bone/tissue healing\n\nCORTICOSTEROIDS:\n\nExamples: Prednisone, Dexamethasone\nEnding: "-sone", "-one"\n\nMECHANISM:\n• Potent anti-inflammatory\n• Immunosuppressive\n\nSIDE EFFECTS (Long-term):\n• OSTEOPOROSIS (fracture risk)\n• Muscle weakness/atrophy\n• Delayed wound healing\n• Hyperglycemia\n• Cushing syndrome\n• Adrenal suppression\n• Skin thinning, bruising\n\nPT IMPLICATIONS:\n• Fall risk (muscle weakness, osteoporosis)\n• Monitor blood glucose\n• Avoid abrupt discontinuation',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['NSAIDs', 'corticosteroids', 'prednisone', 'osteoporosis'],
+  },
+
+  // ==================== SPECIAL TESTS - SENSITIVITY/SPECIFICITY ====================
+
+  {
+    id: 'fc-special-test-stats-1',
+    subcategory_id: 'msk-fundamentals',
+    front_text: 'What do sensitivity and specificity mean for special tests?',
+    back_text: 'SENSITIVITY vs SPECIFICITY:\n\nSENSITIVITY:\n• Ability to detect DISEASE when present\n• True positive rate\n• HIGH sensitivity = Few false negatives\n• Good for RULING OUT\n• Mnemonic: "SnNout"\n  - Sensitive test, Negative result = rules OUT\n\nSPECIFICITY:\n• Ability to detect NO disease when absent\n• True negative rate\n• HIGH specificity = Few false positives\n• Good for RULING IN\n• Mnemonic: "SpPin"\n  - Specific test, Positive result = rules IN\n\nLIKELIHOOD RATIOS:\n• +LR >10: Large increase in probability\n• +LR 5-10: Moderate increase\n• +LR 2-5: Small increase\n• -LR <0.1: Large decrease in probability\n\nCLINICAL USE:\n• Use sensitive tests for screening\n• Use specific tests for confirmation',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['sensitivity', 'specificity', 'SnNout', 'SpPin', 'special tests'],
+  },
+
+  // ==================== COMMON SPECIAL TESTS ====================
+
+  {
+    id: 'fc-special-tests-knee-1',
+    subcategory_id: 'msk-knee',
+    front_text: 'What are the special tests for knee ligaments?',
+    back_text: 'KNEE LIGAMENT SPECIAL TESTS:\n\nACL (Anterior Cruciate Ligament):\n• ANTERIOR DRAWER: Tibia translates anteriorly\n• LACHMAN TEST: Most sensitive for ACL\n  - 20-30° knee flexion, anterior tibial translation\n• PIVOT SHIFT: Tibia subluxes then reduces\n\nPCL (Posterior Cruciate Ligament):\n• POSTERIOR DRAWER: Tibia translates posteriorly\n• POSTERIOR SAG SIGN: Tibia sags back in 90° flexion\n• QUADRICEPS ACTIVE TEST: Tibia moves forward\n\nMCL (Medial Collateral):\n• VALGUS STRESS TEST\n• At 0° and 30° flexion\n• Pain/laxity medially\n\nLCL (Lateral Collateral):\n• VARUS STRESS TEST\n• At 0° and 30° flexion\n• Pain/laxity laterally\n\nMENISCUS:\n• McMURRAY TEST: Click with rotation\n• APLEY COMPRESSION: Pain with compression + rotation\n• THESSALY TEST: Rotate on single leg at 20° flexion',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ACL', 'PCL', 'MCL', 'Lachman', 'knee special tests'],
+  },
+  {
+    id: 'fc-special-tests-shoulder-1',
+    subcategory_id: 'msk-shoulder',
+    front_text: 'What are the special tests for shoulder pathology?',
+    back_text: 'SHOULDER SPECIAL TESTS:\n\nROTATOR CUFF:\n• EMPTY CAN (Jobe): Supraspinatus\n• EXTERNAL ROTATION LAG: Infraspinatus/teres minor\n• LIFT-OFF TEST: Subscapularis\n• BELLY PRESS: Subscapularis\n• DROP ARM TEST: Supraspinatus tear\n\nIMPINGEMENT:\n• NEER TEST: Passive flexion with scapula stabilized\n• HAWKINS-KENNEDY: 90° flex, IR forearm\n\nLABRAL:\n• O\'BRIEN TEST (Active compression): SLAP lesion\n• CRANK TEST: Labral tear\n• APPREHENSION TEST: Anterior instability\n• RELOCATION TEST: Confirms instability\n\nTHORACIC OUTLET:\n• ADSON TEST: Radial pulse with head rotation\n• ROOS TEST: Arms overhead 3 min\n• WRIGHT TEST: Hyperabduction\n\nAC JOINT:\n• CROSS-BODY ADDUCTION: AC joint pathology',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['shoulder special tests', 'Neer', 'Hawkins', 'empty can', 'labral'],
+  },
+  {
+    id: 'fc-special-tests-hip-1',
+    subcategory_id: 'msk-hip',
+    front_text: 'What are the special tests for hip pathology?',
+    back_text: 'HIP SPECIAL TESTS:\n\nHIP FLEXOR TIGHTNESS:\n• THOMAS TEST: Hip flexion contracture\n• Normal: Thigh rests on table\n• Positive: Thigh rises off table\n• Also tests rectus femoris (knee extends)\n\nLABRAL/FAI:\n• FADIR TEST: Flexion, Adduction, IR\n• Positive: Groin pain\n• FABER TEST: Flexion, ABduction, ER (Patrick)\n• Also tests SI joint\n\nITB TIGHTNESS:\n• OBER TEST: Side-lying, hip extended\n• Positive: Thigh remains abducted\n\nPIRIFORMIS:\n• PIRIFORMIS TEST: Side-lying, hip flexed\n• IR reproduces sciatic symptoms\n\nSI JOINT:\n• SACRAL THRUST\n• DISTRACTION/COMPRESSION\n• GAENSLEN TEST\n• FABER (also SI joint)\n\nPEDIATRIC:\n• BARLOW: Dislocatable hip\n• ORTOLANI: Relocatable hip\n• GALEAZZI SIGN: Leg length difference',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['hip special tests', 'Thomas test', 'FADIR', 'FABER', 'Ober'],
+  },
+
+  // ==================== NERVE INJURIES ====================
+
+  {
+    id: 'fc-nerve-injury-1',
+    subcategory_id: 'neuro-peripheral',
+    front_text: 'What are the common upper extremity nerve injuries?',
+    back_text: 'UPPER EXTREMITY NERVE INJURIES:\n\nLONG THORACIC NERVE (C5-C7):\n• Muscle: Serratus anterior\n• Deficit: WINGING of scapula\n• Mechanism: Stretch, backpack, surgery\n\nAXILLARY NERVE (C5-C6):\n• Muscle: Deltoid, teres minor\n• Deficit: Weak shoulder abduction\n• Mechanism: Shoulder dislocation, fracture\n\nMUSCULOCUTANEOUS (C5-C7):\n• Muscles: Biceps, brachialis\n• Deficit: Weak elbow flexion\n• Sensory: Lateral forearm\n\nRADIAL NERVE (C5-T1):\n• Deficit: WRIST DROP\n• Can\'t extend wrist/fingers\n• Mechanism: "Saturday night palsy"\n• Humeral shaft fracture\n\nMEDIAN NERVE (C6-T1):\n• Deficit: APE HAND (thenar wasting)\n• Carpal tunnel syndrome\n• Can\'t oppose thumb\n\nULNAR NERVE (C8-T1):\n• Deficit: CLAW HAND\n• Weak finger abduction\n• Cubital tunnel syndrome',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['nerve injury', 'wrist drop', 'ape hand', 'claw hand', 'radial'],
+  },
+  {
+    id: 'fc-nerve-injury-2',
+    subcategory_id: 'neuro-peripheral',
+    front_text: 'What are the common lower extremity nerve injuries?',
+    back_text: 'LOWER EXTREMITY NERVE INJURIES:\n\nFEMORAL NERVE (L2-L4):\n• Muscles: Quads, iliopsoas\n• Deficit: Weak knee extension, hip flexion\n• Sensory: Anterior thigh, medial leg\n• Reflex: Decreased patellar\n\nOBTURATOR NERVE (L2-L4):\n• Muscles: Adductors\n• Deficit: Weak hip adduction\n• Sensory: Medial thigh\n\nSCIATIC NERVE (L4-S3):\n• Deficit: Weak hamstrings, all below knee\n• May cause foot drop\n\nCOMMON FIBULAR (PERONEAL) (L4-S2):\n• Deficit: FOOT DROP\n• Can\'t dorsiflex or evert\n• Mechanism: Fibular head compression\n• Leg crossing, cast, surgery\n\nTIBIAL NERVE (L4-S3):\n• Deficit: Weak plantarflexion, toe flex\n• Tarsal tunnel syndrome\n• Sensory: Sole of foot\n\nSUPERIOR GLUTEAL (L4-S1):\n• Muscles: Glut med/min, TFL\n• Deficit: Trendelenburg gait',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['femoral nerve', 'sciatic', 'peroneal', 'foot drop', 'tibial'],
+  },
+
+  // ==================== CEREBRAL PALSY ====================
+
+  {
+    id: 'fc-cp-1',
+    subcategory_id: 'neuro-pediatric',
+    front_text: 'What are the types of cerebral palsy?',
+    back_text: 'CEREBRAL PALSY TYPES:\n\nSPASTIC (70-80%):\n• UMN lesion (motor cortex, corticospinal)\n• Increased tone, hyperreflexia\n• Types by distribution:\n  - Hemiplegia: One side\n  - Diplegia: Legs > arms (periventricular)\n  - Quadriplegia: All four limbs\n\nDYSKINETIC/ATHETOID (10-15%):\n• Basal ganglia lesion\n• Involuntary movements\n• Fluctuating tone\n• Athetosis: Slow, writhing\n• Chorea: Quick, jerky\n\nATAXIC (5-10%):\n• Cerebellar lesion\n• Incoordination\n• Balance impairment\n• Intention tremor\n• Hypotonia\n\nMIXED:\n• Combination of types\n\nGMFCS LEVELS:\n• I: Walks without limitations\n• II: Walks with limitations\n• III: Walks with assistive device\n• IV: Self-mobility limited, may use wheelchair\n• V: Severely limited, transported in wheelchair',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['cerebral palsy', 'spastic', 'athetoid', 'GMFCS', 'pediatric'],
+  },
+
+  // ==================== DOWN SYNDROME ====================
+
+  {
+    id: 'fc-down-syndrome-1',
+    subcategory_id: 'neuro-pediatric',
+    front_text: 'What are the characteristics of Down syndrome?',
+    back_text: 'DOWN SYNDROME (Trisomy 21):\n\nGENETICS:\n• Extra chromosome 21\n• Most common chromosomal disorder\n• Incidence increases with maternal age\n\nPHYSICAL FEATURES:\n• Hypotonia (low tone)\n• Ligamentous laxity\n• Flat facial profile\n• Upward slanting eyes\n• Small ears, mouth\n• Single palmar crease\n• Short stature\n\nMEDICAL CONDITIONS:\n• Congenital heart defects (40-50%)\n• Atlantoaxial instability (C1-C2)\n• Hypothyroidism\n• Hearing/vision impairments\n• Increased infection risk\n• Early Alzheimer\'s\n\nDEVELOPMENT:\n• Intellectual disability (mild-moderate)\n• Delayed motor milestones\n• Hypotonia improves with age\n\nPT PRECAUTIONS:\n• Screen for atlantoaxial instability\n• Avoid cervical hyperflexion\n• Cardiac precautions if CHD',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['Down syndrome', 'trisomy 21', 'atlantoaxial', 'hypotonia'],
+  },
+
+  // ==================== SPINA BIFIDA ====================
+
+  {
+    id: 'fc-spina-bifida-1',
+    subcategory_id: 'neuro-pediatric',
+    front_text: 'What are the types of spina bifida?',
+    back_text: 'SPINA BIFIDA:\n\nSPINA BIFIDA OCCULTA:\n• Mildest form\n• Vertebral arch defect only\n• Spinal cord/meninges intact\n• Often asymptomatic\n• May have skin dimple, hair tuft\n\nMENINGOCELE:\n• Meninges protrude through defect\n• CSF-filled sac\n• Spinal cord in normal position\n• Minimal or no neurological deficit\n\nMYELOMENINGOCELE:\n• Most severe\n• Spinal cord AND meninges protrude\n• Significant neurological deficits\n• Level determines function\n• Often with hydrocephalus (VP shunt)\n\nFUNCTIONAL LEVELS:\n• L1-L2: Wheelchair for mobility\n• L3-L4: May ambulate with KAFOs\n• L5-S1: May ambulate with AFOs\n• Below S1: Minimal deficits\n\nASSOCIATED CONDITIONS:\n• Hydrocephalus\n• Arnold-Chiari II malformation\n• Tethered cord\n• Latex allergy (common)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['spina bifida', 'myelomeningocele', 'meningocele', 'pediatric'],
+  },
+
+  // ==================== MUSCULAR DYSTROPHY ====================
+
+  {
+    id: 'fc-dmd-1',
+    subcategory_id: 'neuro-pediatric',
+    front_text: 'What is Duchenne Muscular Dystrophy?',
+    back_text: 'DUCHENNE MUSCULAR DYSTROPHY (DMD):\n\nGENETICS:\n• X-linked recessive (affects males)\n• Dystrophin gene mutation\n• Absence of dystrophin protein\n• Most common muscular dystrophy\n\nONSET/PROGRESSION:\n• Onset: 2-5 years\n• Wheelchair by age 12\n• Death by 20s-30s (respiratory/cardiac)\n\nPRESENTATION:\n• GOWER\'S SIGN: Climbing up legs to stand\n• Proximal weakness (pelvic girdle first)\n• Pseudohypertrophy of calves\n• Waddling gait\n• Lordosis\n• Toe walking\n• Falls frequently\n\nCOMPLICATIONS:\n• Respiratory failure\n• Cardiomyopathy\n• Scoliosis\n• Contractures\n\nPT GOALS:\n• Maintain ROM, prevent contractures\n• Prolong ambulation\n• Respiratory care\n• Avoid eccentric exercise (muscle damage)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['Duchenne', 'muscular dystrophy', 'Gower sign', 'dystrophin'],
+  },
+
+  // ==================== TELEHEALTH ====================
+
+  {
+    id: 'fc-telehealth-1',
+    subcategory_id: 'professional-practice',
+    front_text: 'What are the key considerations for telehealth in physical therapy?',
+    back_text: 'TELEHEALTH IN PHYSICAL THERAPY:\n\n(New NPTE content as of 2024)\n\nDEFINITION:\n• Delivery of PT services via technology\n• Synchronous (real-time) or asynchronous\n• Audio/video communication\n\nAPPROPRIATE USES:\n• Patient education\n• Exercise instruction/monitoring\n• Home program assessment\n• Follow-up visits\n• Consultation\n\nCONSIDERATIONS:\n• Informed consent required\n• Privacy/HIPAA compliance\n• Secure platform required\n• State licensure requirements\n• Documentation standards same as in-person\n\nLIMITATIONS:\n• Cannot perform hands-on techniques\n• May miss subtle clinical findings\n• Technology barriers for some patients\n• Emergency situations not appropriate\n\nPATIENT SELECTION:\n• Adequate technology/internet\n• Cognitively able to participate\n• Safe home environment\n• Appropriate for condition',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['telehealth', 'telemedicine', 'NPTE 2024', 'virtual care'],
+  },
+
+  // ==================== REGENERATIVE MEDICINE ====================
+
+  {
+    id: 'fc-regen-med-1',
+    subcategory_id: 'msk-fundamentals',
+    front_text: 'What is regenerative medicine in physical therapy?',
+    back_text: 'REGENERATIVE MEDICINE:\n\n(New NPTE content as of 2024)\n\nPLATELET-RICH PLASMA (PRP):\n• Patient\'s own blood, centrifuged\n• Concentrated platelets/growth factors\n• Injected into injured tissue\n• Uses: Tendinopathy, OA, muscle injuries\n• PT: May require modified protocol post-injection\n\nSTEM CELL THERAPY:\n• Uses stem cells to regenerate tissue\n• Autologous or allogeneic sources\n• Research ongoing for MSK conditions\n• Not yet standard of care\n\nPROLOTHERAPY:\n• Injection of irritant solution\n• Triggers inflammatory healing response\n• Dextrose most common\n• Used for ligament/tendon injuries\n\nPT IMPLICATIONS:\n• Understand recovery protocols\n• Modified activity post-injection\n• May have initial increased pain\n• Return to exercise guidelines\n• Often used with PT program\n\nEvidence: Variable; more research needed',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['regenerative medicine', 'PRP', 'stem cell', 'NPTE 2024'],
+  },
+
+  // ==================== IDEA/IEP/IFSP ====================
+
+  {
+    id: 'fc-idea-1',
+    subcategory_id: 'professional-practice',
+    front_text: 'What are IDEA, IEP, and IFSP in pediatric PT?',
+    back_text: 'PEDIATRIC LEGISLATION:\n\nIDEA (Individuals with Disabilities Education Act):\n• Federal law\n• Free Appropriate Public Education (FAPE)\n• Least Restrictive Environment (LRE)\n• For children birth-21 years\n\nPART C (Birth to 3 years):\n• Early intervention services\n• IFSP: Individualized Family Service Plan\n• Family-centered\n• Services often in home\n• Focus on family outcomes\n• Transition to Part B at age 3\n\nPART B (Ages 3-21):\n• School-based services\n• IEP: Individualized Education Program\n• Child-focused\n• Related services (including PT)\n• PT addresses educational needs\n• Annual review required\n\nKEY DIFFERENCES:\n• IFSP = Family focus, birth-3\n• IEP = Child focus, 3-21\n• Both require team approach\n• Both have transition planning',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['IDEA', 'IEP', 'IFSP', 'pediatric', 'early intervention'],
+  },
+
+  // ==================== THERAPEUTIC MODALITIES - ULTRASOUND ====================
+
+  {
+    id: 'fc-ultrasound-1',
+    subcategory_id: 'modalities-ultrasound',
+    front_text: 'What are the two frequencies used in therapeutic ultrasound and their tissue depths?',
+    back_text: '1 MHz: Deeper penetration (3-5 cm)\n- Used for: Deep muscles, joint capsules, large muscle groups\n\n3 MHz: Superficial penetration (1-2 cm)\n- Used for: Tendons, ligaments, superficial structures\n\nMnemonic: "1 is deeper, 3 is superficial" (inverse relationship)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ultrasound', 'frequency', 'parameters'],
+  },
+  {
+    id: 'fc-ultrasound-2',
+    subcategory_id: 'modalities-ultrasound',
+    front_text: 'What are the intensity ranges for therapeutic ultrasound?',
+    back_text: 'Acute conditions: 0.5-1.0 W/cm²\nSubacute conditions: 1.0-1.5 W/cm²\nChronic conditions: 1.5-2.0 W/cm²\n\nMaximum safe intensity: 2.0 W/cm²\n\nLower intensities for:\n- Bony prominences\n- Acute inflammation\n- Areas with less soft tissue coverage',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ultrasound', 'intensity', 'parameters'],
+  },
+  {
+    id: 'fc-ultrasound-3',
+    subcategory_id: 'modalities-ultrasound',
+    front_text: 'What is duty cycle in ultrasound and when is each used?',
+    back_text: 'Duty Cycle = % of time ultrasound is ON\n\nCONTINUOUS (100%):\n- Thermal effects (heating)\n- Chronic conditions\n- Increase tissue extensibility\n\nPULSED (20%, 50%):\n- Non-thermal effects\n- Acute conditions\n- Wound healing, tissue repair\n- Reduce inflammation\n\nCommon pulsed ratios: 20% (1:4) or 50% (1:1)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ultrasound', 'duty cycle', 'parameters'],
+  },
+  {
+    id: 'fc-ultrasound-4',
+    subcategory_id: 'modalities-ultrasound',
+    front_text: 'What are the CONTRAINDICATIONS to therapeutic ultrasound?',
+    back_text: 'ABSOLUTE CONTRAINDICATIONS:\n- Over malignancy/cancer\n- Over pregnant uterus\n- Over pacemaker\n- Over eyes, heart, brain\n- Over thrombophlebitis/DVT\n- Over spinal cord post-laminectomy\n- Over epiphyseal plates (growing children)\n\nPRECAUTIONS:\n- Metal implants (not absolute)\n- Acute inflammation (use pulsed)\n- Over reproductive organs\n- Impaired sensation\n- Over plastic/cement implants',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ultrasound', 'contraindications', 'safety'],
+  },
+  {
+    id: 'fc-ultrasound-5',
+    subcategory_id: 'modalities-ultrasound',
+    front_text: 'What is PHONOPHORESIS? Common medications used?',
+    back_text: 'PHONOPHORESIS: Using ultrasound to drive medications through the skin\n\nCOMMON MEDICATIONS:\n- Hydrocortisone (1-10%): Anti-inflammatory\n- Dexamethasone: Anti-inflammatory\n- Lidocaine: Local anesthetic\n- Salicylates: Anti-inflammatory\n\nPARAMETERS:\n- Typically continuous, 1.0-1.5 W/cm²\n- 5-10 minute treatment time\n- Medication mixed with coupling gel\n\nUses: Tendinitis, bursitis, localized inflammation',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['phonophoresis', 'ultrasound', 'medications'],
+  },
+  {
+    id: 'fc-ultrasound-6',
+    subcategory_id: 'modalities-ultrasound',
+    front_text: 'What is the EFFECTIVE RADIATING AREA (ERA) in ultrasound?',
+    back_text: 'EFFECTIVE RADIATING AREA (ERA):\n\nDEFINITION: The area of the transducer that actually produces ultrasound waves\n\nERA vs HEAD SIZE:\n- ERA is smaller than transducer face\n- Typically 80-90% of face area\n\nTREATMENT AREA:\n- Should be 2x ERA maximum\n- Larger areas: Divide into zones\n- Move head continuously\n\nMOVEMENT SPEED:\n- 4 cm/second\n- Prevents hot spots\n- Overlapping strokes\n\nTRANSDUCER SIZES:\n- 5 cm² head: Treat up to 10 cm² area\n- 1-2 cm² head: Small, irregular areas\n\nConstant movement prevents standing waves and hot spots',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['ultrasound', 'ERA', 'treatment area'],
+  },
+
+  // ==================== THERAPEUTIC MODALITIES - IONTOPHORESIS ====================
+
+  {
+    id: 'fc-ionto-1',
+    subcategory_id: 'modalities-ionto',
+    front_text: 'What is IONTOPHORESIS and how does polarity work?',
+    back_text: 'IONTOPHORESIS: Using electrical current to drive ionized medications through the skin\n\nPOLARITY PRINCIPLE:\n"Like charges repel"\n\n- Positive ions (cations) driven from POSITIVE electrode (anode)\n- Negative ions (anions) driven from NEGATIVE electrode (cathode)\n\nCurrent: Direct current (DC) - galvanic\nDose: Measured in mA-minutes (40-80 mA-min typical)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['iontophoresis', 'electrical stimulation', 'polarity'],
+  },
+  {
+    id: 'fc-ionto-2',
+    subcategory_id: 'modalities-ionto',
+    front_text: 'What are common IONTOPHORESIS medications and their polarities?',
+    back_text: 'NEGATIVE ELECTRODE (Cathode):\n- Dexamethasone (-): Anti-inflammatory\n- Salicylate (-): Anti-inflammatory\n- Iodine (-): Adhesions, scar tissue\n\nPOSITIVE ELECTRODE (Anode):\n- Lidocaine (+): Anesthetic\n- Zinc oxide (+): Wound healing\n- Copper (+): Fungal infections\n- Calcium (+): Muscle spasm\n\nMnemonic: "Dex is Negative, Lido is Positive"',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['iontophoresis', 'medications', 'polarity'],
+  },
+
+  // ==================== THERAPEUTIC MODALITIES - ELECTRICAL STIMULATION ====================
+
+  {
+    id: 'fc-tens-1',
+    subcategory_id: 'modalities-estim',
+    front_text: 'What are the THREE types of TENS and their parameters?',
+    back_text: 'CONVENTIONAL (High-Rate) TENS:\n- Frequency: 50-150 Hz (HIGH)\n- Pulse duration: 50-100 microseconds (SHORT)\n- Intensity: Sensory level (tingling)\n- Pain relief: Immediate, short duration\n- Mechanism: Gate control theory\n\nACUPUNCTURE-LIKE (Low-Rate) TENS:\n- Frequency: 1-10 Hz (LOW)\n- Pulse duration: 200-300 microseconds (LONG)\n- Intensity: Motor level (muscle twitch)\n- Pain relief: Delayed onset, longer duration\n- Mechanism: Endorphin release\n\nBURST TENS:\n- Bursts of high-frequency pulses at low rate\n- Combines both mechanisms',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['TENS', 'electrical stimulation', 'parameters'],
+  },
+  {
+    id: 'fc-estim-ifc-1',
+    subcategory_id: 'modalities-estim',
+    front_text: 'What is INTERFERENTIAL CURRENT (IFC)?',
+    back_text: 'Two medium-frequency currents (4000 Hz) that "interfere" to create a low-frequency beat\n\nFREQUENCY: 4000 Hz carriers\nBEAT FREQUENCY: 1-150 Hz (therapeutic frequency)\n\nADVANTAGES:\n- Deeper penetration than TENS\n- More comfortable at higher intensities\n- Less skin resistance\n\nUSES:\n- Pain management\n- Muscle stimulation\n- Edema reduction\n\nELECTRODE PLACEMENT: 4 electrodes in crossed pattern',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['interferential current', 'IFC', 'electrical stimulation'],
+  },
+  {
+    id: 'fc-estim-russian-1',
+    subcategory_id: 'modalities-estim',
+    front_text: 'What is RUSSIAN STIMULATION and its parameters?',
+    back_text: 'RUSSIAN STIMULATION: Medium-frequency current for muscle strengthening\n\nFREQUENCY: 2500 Hz carrier, burst at 50 Hz\nPULSE DURATION: 10 msec bursts\nDUTY CYCLE: 50% on/off\n\nON/OFF TIMES:\n- 10 sec on, 50 sec off (1:5) initially\n- Progress to 10 sec on, 10 sec off (1:1)\n\nINTENSITY: Maximum tolerable (motor level)\n\nUSES:\n- Muscle strengthening\n- Muscle re-education\n- Prevent atrophy\n\n10 contractions per session typical',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['Russian stimulation', 'electrical stimulation', 'strengthening'],
+  },
+  {
+    id: 'fc-estim-nmes-1',
+    subcategory_id: 'modalities-estim',
+    front_text: 'What are NMES parameters for muscle strengthening?',
+    back_text: 'NMES (Neuromuscular Electrical Stimulation):\n\nFREQUENCY:\n- 35-80 Hz for strengthening\n- 20-35 Hz to reduce fatigue\n\nPULSE DURATION: 200-400 microseconds\n\nRAMP TIME:\n- 1-4 seconds up\n- 1-2 seconds down\n\nON/OFF RATIO:\n- Start 1:5, progress to 1:1\n- 10-15 sec on time\n\nINTENSITY: Maximum tolerable\n\nCONTRACTIONS: 10-20 per session\n\nBest combined with voluntary contraction',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['NMES', 'electrical stimulation', 'parameters'],
+  },
+  {
+    id: 'fc-estim-contra-1',
+    subcategory_id: 'modalities-estim',
+    front_text: 'What are CONTRAINDICATIONS to electrical stimulation?',
+    back_text: 'ELECTRICAL STIMULATION CONTRAINDICATIONS:\n\nABSOLUTE:\n- Over pacemaker/defibrillator\n- Over carotid sinus (neck)\n- Over heart (transthoracic)\n- Over pregnant uterus\n- Over eyes\n- On patients with demand pacemakers\n\nPRECAUTIONS:\n- Impaired sensation\n- Impaired cognition\n- Malignancy (over tumor)\n- Active infection (over area)\n- Skin breakdown\n- Over metal implants (not absolute)\n- Epilepsy (certain placements)\n\nSPECIFIC TO IFC:\n- Avoid near shortwave/microwave diathermy',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['electrical stimulation', 'contraindications', 'safety'],
+  },
+
+  // ==================== THERAPEUTIC MODALITIES - CRYOTHERAPY ====================
+
+  {
+    id: 'fc-cryo-timeline-1',
+    subcategory_id: 'modalities-thermal',
+    front_text: 'What is the TIMELINE for cryotherapy physiological effects?',
+    back_text: 'IMMEDIATE (0-5 min):\n- Vasoconstriction\n- Decreased nerve conduction\n\n5-15 MINUTES:\n- Decreased metabolic rate\n- Decreased muscle spasm\n- Maximum cooling effect\n\n15-20 MINUTES:\n- Hunting response may begin\n- Cyclical vasodilation\n\nOPTIMAL DURATION: 10-20 minutes\n(Remove before hunting response)\n\nTISSUE TEMPERATURE:\n- Must decrease by at least 5-10°F\n- Target: 50-59°F (10-15°C)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['cryotherapy', 'physiological effects', 'timing'],
+  },
+
+  // ==================== THERAPEUTIC MODALITIES - DIATHERMY ====================
+
+  {
+    id: 'fc-diathermy-1',
+    subcategory_id: 'modalities-thermal',
+    front_text: 'What is SHORTWAVE DIATHERMY (SWD)?',
+    back_text: 'SHORTWAVE DIATHERMY: Deep heating using electromagnetic energy\n\nFREQUENCY: 27.12 MHz (most common)\nPENETRATION: 3-5 cm (deep heat)\n\nMODES:\n- Continuous: Thermal effects\n- Pulsed: Non-thermal tissue repair\n\nCONTRAINDICATIONS:\n- Metal implants (absolute)\n- Pacemaker/electronic implants\n- Pregnancy\n- Malignancy\n- Over wet dressings\n- Areas of ischemia\n\nRemove ALL metal (jewelry, zippers, underwire)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['shortwave diathermy', 'deep heat', 'electromagnetic'],
+  },
+
+  // ==================== THERAPEUTIC MODALITIES - LASER ====================
+
+  {
+    id: 'fc-laser-1',
+    subcategory_id: 'modalities-thermal',
+    front_text: 'What are the LASER classifications used in therapy?',
+    back_text: 'LASER: Light Amplification by Stimulated Emission of Radiation\n\nCLASS 3A (Low-Level Laser Therapy - LLLT):\n- Power: <5 mW\n- Visible beam\n- Minimal hazard\n\nCLASS 3B (Cold Laser):\n- Power: 5-500 mW\n- Most common in PT\n- Eye protection required\n\nCLASS 4 (High-Power Laser):\n- Power: >500 mW\n- Deep tissue penetration\n- Thermal effects possible\n\nCOMMON WAVELENGTHS:\n- 632 nm (HeNe - red)\n- 780-860 nm (infrared)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['laser therapy', 'LLLT', 'classifications'],
+  },
+
+  // ==================== THERAPEUTIC MODALITIES - TRACTION ====================
+
+  {
+    id: 'fc-traction-cerv-1',
+    subcategory_id: 'modalities-traction',
+    front_text: 'What are CERVICAL TRACTION parameters?',
+    back_text: 'CERVICAL TRACTION:\n\nPOSITION: Supine or sitting, 20-30° flexion\n\nFORCE:\n- Start: 10-15 lbs (intermittent)\n- Joint distraction: 25-35 lbs\n- Muscle spasm: 7-10 lbs\n\nDURATION:\n- Intermittent: 20-30 minutes\n- Sustained: 5-10 minutes (lower force)\n\nON/OFF TIMES:\n- Disc: 60 sec on / 20 sec off\n- Muscle spasm: 5 sec on / 5 sec off\n\nNECK ANGLE:\n- Neutral/slight flexion: Upper cervical\n- 25-35° flexion: Lower cervical',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['cervical traction', 'parameters', 'spine'],
+  },
+  {
+    id: 'fc-traction-lumb-1',
+    subcategory_id: 'modalities-traction',
+    front_text: 'What are LUMBAR TRACTION parameters?',
+    back_text: 'LUMBAR TRACTION:\n\nPOSITION: Supine, hips/knees flexed\n\nFORCE:\n- Minimum for distraction: 50% body weight\n- Therapeutic range: 50-75% body weight\n- Muscle spasm: 25% body weight\n\nDURATION:\n- Intermittent: 20-30 minutes\n- Sustained: 5-15 minutes\n\nON/OFF TIMES:\n- Disc: 60 sec on / 20 sec off\n- Facet separation: 15 sec on / 15 sec off\n\nHARNESS: Thoracic and pelvic\n\nNote: Takes more force than cervical due to body mass',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['lumbar traction', 'parameters', 'spine'],
+  },
+  {
+    id: 'fc-traction-contra-1',
+    subcategory_id: 'modalities-traction',
+    front_text: 'What are CONTRAINDICATIONS to mechanical traction?',
+    back_text: 'ABSOLUTE CONTRAINDICATIONS:\n- Spinal malignancy/tumor\n- Spinal cord compression\n- Cauda equina syndrome\n- Vertebral fracture/instability\n- Severe osteoporosis\n- Uncontrolled hypertension\n- Aortic aneurysm (lumbar)\n- Pregnancy (lumbar)\n- RA with ligamentous laxity\n- Acute inflammation/infection\n\nPRECAUTIONS:\n- Cardiac/pulmonary disease\n- Claustrophobia\n- TMJ dysfunction (cervical)\n- Dentures (cervical - may need removal)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['traction', 'contraindications', 'safety'],
+  },
+  {
+    id: 'fc-traction-types-1',
+    subcategory_id: 'modalities-traction',
+    front_text: 'What is the difference between STATIC and INTERMITTENT traction?',
+    back_text: 'STATIC (Sustained) TRACTION:\n- Continuous force\n- Duration: 5-15 minutes\n- Lower force than intermittent\n- Uses: Disc protrusion, muscle guarding\n- Better for acute conditions\n\nINTERMITTENT TRACTION:\n- Alternating on/off\n- Duration: 20-30 minutes\n- Higher force possible\n- Uses: Chronic conditions, joint mobility\n- Better tolerated long-term\n\nON/OFF RATIOS:\n- Disc: 60 sec on / 20 sec off\n- Muscle spasm: 5 sec on / 5 sec off\n- Facet: 15 sec on / 15 sec off\n\nPOSITIONAL TRACTION:\n- Uses positioning/pillows\n- Gentle, prolonged stretch',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['traction', 'static', 'intermittent'],
+  },
+
+  // ==================== THERAPEUTIC MODALITIES - HEAT COMPARISON ====================
+
+  {
+    id: 'fc-heat-compare-1',
+    subcategory_id: 'modalities-thermal',
+    front_text: 'Compare therapeutic HEAT modalities by temperature and depth.',
+    back_text: 'HEAT MODALITIES COMPARISON:\n\nSUPERFICIAL (1 cm depth):\n- Hot packs: 158-167°F, 15-20 min\n- Paraffin: 113-122°F, 15-20 min\n- Fluidotherapy: 100-118°F, 15-20 min\n- Infrared: Variable, 15-30 min\n- Warm whirlpool: 98-104°F, 10-30 min\n\nDEEP (3-5 cm depth):\n- Ultrasound: 1.0-2.0 W/cm², 5-10 min\n- SWD: 27.12 MHz, 15-30 min\n\nCHOOSING MODALITY:\n- Hands/feet: Paraffin, fluidotherapy\n- Large areas: Hot packs, SWD\n- Deep structures: Ultrasound, SWD\n- Exercise during: Fluidotherapy\n- Open wounds: Fluidotherapy (dry heat)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['heat modalities', 'comparison', 'thermal agents'],
+  },
+
+  // ==================== THERAPEUTIC MODALITIES - HYDROTHERAPY ====================
+
+  {
+    id: 'fc-hydro-whirlpool-1',
+    subcategory_id: 'modalities-hydro',
+    front_text: 'What are WHIRLPOOL temperatures and indications?',
+    back_text: 'WHIRLPOOL TEMPERATURES:\n\nCOLD (55-65°F / 13-18°C):\n- Acute injuries\n- Spasticity reduction\n- Inflammation\n\nTEPID (80-92°F / 27-33°C):\n- Exercise/aquatic therapy\n- Open wounds\n- Cardiopulmonary patients\n\nNEUTRAL (92-96°F / 33-36°C):\n- Burns\n- Wound debridement\n- Desensitization\n\nWARM (96-104°F / 36-40°C):\n- Chronic conditions\n- Muscle spasm\n- Increase ROM\n\nHOT (104-110°F / 40-43°C):\n- Not typically used\n- Risk of burns\n\nFull body immersion: Keep temp <102°F',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['whirlpool', 'hydrotherapy', 'temperature'],
+  },
+
+  // ==================== PATIENT SAFETY - FALL RISK ====================
+
+  {
+    id: 'fc-fall-risk-1',
+    subcategory_id: 'safety-falls',
+    front_text: 'What are the components of the MORSE FALL SCALE?',
+    back_text: 'MORSE FALL SCALE (6 items, max 125 points):\n\n1. History of falling (25 pts)\n2. Secondary diagnosis (15 pts)\n3. Ambulatory aid:\n   - None/bedrest/nurse: 0\n   - Crutches/cane/walker: 15\n   - Furniture: 30\n4. IV/Heparin lock (20 pts)\n5. Gait:\n   - Normal/bedrest: 0\n   - Weak: 10\n   - Impaired: 20\n6. Mental status:\n   - Oriented: 0\n   - Forgets limitations: 15\n\nSCORE INTERPRETATION:\n- 0-24: Low risk\n- 25-44: Moderate risk\n- 45+: High risk',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['Morse Fall Scale', 'fall risk', 'assessment'],
+  },
+  {
+    id: 'fc-fall-risk-2',
+    subcategory_id: 'safety-falls',
+    front_text: 'What is the TINETTI Assessment (POMA)?',
+    back_text: 'TINETTI POMA (Performance-Oriented Mobility Assessment):\n\nTWO SECTIONS:\n1. BALANCE (16 points max)\n   - Sitting balance\n   - Rising from chair\n   - Standing balance (eyes open/closed)\n   - Turning 360°\n   - Nudge on sternum\n   - Sit down\n\n2. GAIT (12 points max)\n   - Initiation\n   - Step length/height\n   - Symmetry\n   - Continuity\n   - Path deviation\n   - Trunk sway\n\nTOTAL: 28 points\n- <19: High fall risk\n- 19-24: Moderate risk\n- 25-28: Low risk',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['Tinetti', 'POMA', 'fall risk', 'assessment'],
+  },
+  {
+    id: 'fc-fall-risk-3',
+    subcategory_id: 'safety-falls',
+    front_text: 'What is the FUNCTIONAL REACH TEST and normal values?',
+    back_text: 'FUNCTIONAL REACH TEST:\n\nPROCEDURE:\n- Standing, shoulder flexed 90°\n- Reach forward as far as possible\n- Measure horizontal displacement\n- Do not step or lose balance\n\nNORMAL VALUES:\n- Adults: 10+ inches (25 cm)\n- Elderly: >6 inches acceptable\n\nFALL RISK CUTOFF:\n- <6 inches (15 cm): High fall risk\n- <10 inches: Increased fall risk\n\nUSES:\n- Quick screening tool\n- Measures limits of stability\n- Good for elderly population',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['Functional Reach Test', 'fall risk', 'balance'],
+  },
+  {
+    id: 'fc-fall-risk-4',
+    subcategory_id: 'safety-falls',
+    front_text: 'What are other common FALL RISK ASSESSMENT tools?',
+    back_text: 'BALANCE/FALL RISK TOOLS:\n\nBERG BALANCE SCALE:\n- 14 items, 56 points max\n- <45: Fall risk\n\nTIMED UP AND GO (TUG):\n- Rise, walk 3m, return, sit\n- >12-14 sec: Fall risk\n- >30 sec: Requires assistance\n\nDYNAMIC GAIT INDEX (DGI):\n- 8 items, 24 points max\n- <19: Fall risk\n\n5 TIMES SIT TO STAND:\n- >12-15 sec: Fall risk\n\nABC SCALE:\n- Activities-specific Balance Confidence\n- Self-report (0-100%)\n- <67%: Fall risk',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['fall risk', 'assessment tools', 'balance'],
+  },
+
+  // ==================== PATIENT SAFETY - HANDLING ====================
+
+  {
+    id: 'fc-handling-1',
+    subcategory_id: 'safety-handling',
+    front_text: 'What are SAFE PATIENT HANDLING principles?',
+    back_text: 'SAFE PATIENT HANDLING PRINCIPLES:\n\nASSESS BEFORE LIFTING:\n- Patient ability/cooperation\n- Weight and mobility status\n- Equipment needed\n- Assistance required\n\nBODY MECHANICS:\n- Wide base of support\n- Bend at hips/knees, not back\n- Keep load close to body\n- Avoid twisting (pivot feet)\n- Tighten core before lift\n\nUSE EQUIPMENT:\n- Gait belts\n- Slide boards\n- Mechanical lifts\n- Standing aids\n\nRULE: If in doubt, get help or use equipment\n\n35 LB LIMIT: NIOSH recommended max for manual lifting',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['patient handling', 'body mechanics', 'safety'],
+  },
+
+  // ==================== PATIENT SAFETY - INFECTION CONTROL ====================
+
+  {
+    id: 'fc-infection-1',
+    subcategory_id: 'safety-infection',
+    front_text: 'What are STANDARD PRECAUTIONS (Universal Precautions)?',
+    back_text: 'STANDARD PRECAUTIONS: Applied to ALL patients\n\nAPPLY TO:\n- Blood\n- All body fluids (except sweat)\n- Non-intact skin\n- Mucous membranes\n\nCOMPONENTS:\n- Hand hygiene (most important!)\n- Gloves for contact with blood/body fluids\n- Gown if clothing may be soiled\n- Mask/eye protection for splash risk\n- Safe injection practices\n- Respiratory hygiene/cough etiquette\n- Safe sharps handling\n\nASSUME every patient is potentially infectious',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['standard precautions', 'infection control', 'PPE'],
+  },
+  {
+    id: 'fc-infection-2',
+    subcategory_id: 'safety-infection',
+    front_text: 'What are CONTACT PRECAUTIONS?',
+    back_text: 'CONTACT PRECAUTIONS:\n\nUSED FOR:\n- MRSA\n- VRE\n- C. difficile\n- Scabies, lice\n- Draining wounds\n- Rotavirus\n\nREQUIREMENTS:\n- Private room (or cohort)\n- GLOVES upon entry\n- GOWN upon entry\n- Dedicated equipment\n- Limit patient transport\n\nHAND HYGIENE:\n- Soap and water for C. diff (not alcohol)\n- Alcohol-based OK for others\n\nDON: Before entering room\nDOFF: Before leaving room',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['contact precautions', 'infection control', 'isolation'],
+  },
+  {
+    id: 'fc-infection-3',
+    subcategory_id: 'safety-infection',
+    front_text: 'What are DROPLET PRECAUTIONS?',
+    back_text: 'DROPLET PRECAUTIONS:\n\nUSED FOR:\n- Influenza\n- Meningitis (bacterial)\n- Pertussis (whooping cough)\n- Mumps\n- Rubella\n- Strep pharyngitis\n\nDROPLETS: Travel <3-6 feet, fall quickly\n\nREQUIREMENTS:\n- Private room (door may be open)\n- SURGICAL MASK within 3-6 feet\n- Patient wears mask during transport\n\nNO special ventilation needed\n\nMnemonic: "SPIDERMAN"\nStrep, Pertussis, Influenza, Diphtheria, Epiglottitis, Rubella, Mumps, Adenovirus, Meningitis',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['droplet precautions', 'infection control', 'isolation'],
+  },
+  {
+    id: 'fc-infection-4',
+    subcategory_id: 'safety-infection',
+    front_text: 'What are AIRBORNE PRECAUTIONS?',
+    back_text: 'AIRBORNE PRECAUTIONS:\n\nUSED FOR:\n- Tuberculosis (TB)\n- Measles (rubeola)\n- Varicella (chickenpox)\n- Disseminated herpes zoster\n- COVID-19 (aerosolizing procedures)\n\nAIRBORNE particles: <5 microns, remain suspended\n\nREQUIREMENTS:\n- NEGATIVE PRESSURE room (AIIR)\n- N95 RESPIRATOR (or PAPR)\n- Fit testing required for N95\n- Door must remain CLOSED\n- Patient wears surgical mask for transport\n\nMnemonic: "MTV"\nMeasles, TB, Varicella',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['airborne precautions', 'infection control', 'N95'],
+  },
+  {
+    id: 'fc-infection-5',
+    subcategory_id: 'safety-infection',
+    front_text: 'What is proper PPE DONNING and DOFFING sequence?',
+    back_text: 'DONNING (Putting ON) - "GMGR":\n1. Gown\n2. Mask/respirator\n3. Goggles/face shield\n4. Gloves (last - over gown cuffs)\n\nDOFFING (Taking OFF) - "GGGM":\n1. Gloves (most contaminated)\n2. Goggles/face shield\n3. Gown (roll inside out)\n4. Mask/respirator (last - by straps)\n\nHAND HYGIENE:\n- After removing gloves\n- After removing all PPE\n\nRemove OUTSIDE room (except mask for airborne)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['PPE', 'donning', 'doffing', 'infection control'],
+  },
+  {
+    id: 'fc-infection-6',
+    subcategory_id: 'safety-infection',
+    front_text: 'What are the HAND HYGIENE guidelines?',
+    back_text: 'HAND HYGIENE - Most important infection control!\n\nWHEN TO PERFORM (5 Moments):\n1. Before patient contact\n2. Before aseptic procedure\n3. After body fluid exposure\n4. After patient contact\n5. After touching patient surroundings\n\nALCOHOL-BASED RUB:\n- Preferred when hands not visibly soiled\n- Rub 15-20 seconds until dry\n\nSOAP AND WATER REQUIRED:\n- Visibly soiled hands\n- C. difficile exposure\n- Norovirus exposure\n- Before eating\n- After using restroom\n- Duration: 15-20 seconds minimum',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['hand hygiene', 'infection control', 'handwashing'],
+  },
+  {
+    id: 'fc-infection-7',
+    subcategory_id: 'safety-infection',
+    front_text: 'What is STERILE TECHNIQUE and when is it required?',
+    back_text: 'STERILE TECHNIQUE (Aseptic Technique):\n\nWHEN REQUIRED:\n- Wound debridement\n- Inserting catheters\n- Surgical procedures\n- Dressing changes (some wounds)\n\nPRINCIPLES:\n- Only sterile items touch sterile field\n- Sterile field starts at waist level\n- 1-inch border of sterile field is non-sterile\n- Consider contaminated if out of sight\n- Moisture = contamination\n- When in doubt, throw it out\n\nSTERILE GLOVES:\n- Cuff to cuff contact only\n- Do not touch outside of gloves\n- Keep hands above waist\n\nFor routine PT wound care: CLEAN technique often sufficient',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['sterile technique', 'aseptic', 'wound care'],
+  },
+
+  // ==================== PATIENT SAFETY - MEDICATIONS & INCIDENTS ====================
+
+  {
+    id: 'fc-safety-med-1',
+    subcategory_id: 'safety-medications',
+    front_text: 'What are the "5 Rights" of medication administration?',
+    back_text: 'MEDICATION "5 RIGHTS":\n\n1. Right PATIENT\n   - Check ID band\n   - Verify with patient\n\n2. Right DRUG\n   - Verify medication name\n   - Check for allergies\n\n3. Right DOSE\n   - Calculate correctly\n   - Check parameters\n\n4. Right ROUTE\n   - Oral, IV, topical, etc.\n   - Match to order\n\n5. Right TIME\n   - Correct timing/frequency\n\nADDITIONAL RIGHTS (expanded):\n- Right documentation\n- Right reason\n- Right response\n\nPTs rarely administer meds, but may apply topicals (iontophoresis)',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['medication safety', '5 rights', 'patient safety'],
+  },
+  {
+    id: 'fc-safety-incident-1',
+    subcategory_id: 'safety-emergency',
+    front_text: 'What is the purpose of INCIDENT REPORTING?',
+    back_text: 'INCIDENT REPORTING:\n\nPURPOSE:\n- Quality improvement (not punishment)\n- Identify system problems\n- Prevent future occurrences\n- Legal documentation\n- Risk management\n\nWHAT TO REPORT:\n- Falls (with or without injury)\n- Medication errors\n- Equipment malfunction\n- Patient/visitor injuries\n- Near misses\n- Unexpected events\n\nREPORTING PRINCIPLES:\n- Report immediately\n- Document facts only (no opinions)\n- Do NOT place report in medical record\n- Complete facility-specific form\n- Maintain confidentiality\n\nNon-punitive culture encourages reporting',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['incident reporting', 'quality improvement', 'safety'],
+  },
+
+  // ==================== PATIENT SAFETY - OSHA ====================
+
+  {
+    id: 'fc-osha-1',
+    subcategory_id: 'safety-infection',
+    front_text: 'What are KEY OSHA regulations for physical therapy?',
+    back_text: 'OSHA REGULATIONS FOR PT:\n\nBLOODBORNE PATHOGENS STANDARD:\n- Exposure control plan required\n- Hepatitis B vaccine (free to employees)\n- Post-exposure follow-up\n- Sharps containers\n- Universal precautions training\n\nERGONOMICS:\n- Safe patient handling guidelines\n- Mechanical lift availability\n- Injury prevention programs\n\nHAZARD COMMUNICATION:\n- Safety Data Sheets (SDS)\n- Chemical labeling\n- Employee training\n\nPERSONAL PROTECTIVE EQUIPMENT:\n- Employer must provide\n- Proper training required\n\nEMPLOYEE RIGHTS:\n- Request OSHA inspection\n- Report injuries without retaliation',
+    source_pdf_id: null,
+    source_page_number: null,
+    tags: ['OSHA', 'regulations', 'workplace safety'],
   },
 ];
 
